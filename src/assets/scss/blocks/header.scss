@@ -1,0 +1,112 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  width: 100%;
+
+  transition: all 0.2s linear;
+  transform: translateY(0);
+}
+
+.header.out {
+  transform: translateY(-100%);
+  box-shadow: none;
+}
+
+.header__logo {
+  img {
+    width: 100%;
+    max-width: 26.1rem;
+
+    margin-right: 3.5rem;
+  }
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+}
+
+.menu__nav-list {
+  display: flex;
+  align-items: center;
+
+  gap: 2.5rem;
+}
+
+.nav-list__item {
+  a {
+    color: white;
+    text-transform: uppercase;
+    font-size: 2.1rem;
+    letter-spacing: 0.01em;
+  }
+}
+
+.burger {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.burger-menu {
+  display: none;
+  position: absolute;
+  right: 9.4rem;
+
+  z-index: 300;
+
+  width: 3.4rem;
+  height: 3.4rem;
+
+  cursor: pointer;
+
+  @include breakpoint($lg-bp) {
+    display: block;
+  }
+}
+
+.burger,
+.burger::before,
+.burger::after {
+  position: absolute;
+  left: 50%;
+  z-index: 100;
+  transform: translateX(-50%);
+  display: block;
+  width: 34px;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease-in-out;
+
+  @include breakpoint($sm-bp) {
+    background-color: rgba(51, 59, 72, 0.5);
+  }
+}
+
+.burger::before {
+  content: "";
+  top: 10px;
+}
+
+.burger::after {
+  content: "";
+  bottom: 10px;
+}
+
+.burger-menu.menu-on .burger {
+  background: $primary;
+}
+
+.burger-menu.menu-on .burger::before {
+  transform: translateX(-50%) rotate(45deg);
+  top: 0;
+  background-color: #fff;
+}
+
+.burger-menu.menu-on .burger::after {
+  transform: translateX(-50%) rotate(-45deg);
+  bottom: 0;
+  background-color: #fff;
+}

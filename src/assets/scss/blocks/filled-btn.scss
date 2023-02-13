@@ -1,0 +1,37 @@
+.filled-btn {
+  width: 100%;
+  max-width: 19.2rem;
+  height: 5.2rem;
+
+  display: flex;
+  align-items: center;
+
+  font-size: 1.6rem;
+  color: white;
+
+  padding: 1.4rem 3.2rem;
+
+  background-color: $accent;
+  border: 1px solid $accent;
+  border-radius: 7.2rem;
+
+  transition: all 0.2s ease;
+
+  svg {
+    width: 2.4rem;
+    height: 2.4rem;
+
+    fill: white;
+    margin-left: 1.6rem;
+  }
+
+  &:hover {
+    color: $accent;
+    background-color: transparent;
+
+    svg {
+      fill: $accent;
+      margin-left: 2rem;
+    }
+  }
+}

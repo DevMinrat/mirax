@@ -1,0 +1,96 @@
+@import "vars";
+@import "mixins";
+@import "fonts";
+@import "vendor/reset";
+
+html {
+  box-sizing: border-box;
+  font-size: calc(100vw / 1920 * 10);
+
+  // @include breakpoint($xl-bp) {
+  //   font-size: calc(100vw / 1600 * 10);
+  // }
+  @include breakpoint($xl-bp) {
+    font-size: calc(100vw / 1385 * 10);
+  }
+  @include breakpoint($lg-bp) {
+    font-size: calc(100vw / 830 * 10);
+  }
+  @include breakpoint($sm-bp) {
+    font-size: calc(100vw / 375 * 10);
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Halvar, sans-serif;
+  font-weight: 400;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  color: $primary;
+
+  background-color: white;
+
+  @include breakpoint($sm-bp) {
+    font-size: 1.6rem;
+  }
+}
+
+main {
+}
+
+img {
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+  transition: all 0.1s linear;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+/* Vendors */
+
+@import "vendor/swiper.scss";
+
+/* Blocks */
+
+@import "blocks/page";
+@import "blocks/container";
+@import "blocks/header";
+@import "blocks/hollow-btn";
+@import "blocks/filled-btn";
+@import "blocks/modal.scss";
+@import "blocks/section.scss";
+
+@import "blocks/intro.scss";
+@import "blocks/products.scss";
+@import "blocks/benefits.scss";
+@import "blocks/main-about.scss";
+
+@import "blocks/footer";
+
+.simple-link {
+  font-weight: 300;
+  font-size: 2.2rem;
+  text-decoration: underline;
+  color: $secondary;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}

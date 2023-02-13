@@ -1,0 +1,22 @@
+.footer {
+  padding: 2.7rem 0;
+
+  background: $secondary;
+}
+
+.footer__inner {
+  text-align: right;
+  color: white;
+}
+
+.footer__address-title {
+  font-weight: 700;
+  font-size: 2.4rem;
+  letter-spacing: 0.01em;
+
+  margin-bottom: 0.7rem;
+}
+.footer__address-descr {
+  font-size: 1.8rem;
+  letter-spacing: 0.01em;
+}

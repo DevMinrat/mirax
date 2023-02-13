@@ -1,0 +1,37 @@
+.main-about {
+  padding-bottom: 4rem;
+
+  background: url(../images/main-about/main-about-bg.png) no-repeat;
+  background-size: cover;
+
+  .container {
+    max-width: 156rem;
+  }
+}
+.main-about__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+}
+
+.main-about__content {
+  width: 100%;
+  max-width: 51.6rem;
+}
+.main-about__title {
+  font-size: 6rem;
+  font-weight: 300;
+  color: $secondary;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+
+  margin-bottom: 3rem;
+}
+.main-about__descr {
+  margin-bottom: 2rem;
+}
+.main-about__img {
+  width: 100%;
+  max-width: 85rem;
+}
