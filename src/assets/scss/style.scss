@@ -42,6 +42,7 @@ body {
 }
 
 main {
+  flex: 1;
 }
 
 img {
@@ -72,11 +73,15 @@ a {
 @import "blocks/filled-btn";
 @import "blocks/modal.scss";
 @import "blocks/section.scss";
+@import "blocks/breadcrumbs.scss";
 
 @import "blocks/intro.scss";
 @import "blocks/products.scss";
 @import "blocks/benefits.scss";
 @import "blocks/main-about.scss";
+
+@import "blocks/useful.scss";
+@import "blocks/article.scss";
 
 @import "blocks/footer";
 

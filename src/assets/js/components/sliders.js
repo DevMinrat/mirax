@@ -23,7 +23,11 @@
 // },
 //   });
 
-const introSlider = new Swiper(".intro-silder", {
+const introSlider = new Swiper(".intro-slider", {
   slidesPerView: "auto",
   spaceBetween: 0,
+  loop: true,
+  autoplay: {
+    delay: 5000,
+  },
 });

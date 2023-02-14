@@ -6,46 +6,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // header functional
 
-  const header = document.querySelector(".header");
-  let scrollPrev = 0;
+  // const header = document.querySelector(".header");
+  // let scrollPrev = 0;
 
-  if (header) {
-    window.addEventListener("scroll", () => {
-      let scrolled = document.documentElement.scrollTop;
+  // if (header) {
+  //   window.addEventListener("scroll", () => {
+  //     let scrolled = document.documentElement.scrollTop;
 
-      if (scrolled > 50 && scrolled > scrollPrev) {
-        header.classList.add("out");
-      } else {
-        header.classList.remove("out");
-      }
+  //     if (scrolled > 50 && scrolled > scrollPrev) {
+  //       header.classList.add("out");
+  //     } else {
+  //       header.classList.remove("out");
+  //     }
 
-      if (scrolled <= 50) {
-        header.classList.add("top");
-      } else {
-        header.classList.remove("top");
-      }
+  //     if (scrolled <= 50) {
+  //       header.classList.add("top");
+  //     } else {
+  //       header.classList.remove("top");
+  //     }
 
-      scrollPrev = scrolled;
-    });
+  //     scrollPrev = scrolled;
+  //   });
 
-    if (document.documentElement.scrollTop <= 50) {
-      header.classList.add("top");
-    }
+  //   if (document.documentElement.scrollTop <= 50) {
+  //     header.classList.add("top");
+  //   }
 
-    const burger = document.querySelector(".burger-menu");
-    const menu = document.querySelector(".menu");
+  //   const burger = document.querySelector(".burger-menu");
+  //   const menu = document.querySelector(".menu");
 
-    burger.addEventListener("click", () => {
-      burger.classList.toggle("menu-on");
-      menu.classList.toggle("active");
+  //   burger.addEventListener("click", () => {
+  //     burger.classList.toggle("menu-on");
+  //     menu.classList.toggle("active");
 
-      if (burger.classList.contains("menu-on")) {
-        scrollLock.disablePageScroll();
-      } else {
-        scrollLock.enablePageScroll();
-      }
-    });
-  }
+  //     if (burger.classList.contains("menu-on")) {
+  //       scrollLock.disablePageScroll();
+  //     } else {
+  //       scrollLock.enablePageScroll();
+  //     }
+  //   });
+  // }
 
   // tabs
 
