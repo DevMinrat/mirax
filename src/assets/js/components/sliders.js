@@ -31,3 +31,17 @@ const introSlider = new Swiper(".intro-slider", {
     delay: 5000,
   },
 });
+
+const productsSlider = new Swiper(".products-slider", {
+  slidesPerView: "auto",
+  spaceBetween: 0,
+  navigation: {
+    nextEl: ".products-slider__btn-next",
+    prevEl: ".products-slider__btn-prev",
+  },
+
+  breakpoints: {
+    900: {},
+    1350: {},
+  },
+});

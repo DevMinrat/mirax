@@ -10,4 +10,13 @@
     width: 100%;
     height: auto;
   }
+
+  @include breakpoint($lg-bp) {
+    height: 66.7rem;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 }

@@ -14,11 +14,11 @@ html {
     font-size: calc(100vw / 1385 * 10);
   }
   @include breakpoint($lg-bp) {
-    font-size: calc(100vw / 830 * 10);
+    font-size: calc(100vw / 750 * 10);
   }
-  @include breakpoint($sm-bp) {
-    font-size: calc(100vw / 375 * 10);
-  }
+  // @include breakpoint($sm-bp) {
+  //   font-size: calc(100vw / 375 * 10);
+  // }
 }
 
 *,
@@ -90,6 +90,10 @@ a {
   font-size: 2.2rem;
   text-decoration: underline;
   color: $secondary;
+
+  @include breakpoint($lg-bp) {
+    font-size: 3.2rem;
+  }
 }
 
 .hide {

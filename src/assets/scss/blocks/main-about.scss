@@ -1,8 +1,30 @@
 .main-about {
+  position: relative;
+
   padding-bottom: 4rem;
 
   background: url(../images/main-about/main-about-bg.png) no-repeat;
   background-size: cover;
+
+  @include breakpoint($lg-bp) {
+    background: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 18rem;
+      right: 0;
+      z-index: -1;
+
+      pointer-events: none;
+
+      width: 18.9rem;
+      height: 41.2rem;
+
+      background: url(../images/main-about/main-about-bg-mob.png) no-repeat;
+      background-size: cover;
+    }
+  }
 
   .container {
     max-width: 156rem;
@@ -13,6 +35,10 @@
   align-items: center;
   justify-content: space-between;
   gap: 5rem;
+
+  @include breakpoint($lg-bp) {
+    flex-direction: column;
+  }
 }
 
 .main-about__content {
@@ -30,6 +56,11 @@
 }
 .main-about__descr {
   margin-bottom: 2rem;
+  text-align: justify;
+
+  @include breakpoint($lg-bp) {
+    font-size: 3.2rem;
+  }
 }
 .main-about__img {
   width: 100%;

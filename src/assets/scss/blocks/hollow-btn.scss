@@ -19,6 +19,12 @@
 
   transition: all 0.2s ease;
 
+  @include breakpoint($lg-bp) {
+    font-size: 3.2rem;
+
+    padding: 0.9rem 4rem;
+  }
+
   svg {
     margin-left: 0.6rem;
   }

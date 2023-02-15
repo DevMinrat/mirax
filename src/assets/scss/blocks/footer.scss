@@ -7,6 +7,10 @@
 .footer__inner {
   text-align: right;
   color: white;
+
+  @include breakpoint($lg-bp) {
+    text-align: center;
+  }
 }
 
 .footer__address-title {

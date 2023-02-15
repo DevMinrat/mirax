@@ -32,20 +32,21 @@ document.addEventListener("DOMContentLoaded", () => {
   //     header.classList.add("top");
   //   }
 
-  //   const burger = document.querySelector(".burger-menu");
-  //   const menu = document.querySelector(".menu");
-
-  //   burger.addEventListener("click", () => {
-  //     burger.classList.toggle("menu-on");
-  //     menu.classList.toggle("active");
-
-  //     if (burger.classList.contains("menu-on")) {
-  //       scrollLock.disablePageScroll();
-  //     } else {
-  //       scrollLock.enablePageScroll();
-  //     }
-  //   });
   // }
+
+  const burger = document.querySelector(".burger-menu");
+  const menu = document.querySelector(".menu");
+
+  burger.addEventListener("click", () => {
+    burger.classList.toggle("menu-on");
+    menu.classList.toggle("active");
+
+    if (burger.classList.contains("menu-on")) {
+      scrollLock.disablePageScroll();
+    } else {
+      scrollLock.enablePageScroll();
+    }
+  });
 
   // tabs
 
