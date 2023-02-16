@@ -8,20 +8,16 @@ const removeComments = require("gulp-strip-css-comments");
 const rename = require("gulp-rename");
 const sass = require("gulp-sass")(require("sass"));
 const cssnano = require("gulp-cssnano");
-const babel = require("gulp-babel");
-const uglify = require("gulp-uglify");
 const rigger = require("gulp-rigger");
 const plumber = require("gulp-plumber");
 const panini = require("panini");
 const imagemin = require("gulp-imagemin");
 const del = require("del");
-const notify = require("gulp-notify");
 const browserSync = require("browser-sync").create();
 
 /* Paths */
 const srcPath = "src/";
 const distPath = "dist/";
-
 const path = {
   build: {
     html: distPath,
@@ -36,7 +32,7 @@ const path = {
     css: srcPath + "assets/scss/*.scss",
     images:
       srcPath +
-      "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json,webm,mp4,ogg}",
+      "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json,mp4,webm,mov}",
     fonts: srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
   },
   watch: {
@@ -45,7 +41,7 @@ const path = {
     css: srcPath + "assets/scss/**/*.scss",
     images:
       srcPath +
-      "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json,webm,mp4,ogg}",
+      "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json,mp4,webm,mov}",
     fonts: srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
   },
   clean: "./" + distPath,
@@ -137,19 +133,6 @@ function cssWatch(cb) {
 function js(cb) {
   return src(path.src.js, { base: srcPath + "assets/js/" })
     .pipe(rigger())
-    .pipe(
-      babel({
-        presets: ["@babel/preset-env"],
-      })
-    )
-    .pipe(gulp.dest(path.build.js))
-    .pipe(uglify())
-    .pipe(
-      rename({
-        suffix: ".min",
-        extname: ".js",
-      })
-    )
     .pipe(dest(path.build.js))
     .pipe(browserSync.reload({ stream: true }));
 
@@ -159,19 +142,6 @@ function js(cb) {
 function jsWatch(cb) {
   return src(path.src.js, { base: srcPath + "assets/js/" })
     .pipe(rigger())
-    .pipe(
-      babel({
-        presets: ["@babel/preset-env"],
-      })
-    )
-    .pipe(gulp.dest(path.build.js))
-    .pipe(uglify())
-    .pipe(
-      rename({
-        suffix: ".min",
-        extname: ".js",
-      })
-    )
     .pipe(dest(path.build.js))
     .pipe(browserSync.reload({ stream: true }));
 
@@ -218,6 +188,16 @@ function clean(cb) {
   cb();
 }
 
+function cleanWithoutImg(cb) {
+  return del([
+    `!dist/**/images/**`,
+    "dist/**/fonts/**",
+    "dist/**/css/**",
+    "dist/**/js/**",
+    "dist/index.html",
+  ]);
+}
+
 function watchFiles() {
   gulp.watch([path.watch.html], html);
   gulp.watch([path.watch.css], cssWatch);
@@ -228,6 +208,8 @@ function watchFiles() {
 }
 
 const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts));
+// const start = gulp.series(cleanWithoutImg, gulp.parallel(html, css, js, fonts));
+// const watch = gulp.parallel(start, watchFiles, serve);
 const watch = gulp.parallel(build, watchFiles, serve);
 
 /* Exports Tasks */
@@ -240,3 +222,5 @@ exports.clean = clean;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;
+// exports.cleanWithoutImg = cleanWithoutImg
+// exports.start = start

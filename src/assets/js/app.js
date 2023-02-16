@@ -1,7 +1,7 @@
 //= ../../../node_modules/swiper/swiper-bundle.js
+//= components/scrolllock.js
 
 document.addEventListener("DOMContentLoaded", () => {
-  // = components/scroll-lock.js
   //= components/sliders.js
 
   // header functional

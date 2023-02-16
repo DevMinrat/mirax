@@ -30,6 +30,11 @@ const introSlider = new Swiper(".intro-slider", {
   autoplay: {
     delay: 5000,
   },
+
+  breakpoints: {
+    750: {},
+    1350: {},
+  },
 });
 
 const productsSlider = new Swiper(".products-slider", {
