@@ -774,6 +774,7 @@ a:hover {
 
 /* Blocks */
 .page {
+    position: relative;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
@@ -830,16 +831,21 @@ a:hover {
         left: 0;
         top: 0;
         z-index: 222;
+        overflow: auto;
         width: 85%;
-        padding: 34.6rem 11.6rem;
-        -webkit-transform: translateX(100%);
-        transform: translateX(100%);
+        min-height: 100vh;
+        height: -webkit-fill-available;
+        background: white url(../images/menu-bg-mob.png) no-repeat;
+        background-size: 65.2rem;
+        background-position: bottom;
+        -webkit-transform: translateX(120%);
+        transform: translateX(120%);
     }
 }
 
 .menu.active {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
+    -webkit-transform: translateX(20%);
+    transform: translateX(20%);
 }
 
 .menu__nav-list {
@@ -860,8 +866,11 @@ a:hover {
     .menu__nav-list {
         -ms-flex-direction: column;
         flex-direction: column;
+        -ms-flex-align: end;
+        align-items: flex-end;
         gap: 5.8rem;
-        text-align: right;
+        margin-top: 20vh;
+        padding: 10rem 11.6rem;
     }
 }
 
@@ -938,7 +947,6 @@ a:hover {
 
 .burger-menu.menu-on .burger::before {
     height: 0.4rem;
-    width: 7.2rem;
     background: #7711ab;
     -webkit-transform: translateX(-50%) rotate(45deg);
     transform: translateX(-50%) rotate(45deg);
@@ -947,11 +955,10 @@ a:hover {
 
 .burger-menu.menu-on .burger::after {
     height: 0.4rem;
-    width: 7.2rem;
     background: #7711ab;
     -webkit-transform: translateX(-50%) rotate(-45deg);
     transform: translateX(-50%) rotate(-45deg);
-    bottom: 0;
+    bottom: 0.4rem;
 }
 
 .hollow-btn {
