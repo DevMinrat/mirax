@@ -783,6 +783,38 @@ a:hover {
     overflow: hidden;
 }
 
+.page-title {
+    font-weight: 300;
+    font-size: 6rem;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: #7711ab;
+    margin-bottom: 3rem;
+}
+
+.page-nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 5rem;
+    margin-bottom: 2rem;
+}
+
+.page-nav__link {
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+}
+
+.page-nav__link:hover {
+    color: #7711ab;
+}
+
+.page-nav__link.active {
+    color: #7711ab;
+    text-decoration: underline;
+}
+
 .container {
     width: 100%;
     max-width: 142rem;
@@ -1810,6 +1842,126 @@ a:hover {
 
 .products-row .products-row__item-name:hover {
     color: #111c4e;
+}
+
+.about {
+    position: relative;
+    padding-top: 5.5rem;
+    text-align: justify;
+}
+
+.about::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 86.8rem;
+    height: 53.6rem;
+    background: url(../images/about/about-benefits-bg_1.png) no-repeat;
+    background-size: cover;
+}
+
+.about::after {
+    content: "";
+    position: absolute;
+    right: 9rem;
+    top: -4rem;
+    z-index: -1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 32.1rem;
+    height: 41.2rem;
+    background: url(../images/about/about-benefits-bg_2.png) no-repeat;
+    background-size: cover;
+}
+
+.about h3 {
+    font-weight: 700;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    padding: 2rem 0;
+}
+
+.about .about__inner {
+    margin-bottom: 2rem;
+}
+
+.about .about-img {
+    float: right;
+    width: 100%;
+    max-width: 85.1rem;
+    margin: -11rem;
+    margin-left: -6rem;
+    margin-right: -14rem;
+    padding-left: 2rem;
+}
+
+.about .about-benefits {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.about .about-benefits::before {
+    content: "";
+    position: absolute;
+    left: -30rem;
+    top: 10rem;
+    z-index: 1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 19.7rem;
+    height: 41.2rem;
+    background: url(../images/about/about-benefits-bg_3.png) no-repeat;
+    background-size: cover;
+}
+
+.about .about-benefits__item {
+    width: 100%;
+}
+
+.about .about-benefits__item-header {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.about .about-benefits__item-img {
+    width: 100%;
+    max-width: 10.1rem;
+}
+
+.about .about-benefits__item-name {
+    font-weight: 700;
+    font-size: 2.6rem;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.about .about-benefits__item-name span {
+    font-weight: 400;
+}
+
+.about .about-benefits__item-descr {
+    letter-spacing: -0.03em;
 }
 
 .footer {
