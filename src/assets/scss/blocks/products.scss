@@ -26,9 +26,20 @@
   width: 100%;
   max-width: 40rem;
 }
+.products__item-category {
+  width: 100%;
+  max-width: 28rem;
+
+  font-weight: 500;
+  font-size: 2.6rem;
+  text-align: center;
+  text-transform: uppercase;
+}
 .products__item-img {
   width: 100%;
   max-width: 40rem;
+
+  margin-bottom: -2rem;
 }
 .products__item-name {
   width: 100%;
