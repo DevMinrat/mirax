@@ -1,0 +1,168 @@
+.prod-category {
+  position: relative;
+
+  padding-top: 4rem;
+  padding-bottom: 7rem;
+  margin-bottom: 4rem;
+
+  @include breakpoint($lg-bp) {
+    margin-bottom: 0;
+    padding-bottom: 6rem;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 9rem;
+    right: 0;
+
+    width: 28.2rem;
+    height: 24.6rem;
+
+    background: url(../images/prod-category/prod-category-bg.png) no-repeat;
+    background-size: cover;
+
+    @include breakpoint($lg-bp) {
+      right: -10rem;
+      bottom: 13rem;
+    }
+  }
+
+  .container {
+    max-width: 140rem;
+  }
+}
+
+.prod-category__inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.prod-category-slider {
+  position: relative;
+
+  width: 100%;
+
+  .swiper-wrapper {
+    justify-content: space-between;
+
+    @include breakpoint($lg-bp) {
+      justify-content: unset;
+    }
+  }
+}
+
+.prod-category__item-wrapper {
+  width: 100%;
+  max-width: 40rem;
+
+  @include breakpoint($lg-bp) {
+    max-width: 100%;
+
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.prod-category__item {
+  width: 100%;
+  max-width: 40rem;
+  min-height: 49.4rem;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  text-align: center;
+
+  padding-bottom: 4.4rem;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include breakpoint($lg-bp) {
+    padding-bottom: 3rem;
+  }
+}
+
+.prod-category__item-category {
+  max-width: 28rem;
+
+  font-weight: 500;
+  font-size: 2.6rem;
+  line-height: 1;
+  text-transform: uppercase;
+
+  margin-bottom: auto;
+
+  @include breakpoint($lg-bp) {
+    max-width: 100%;
+  }
+}
+.prod-category__item-name {
+  font-weight: 500;
+  font-size: 3.2rem;
+  line-height: 1;
+  color: $secondary;
+  text-transform: uppercase;
+
+  margin-bottom: 1.8rem;
+}
+
+.prod-category-slider__btn-prev,
+.prod-category-slider__btn-next {
+  display: none;
+
+  position: absolute;
+  top: 40%;
+  z-index: 1;
+
+  transform: translateY(-50%);
+
+  width: 5.8rem;
+  height: 5.8rem;
+
+  cursor: pointer;
+  user-select: none;
+
+  @include breakpoint($lg-bp) {
+    display: block;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+
+    fill: none;
+    stroke: $primary;
+  }
+
+  &:hover {
+    svg {
+      stroke: $secondary;
+    }
+  }
+}
+
+.prod-category-slider__btn-prev {
+  left: 0;
+
+  svg {
+    transform: rotate(180deg);
+  }
+}
+
+.prod-category-slider__btn-next {
+  right: 0;
+}
+
+.prod-category__link-all {
+  @include breakpoint($lg-bp) {
+    display: block;
+    width: max-content;
+
+    margin: 0 auto;
+  }
+}

@@ -11933,12 +11933,12 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
   
-  const productsSlider = new Swiper(".products-slider", {
+  const prodCategorySlider = new Swiper(".prod-category-slider", {
     slidesPerView: "auto",
     spaceBetween: 0,
     navigation: {
-      nextEl: ".products-slider__btn-next",
-      prevEl: ".products-slider__btn-prev",
+      nextEl: ".prod-category-slider__btn-next",
+      prevEl: ".prod-category-slider__btn-prev",
     },
   
     breakpoints: {
