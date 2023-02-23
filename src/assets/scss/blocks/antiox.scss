@@ -1,0 +1,144 @@
+.antiox {
+  padding: 6rem 0 12rem;
+
+  background: url(../images/antiox/antiox-bg.png) no-repeat;
+  background-size: 100% 115rem;
+  background-position: top 6rem center;
+}
+
+.antiox__inner {
+  position: relative;
+  left: 18rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.antiox-img {
+  width: 100%;
+  max-width: 130rem;
+}
+
+.antiox-circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+
+  width: 90rem;
+
+  pointer-events: none;
+}
+
+.antiox-item {
+  position: absolute;
+  z-index: 2;
+
+  &:nth-of-type(1) {
+    left: 21rem;
+    top: 9rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 90%;
+      z-index: 1;
+      transform: translateY(-50%);
+
+      width: 44.1rem;
+      height: 0.3rem;
+
+      background: $secondary;
+    }
+
+    .antiox-item__content {
+      left: -42.2rem;
+      top: 3.6rem;
+
+      max-width: 25rem;
+    }
+    .antiox-item__title {
+      line-height: 1.23;
+    }
+  }
+  &:nth-of-type(2) {
+    left: 11rem;
+    top: 41.6rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 90%;
+      z-index: 1;
+      transform: translateY(-50%);
+
+      width: 34.1rem;
+      height: 0.3rem;
+
+      background: $secondary;
+    }
+
+    .antiox-item__content {
+      left: -32.2rem;
+      top: 6.3rem;
+
+      max-width: 20rem;
+    }
+  }
+  &:nth-of-type(3) {
+    left: 21rem;
+    bottom: 8rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 90%;
+      z-index: 1;
+      transform: translateY(-50%);
+
+      width: 44.1rem;
+      height: 0.3rem;
+
+      background: $secondary;
+    }
+
+    .antiox-item__content {
+      left: -42.2rem;
+      top: 6.2rem;
+
+      max-width: 35rem;
+    }
+  }
+}
+.antiox-item__icon {
+  width: 20rem;
+
+  position: relative;
+  z-index: 5;
+}
+.antiox-item__content {
+  position: absolute;
+
+  line-height: 1;
+}
+.antiox-item__title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+
+  span {
+    color: $secondary;
+  }
+}
+.antiox-item__descr {
+  letter-spacing: -0.01em;
+}
