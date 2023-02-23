@@ -1,0 +1,48 @@
+.selection {
+  padding: 4rem 0 8rem;
+
+  background: url(../images/selection/selection-bg.png) no-repeat;
+  background-size: 100% 100rem;
+  background-position: top 35rem center;
+
+  .prod-category {
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+    &::after {
+      display: none;
+    }
+    .prod-category__link-all {
+      display: block;
+
+      width: max-content;
+      margin-left: auto;
+    }
+    .page-title {
+      margin-bottom: 8.8rem;
+    }
+
+    .prod-category-slider {
+      margin-bottom: 6rem;
+    }
+  }
+}
+
+.selection__filter {
+  margin-bottom: 21rem;
+
+  .filled-btn {
+    height: 5.6rem;
+
+    padding: 1.1rem 4.6rem;
+  }
+}
+
+.selection__filter-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.3rem;
+
+  margin-bottom: 5rem;
+}
