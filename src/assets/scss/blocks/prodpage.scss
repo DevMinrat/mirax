@@ -1,0 +1,158 @@
+.prodpage {
+  padding: 18rem 0 10rem;
+
+  background: url(../images/prodp/prodp-bg.png) no-repeat;
+  background-size: 100% 48.7rem;
+  background-position: top 100rem center;
+
+  .breadcrumb-wrapper {
+    margin-bottom: 2rem;
+  }
+
+  .page-title {
+    margin-bottom: 7rem;
+  }
+
+  a:hover {
+    color: $secondary;
+  }
+
+  h2 {
+    font-weight: 500;
+    font-size: 2.6rem;
+    line-height: 1;
+    text-transform: uppercase;
+
+    margin-bottom: 2rem;
+  }
+}
+
+.prodpage__inner {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+}
+.prodpage-options_links {
+  display: grid;
+  gap: 2.4rem;
+}
+.prodpage-option {
+  text-decoration: underline;
+  &.active {
+    color: $secondary;
+  }
+}
+
+.prodpage-img {
+  width: 100%;
+  max-width: 100rem;
+
+  margin: -11rem 0rem 0rem -8rem;
+}
+
+.prodpage-data {
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+
+  display: grid;
+  gap: 2.3rem;
+
+  width: 36rem;
+
+  a {
+    text-decoration: underline;
+  }
+}
+.prodpage-volumes {
+  a {
+    text-decoration: underline;
+    &.active {
+      color: $secondary;
+    }
+  }
+}
+.prodpage__buy-links {
+  display: grid;
+  gap: 2.4rem;
+
+  margin-top: 7.3rem;
+
+  .filled-btn {
+    max-width: 100%;
+
+    justify-content: center;
+
+    text-decoration: none;
+    color: $primary;
+
+    background: #ebdbf2;
+    border-color: #ebdbf2;
+
+    &:hover {
+      color: white;
+
+      background: $secondary;
+      background-color: $secondary;
+    }
+  }
+}
+
+.prodpage-descr {
+  margin-bottom: 7rem;
+}
+
+.prodpage-table {
+  .table-wrapper {
+    border: 1px solid $secondary;
+    border-radius: 1.2rem;
+  }
+  table {
+    width: 100%;
+
+    thead {
+      color: #fff;
+
+      th {
+        background: $secondary;
+        font-weight: 500;
+      }
+    }
+
+    tr th,
+    tr td {
+      text-align: center;
+      text-transform: uppercase;
+
+      padding: 0 2rem;
+
+      &:first-child {
+        text-align: left;
+      }
+    }
+
+    tr {
+      height: 5.1rem;
+
+      background: #fff;
+
+      &:nth-child(even) {
+        background: rgba(119, 17, 171, 0.2);
+      }
+    }
+
+    tr:first-child th:first-child {
+      border-top-left-radius: 1rem;
+    }
+    tr:first-child th:last-child {
+      border-top-right-radius: 1rem;
+    }
+    tr:last-child td:last-child {
+      border-bottom-right-radius: 1rem;
+    }
+    tr:last-child td:first-child {
+      border-bottom-left-radius: 1rem;
+    }
+  }
+}

@@ -12119,22 +12119,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const selects = document.querySelectorAll(".custom-select");
 
-  selects.forEach((select) => {
-    select.addEventListener("blur", (e) => selectEvent(select, e));
-    select.addEventListener("click", (e) => selectEvent(select, e));
-  });
+  if (selects.length) {
+    selects.forEach((select) => {
+      select.addEventListener("blur", (e) => selectEvent(select, e));
+      select.addEventListener("click", (e) => selectEvent(select, e));
+    });
 
-  selectEvent = (select, event) => {
-    console.log(select, event);
-    if (event.type == "click") {
-      if (select.classList.contains("change")) {
-        select.classList.remove("change");
-      } else {
-        select.classList.add("change");
+    selectEvent = (select, event) => {
+      if (event.type == "click") {
+        if (select.classList.contains("change")) {
+          select.classList.remove("change");
+        } else {
+          select.classList.add("change");
+        }
       }
-    }
-    if (event.type == "blur") {
-      select.classList.remove("change");
-    }
-  };
+      if (event.type == "blur") {
+        select.classList.remove("change");
+      }
+    };
+  }
 });

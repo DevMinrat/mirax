@@ -15,6 +15,14 @@
 //   box-shadow: none;
 // }
 
+.header--black {
+  .nav-list__item {
+    a {
+      color: $primary;
+    }
+  }
+}
+
 .header__logo {
   img {
     width: 100%;
