@@ -4,8 +4,10 @@
 
   padding: 0.3rem 0;
 
-  @include breakpoint($sm-bp) {
-    display: none;
+  @include breakpoint($lg-bp) {
+    .container {
+      max-width: 67.5rem;
+    }
   }
 }
 
@@ -28,6 +30,10 @@
   color: $primary;
 
   transition: all 0.2s linear;
+
+  @include breakpoint($lg-bp) {
+    font-size: 3.2rem;
+  }
 }
 
 .breadcrumb a:hover {

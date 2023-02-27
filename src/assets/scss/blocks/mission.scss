@@ -5,12 +5,23 @@
 
   background: url(../images/mission/mission-bg.jpg) no-repeat;
   background-size: cover;
+
+  @include breakpoint($lg-bp) {
+    padding-top: 7rem;
+
+    background: url(../images/mission/mission-bg-mob.png) no-repeat;
+    background-size: 100% 100%;
+  }
 }
 
 .mission {
   text-align: justify;
 
   margin-bottom: 4.5rem;
+
+  @include breakpoint($lg-bp) {
+    margin-bottom: 10rem;
+  }
 
   .page-title {
     margin-bottom: 2rem;
@@ -21,11 +32,24 @@
   display: flex;
   align-items: flex-start;
   gap: 4rem;
+
+  @include breakpoint($lg-bp) {
+    flex-direction: column;
+    gap: 4rem;
+  }
 }
 
 .mission__img {
   width: 100%;
   max-width: 87rem;
+
+  border-radius: 3rem;
+
+  @include breakpoint($lg-bp) {
+    width: 100%;
+    height: 24.5rem;
+    object-fit: cover;
+  }
 }
 
 .values__inner {
@@ -35,6 +59,11 @@
   gap: 4rem;
 
   margin-bottom: 5rem;
+
+  @include breakpoint($lg-bp) {
+    flex-direction: column;
+    gap: 6rem;
+  }
 }
 .values__item {
   flex: 1;
@@ -45,15 +74,27 @@
   gap: 2.5rem;
 
   margin-bottom: 0.4rem;
+
+  @include breakpoint($lg-bp) {
+    margin-bottom: 3rem;
+  }
 }
 .values__item-img {
   width: 10.1rem;
+
+  @include breakpoint($lg-bp) {
+    width: 18rem;
+  }
 }
 .values__item-name {
   font-weight: 700;
   font-size: 2.6rem;
   letter-spacing: 0.01em;
   text-transform: uppercase;
+
+  @include breakpoint($lg-bp) {
+    font-size: 3.6rem;
+  }
 }
 .values__item-descr {
   text-align: justify;

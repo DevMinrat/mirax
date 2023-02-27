@@ -1,0 +1,72 @@
+.intro--contacts {
+  height: 52.6rem;
+
+  padding-top: 23rem;
+
+  background: url(../images/contacts/contacts-intro.jpg) no-repeat;
+  background-size: cover;
+}
+
+.contacts-title {
+  font-size: 6rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: white;
+
+  margin-bottom: 2.4rem;
+}
+.contacts-address {
+  font-size: 2.6rem;
+  color: white;
+}
+
+.contacts-map {
+  height: 53rem;
+
+  margin-bottom: 8rem;
+
+  background: #ebdbf2;
+}
+
+.contacts-form {
+  padding-bottom: 29rem;
+
+  background: url(../images/contacts/contacts-bg.png) no-repeat;
+  background-size: 100% 81rem;
+  background-position: bottom center;
+}
+
+.contacts-form__title {
+  font-weight: 300;
+  font-size: 6rem;
+  line-height: 1;
+  text-transform: uppercase;
+  color: $secondary;
+
+  margin-bottom: 6rem;
+}
+
+.contacts-form__inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12rem;
+
+  margin-bottom: 8rem;
+}
+
+.contacts-form__col {
+  display: grid;
+  gap: 3.9rem;
+
+  width: 100%;
+
+  .custom-textarea {
+    height: 34rem;
+  }
+
+  .custom-input,
+  .custom-textarea {
+    width: 100%;
+  }
+}

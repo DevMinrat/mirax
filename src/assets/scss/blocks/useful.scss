@@ -5,8 +5,24 @@
   background: url(../images/useful/useful-bg.png) no-repeat;
   background-size: cover;
 
+  @include breakpoint($lg-bp) {
+    padding: 8.6rem 0 17rem;
+
+    background: url(../images/useful/useful-bg-mob.png) no-repeat;
+    background-size: 100% 104.4rem;
+    background-position: top 26rem center;
+  }
+
   .breadcrumb-wrapper {
     margin-bottom: 4rem;
+
+    @include breakpoint($lg-bp) {
+      margin-bottom: 10rem;
+
+      .breadcrumb {
+        justify-content: center;
+      }
+    }
   }
 }
 
@@ -16,13 +32,23 @@
   gap: 10rem;
 
   margin-bottom: 3rem;
+
+  @include breakpoint($lg-bp) {
+    flex-direction: column;
+    gap: 20rem;
+  }
 }
 .useful-item {
   width: 100%;
   max-width: 59rem;
 
   display: flex;
+  align-items: flex-start;
   gap: 8.6rem;
+
+  @include breakpoint($lg-bp) {
+    gap: 0;
+  }
 }
 .useful-item__img {
   width: 100%;
@@ -35,6 +61,13 @@
   overflow: hidden;
 
   margin-bottom: 1rem;
+
+  @include breakpoint($lg-bp) {
+    overflow: visible;
+    max-height: unset;
+
+    margin-bottom: 3.4rem;
+  }
 }
 .useful-item__title {
   height: 100%;
@@ -44,10 +77,17 @@
   color: $secondary;
   letter-spacing: 0.01em;
   text-transform: uppercase;
+
+  @include breakpoint($lg-bp) {
+    font-size: 3.2rem;
+  }
 }
 .useful-item__descr {
   font-size: 2.4rem;
-  text-transform: uppercase;
+
+  @include breakpoint($lg-bp) {
+    font-size: 3.2rem;
+  }
 }
 
 .useful-item__link {
@@ -55,10 +95,14 @@
 }
 
 .useful__link_all {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 
-    width: max-content;
+  width: max-content;
 
-    margin-left: auto;
+  margin-left: auto;
+
+  @include breakpoint($lg-bp) {
+    display: none;
+  }
 }

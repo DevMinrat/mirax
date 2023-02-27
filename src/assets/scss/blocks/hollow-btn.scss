@@ -1,5 +1,7 @@
 .hollow-btn {
   width: 100%;
+  box-sizing: border-box;
+
   max-width: max-content;
   height: 4.3rem;
 
@@ -20,9 +22,11 @@
   transition: all 0.2s ease;
 
   @include breakpoint($lg-bp) {
+    height: 6rem;
+
     font-size: 3.2rem;
 
-    padding: 0.9rem 4rem;
+    padding: 1.4rem 5rem;
   }
 
   svg {

@@ -3,88 +3,35 @@ layout: default
 title: НАША МИССИЯ
 ---
 
-<section class="intro">
-    <div class="intro__inner">
-        <div class="intro-slider">
-            <div class="swiper-wrapper">
-                <div class="intro-slider__item swiper-slide">
-                    <img src="assets/images/intro/intro-img-1.jpg" alt="">
-                </div>
-                <div class="intro-slider__item swiper-slide">
-                    <img src="assets/images/intro/intro-img-2.jpg" alt="">
-                </div>
-                <div class="intro-slider__item swiper-slide">
-                    <img src="assets/images/intro/intro-img-3.jpg" alt="">
-                </div>
-            </div>
+<section class="intro intro--contacts">
+    <div class="container">
+        <div class="intro__inner">
+            <h1 class="contacts-title">контакты</h1>
+            <p class="contacts-address">Teheran-ro 82-gil 15, Gangnam-gu, Seoul, Republic of Korea.</p>
         </div>
-        <video class="intro__video-mob" playsinline autoplay muted loop>
-            <source src="assets/images/intro/bannerMirax_750x666_17s.mp4" type="video/mp4">
-            <source src="assets/images/intro/bannerMirax_750x666_17s.mov" type="video/mov">
-            <source src="assets/images/intro/bannerMirax_750x666_17s.webm" type="video/webm">
-        </video>
     </div>
 </section>
 
-<div class="mission-wrapper">
-    <div class="mission">
-        <div class="container">
-            <div class="mission__inner">
-                <div class="mission-content">
-                    <h1 class="page-title">НАША МИССИЯ</h1>
-                    <p>Делать инновации доступными для широкой аудитории, сохраняя высочайшее качество, эффективность и
-                        безопасность.</p>
-                </div>
-                <img class="mission__img" src="assets/images/mission/mission-img.jpg" alt="">
-            </div>
-        </div>
-    </div>
-
-    <div class="values">
-        <div class="container">
-            <h2 class="page-title">НАШИ ценности</h2>
-            <div class="values__inner">
-                <div class="values__item">
-                    <div class="values__item-header">
-                        <img class="values__item-img" src="assets/images/mission/values-icon_1.svg" alt="">
-                        <p class="values__item-name">КОМФОРТ НАШИХ ПОТРЕБИТЕЛЕЙ</p>
-                    </div>
-                    <div class="values__item-descr">Наше кредо – высочайшее качество производимых нами смазочных
-                        материалов.
-                        Поэтому наш главный приоритет – это безусловный комфорт миллионов потребителей от управления
-                        своими
-                        автомобилями, в двигателях которых эффективно работают масла MIRAX.</p>
-                    </div>
-                </div>
-                <div class="values__item">
-                    <div class="values__item-header">
-                        <img class="values__item-img" src="assets/images/mission/values-icon_2.svg" alt="">
-                        <p class="values__item-name">ПРОФЕССИОНАЛИЗМ
-                            НАШЕЙ КОМАНДЫ</p>
-                    </div>
-                    <div class="values__item-descr">Мы как истинные представители южнокорейской технологической школы и
-                        приверженцы восточной философии находимся в постоянном процессе непрерывного развития нашей
-                        команды, берем и применяем только лучшее из мира науки, инноваций и технологий масляной отрасли.
-                        </p>
-                    </div>
-                </div>
-                <div class="values__item">
-                    <div class="values__item-header">
-                        <img class="values__item-img" src="assets/images/mission/values-icon_3.svg" alt="">
-                        <p class="values__item-name">ИННОВАЦИИ,
-                            ДОСТУПНЫЕ КАЖДОМУ </p>
-                    </div>
-                    <div class="values__item-descr">Мы постоянно думаем и работаем над тем, как сделать инновации еще
-                        ближе и доступнее для каждого автовла-дельца.</p>
-                    </div>
-                </div>
-            </div>
-            <nav class="page-nav">
-                <a class="page-nav__link" href="#">O НАС</a>
-                <a class="page-nav__link active" href="#">Миссия и ценности</a>
-                <a class="page-nav__link" href="#">Социальная ответственность</a>
-                <a class="page-nav__link" href="#">Сотрудничество</a>
-            </nav>
-        </div>
-    </div>
+<div class="contacts-map">
+    <p>Фрагмент карты (Google / Yandex)</p>
 </div>
+
+<form class="contacts-form">
+    <div class="container">
+        <h2 class="contacts-form__title">Обратная связь</h2>
+
+        <div class="contacts-form__inner">
+            <div class="contacts-form__col">
+                <input class="custom-input" type="text" placeholder="Имя">
+                <input class="custom-input" type="tel" placeholder="Телефон">
+                <input class="custom-input" type="email" placeholder="E-mail">
+                <input class="custom-input" type="text" placeholder="Тема обращения">
+            </div>
+            <div class="contacts-form__col">
+                <textarea class="custom-textarea" placeholder="Текст обращения"></textarea>
+            </div>
+        </div>
+
+        <button class="filled-btn">Отправить</button>
+    </div>
+</form>

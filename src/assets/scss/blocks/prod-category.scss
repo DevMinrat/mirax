@@ -30,6 +30,10 @@
 
   .container {
     max-width: 140rem;
+
+    @include breakpoint($lg-bp) {
+      max-width: 62rem;
+    }
   }
 }
 
