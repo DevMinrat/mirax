@@ -5,6 +5,8 @@
   padding: 0.3rem 0;
 
   @include breakpoint($lg-bp) {
+    padding-left: 6rem;
+
     .container {
       max-width: 67.5rem;
     }

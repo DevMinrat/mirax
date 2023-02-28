@@ -3,6 +3,15 @@
 
   background: url(../images/engine/engine-bg.png) no-repeat;
   background-size: 100% 93rem;
+
+  @include breakpoint($lg-bp) {
+    height: 173rem;
+
+    .container,
+    .engine__inner {
+      height: 100%;
+    }
+  }
 }
 
 .engine__inner {
@@ -16,6 +25,11 @@
 .engine-img {
   width: 100%;
   max-width: 130rem;
+
+  @include breakpoint($lg-bp) {
+    width: 150%;
+    max-width: unset;
+  }
 }
 
 .engine-circle {
@@ -28,6 +42,10 @@
   width: 90rem;
 
   pointer-events: none;
+
+  @include breakpoint($lg-bp) {
+    width: 70rem;
+  }
 }
 
 .engine-item {
@@ -37,6 +55,11 @@
   &:nth-of-type(1) {
     left: 20rem;
     top: 10rem;
+
+    @include breakpoint($lg-bp) {
+      left: -3rem;
+      top: 40rem;
+    }
 
     &::after {
       content: "";
@@ -57,11 +80,24 @@
       top: 3.5rem;
 
       max-width: 20rem;
+
+      @include breakpoint($lg-bp) {
+        left: 5rem;
+        top: -34rem;
+
+        width: 25rem;
+        max-width: 25rem;
+      }
     }
   }
   &:nth-of-type(2) {
     right: 22rem;
     top: 10rem;
+
+    @include breakpoint($lg-bp) {
+      right: 0;
+      top: 40rem;
+    }
 
     &::after {
       content: "";
@@ -164,6 +200,10 @@
 
   position: relative;
   z-index: 5;
+
+  @include breakpoint($lg-bp) {
+    width: 18rem;
+  }
 }
 .engine-item__content {
   position: absolute;
@@ -178,6 +218,10 @@
 
   padding-bottom: 1rem;
   margin-bottom: 1rem;
+
+  @include breakpoint($lg-bp) {
+    font-size: 3.2rem;
+  }
 }
 .engine-item__descr {
   letter-spacing: -0.01em;

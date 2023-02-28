@@ -5,6 +5,14 @@
   background-size: 100% 48.7rem;
   background-position: top 100rem center;
 
+  @include breakpoint($lg-bp) {
+    padding-bottom: 6rem;
+
+    background: url(../images/prodp/prodp-bg-mob.png) no-repeat;
+    background-size: 100% 29.4rem;
+    background-position: top 136rem center;
+  }
+
   .breadcrumb-wrapper {
     margin-bottom: 2rem;
   }
@@ -24,6 +32,12 @@
     text-transform: uppercase;
 
     margin-bottom: 2rem;
+
+    @include breakpoint($lg-bp) {
+      font-size: 3.6rem;
+
+      margin-bottom: 3rem;
+    }
   }
 }
 
@@ -32,10 +46,20 @@
 
   display: flex;
   align-items: flex-start;
+
+  @include breakpoint($lg-bp) {
+    flex-direction: column;
+
+    margin-bottom: 7rem;
+  }
 }
 .prodpage-options_links {
   display: grid;
   gap: 2.4rem;
+
+  @include breakpoint($lg-bp) {
+    margin-bottom: 5rem;
+  }
 }
 .prodpage-option {
   text-decoration: underline;
@@ -49,6 +73,16 @@
   max-width: 100rem;
 
   margin: -11rem 0rem 0rem -8rem;
+
+  @include breakpoint($lg-bp) {
+    position: absolute;
+    top: 24rem;
+    left: -13rem;
+
+    max-width: 40rem;
+
+    margin: 0;
+  }
 }
 
 .prodpage-data {
@@ -61,8 +95,22 @@
 
   width: 36rem;
 
+  @include breakpoint($lg-bp) {
+    position: static;
+
+    width: 100%;
+  }
+
   a {
     text-decoration: underline;
+  }
+}
+.prodpage-volumes__wrapper {
+  display: grid;
+  gap: 2rem;
+
+  @include breakpoint($lg-bp) {
+    justify-content: flex-end;
   }
 }
 .prodpage-volumes {
@@ -78,6 +126,12 @@
   gap: 2.4rem;
 
   margin-top: 7.3rem;
+
+  @include breakpoint($lg-bp) {
+    margin-top: 18rem;
+
+    width: 100%;
+  }
 
   .filled-btn {
     max-width: 100%;
@@ -101,15 +155,32 @@
 
 .prodpage-descr {
   margin-bottom: 7rem;
+
+  @include breakpoint($lg-bp) {
+    text-align: justify;
+    letter-spacing: -0.04em;
+
+    margin-bottom: 4rem;
+  }
 }
 
 .prodpage-table {
   .table-wrapper {
     border: 1px solid $secondary;
     border-radius: 1.2rem;
+
+    @include breakpoint($lg-bp) {
+      width: 65rem;
+
+      margin-left: -6rem;
+    }
   }
   table {
     width: 100%;
+
+    @include breakpoint($lg-bp) {
+      font-size: 2.2rem;
+    }
 
     thead {
       color: #fff;
@@ -126,6 +197,10 @@
       text-transform: uppercase;
 
       padding: 0 2rem;
+
+      @include breakpoint($lg-bp) {
+        padding: 1.2rem 0.4rem;
+      }
 
       &:first-child {
         text-align: left;

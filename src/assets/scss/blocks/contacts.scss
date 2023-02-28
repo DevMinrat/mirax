@@ -26,6 +26,12 @@
   margin-bottom: 8rem;
 
   background: #ebdbf2;
+
+  @include breakpoint($lg-bp) {
+    height: 75rem;
+
+    margin-bottom: 4.5rem;
+  }
 }
 
 .contacts-form {
@@ -34,6 +40,23 @@
   background: url(../images/contacts/contacts-bg.png) no-repeat;
   background-size: 100% 81rem;
   background-position: bottom center;
+
+  @include breakpoint($lg-bp) {
+    padding-bottom: 10rem;
+
+    background: url(../images/contacts/contacts-bg-mob.png) no-repeat;
+    background-size: 100% 84.1rem;
+    background-position: bottom -5rem center;
+  }
+
+  .filled-btn {
+    @include breakpoint($lg-bp) {
+      width: 100%;
+      max-width: 100%;
+
+      justify-content: center;
+    }
+  }
 }
 
 .contacts-form__title {
@@ -53,6 +76,13 @@
   gap: 12rem;
 
   margin-bottom: 8rem;
+
+  @include breakpoint($lg-bp) {
+    flex-direction: column;
+    gap: 2rem;
+
+    margin-bottom: 7rem;
+  }
 }
 
 .contacts-form__col {
@@ -61,8 +91,16 @@
 
   width: 100%;
 
+  @include breakpoint($lg-bp) {
+    gap: 2rem;
+  }
+
   .custom-textarea {
     height: 34rem;
+
+    @include breakpoint($lg-bp) {
+      height: 52.4rem;
+    }
   }
 
   .custom-input,

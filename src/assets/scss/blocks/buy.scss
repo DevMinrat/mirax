@@ -4,6 +4,14 @@
   background: url(../images/buy/buy-bg.png) no-repeat;
   background-size: 100% 41.1rem;
   background-position: top 30rem center;
+
+  @include breakpoint($lg-bp) {
+    padding-top: 6rem;
+
+    background: url(../images/buy/buy-bg-mob.png) no-repeat;
+  background-size: 100% 84.8rem;
+  background-position: top center;
+  }
 }
 
 .buy-online,
@@ -15,8 +23,20 @@
 
     margin-bottom: 0;
 
+    @include breakpoint($lg-bp) {
+      flex-direction: column;
+      gap: 2rem;
+
+      width: 100%;
+    }
+
     .custom-select {
       width: 27.4rem;
+
+      @include breakpoint($lg-bp) {
+        width: 100%;
+        max-width: 100%;
+      }
     }
   }
   .page-title {
@@ -31,6 +51,13 @@
   justify-content: space-between;
 
   margin-bottom: 12rem;
+
+  @include breakpoint($lg-bp) {
+    flex-direction: column;
+    gap: 2rem;
+
+    margin-bottom: 9rem;
+  }
 }
 
 .buy-online__content {
@@ -41,17 +68,31 @@
   gap: 5rem 6rem;
 
   margin-bottom: 20rem;
+
+  @include breakpoint($lg-bp) {
+    gap: 2rem;
+
+    margin-bottom: 10rem;
+  }
 }
 
 .buy-online__link {
   img {
     width: 100%;
     max-width: 30rem;
+
+    @include breakpoint($lg-bp) {
+      max-width: 25rem;
+    }
   }
 }
 
 .buy-offline__header {
   margin-bottom: 8rem;
+
+  @include breakpoint($lg-bp) {
+    margin-bottom: 6rem;
+  }
 }
 
 .buy-offline__map {
@@ -59,4 +100,8 @@
   height: 66rem;
 
   background: #ebdbf2;
+
+  @include breakpoint($lg-bp) {
+    height: 75rem;
+  }
 }

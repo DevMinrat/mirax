@@ -21,6 +21,12 @@
       color: $primary;
     }
   }
+
+  .burger,
+  .burger::before,
+  .burger::after {
+    background: $primary;
+  }
 }
 
 .header__logo {
