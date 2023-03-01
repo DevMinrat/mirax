@@ -4,6 +4,19 @@
   background: url(../images/package/package-bg.png) no-repeat;
   background-size: 100% 130rem;
   background-position: top -6rem center;
+
+  @include breakpoint($lg-bp) {
+    height: 197rem;
+
+    background: url(../images//package/package-bg-mob.png) no-repeat;
+    background-size: 100% 205rem;
+    background-position: top -7rem center;
+
+    .container,
+    .package__inner {
+      height: 100%;
+    }
+  }
 }
 
 .package__inner {
@@ -19,6 +32,11 @@
 .package-img {
   width: 100%;
   max-width: 130rem;
+
+  @include breakpoint($lg-bp) {
+    width: 150%;
+    max-width: unset;
+  }
 }
 
 .package-circle {
@@ -31,6 +49,10 @@
   width: 90rem;
 
   pointer-events: none;
+
+  @include breakpoint($lg-bp) {
+    width: 70rem;
+  }
 }
 
 .package-item {
@@ -40,6 +62,11 @@
   &:nth-of-type(1) {
     left: 21rem;
     top: 9rem;
+
+    @include breakpoint($lg-bp) {
+      left: -3rem;
+      top: 51rem;
+    }
 
     &::after {
       content: "";
@@ -53,6 +80,17 @@
       height: 0.3rem;
 
       background: $secondary;
+
+      @include breakpoint($lg-bp) {
+        width: 20.1rem;
+        height: 71.5rem;
+        transform: none;
+        right: -29%;
+        top: -220%;
+
+        background: url(../images/package/package_icon-1_line-mob.svg) no-repeat;
+        background-size: cover;
+      }
     }
 
     .package-item__content {
@@ -60,6 +98,13 @@
       top: -2rem;
 
       max-width: 17rem;
+
+      @include breakpoint($lg-bp) {
+        left: 6rem;
+        top: -52rem;
+        width: 24rem;
+        max-width: 24rem;
+      }
     }
 
     .package-item__line {
@@ -67,11 +112,19 @@
       right: -15rem;
 
       width: 15.6rem;
+
+      @include breakpoint($lg-bp) {
+      }
     }
   }
   &:nth-of-type(2) {
     left: 11rem;
     top: 41.6rem;
+
+    @include breakpoint($lg-bp) {
+      left: 18rem;
+      top: 46rem;
+    }
 
     &::after {
       content: "";
@@ -85,6 +138,17 @@
       height: 0.3rem;
 
       background: $secondary;
+
+      @include breakpoint($lg-bp) {
+        width: 21.8rem;
+        height: 59.3rem;
+        transform: none;
+        left: 28%;
+        top: -84%;
+
+        background: url(../images/package/package_icon-2_line-mob.svg) no-repeat;
+        background-size: cover;
+      }
     }
 
     .package-item__content {
@@ -92,11 +156,24 @@
       top: -2rem;
 
       max-width: 12rem;
+
+      @include breakpoint($lg-bp) {
+        left: 11rem;
+        top: -27rem;
+        width: 100%;
+        max-width: 18rem;
+      }
     }
   }
   &:nth-of-type(3) {
     left: 21rem;
     bottom: 7rem;
+
+    @include breakpoint($lg-bp) {
+      left: 38rem;
+      bottom: unset;
+      top: 51rem;
+    }
 
     &::before {
       content: "";
@@ -110,6 +187,17 @@
       height: 0.3rem;
 
       background: $secondary;
+
+      @include breakpoint($lg-bp) {
+        width: 36.7rem;
+        height: 99.4rem;
+        transform: none;
+        left: -124%;
+        top: -260%;
+
+        background: url(../images/package/package_icon-3_line-mob.svg) no-repeat;
+        background-size: cover;
+      }
     }
 
     .package-item__content {
@@ -117,6 +205,17 @@
       top: -2rem;
 
       max-width: 21rem;
+
+      @include breakpoint($lg-bp) {
+        left: -11rem;
+        top: -59rem;
+        max-width: 23rem;
+        text-align: right;
+
+        .package-item__descr {
+          line-height: 1.2;
+        }
+      }
     }
     .package-item__line {
       top: 18%;
@@ -128,6 +227,12 @@
   &:nth-of-type(4) {
     right: 21rem;
     top: 9rem;
+
+    @include breakpoint($lg-bp) {
+      right: 36.8rem;
+      top: unset;
+      bottom: 53.5rem;
+    }
 
     &::after {
       content: "";
@@ -141,6 +246,17 @@
       height: 0.3rem;
 
       background: $secondary;
+
+      @include breakpoint($lg-bp) {
+        width: 28.3rem;
+        height: 48.7rem;
+        transform: none;
+        left: 19%;
+        top: -90%;
+
+        background: url(../images/package/package_icon-4_line-mob.svg) no-repeat;
+        background-size: cover;
+      }
     }
 
     .package-item__content {
@@ -150,6 +266,13 @@
       width: 18rem;
 
       text-align: right;
+
+      @include breakpoint($lg-bp) {
+        left: 6.1rem;
+        top: 20.9rem;
+        width: 27rem;
+        text-align: left;
+      }
     }
     .package-item__line {
       top: 50%;
@@ -161,6 +284,11 @@
   &:nth-of-type(5) {
     right: 16rem;
     bottom: 21rem;
+
+    @include breakpoint($lg-bp) {
+      right: -4rem;
+      bottom: 50.5rem;
+    }
 
     &::after {
       content: "";
@@ -174,6 +302,17 @@
       height: 0.3rem;
 
       background: $secondary;
+
+      @include breakpoint($lg-bp) {
+        width: 22.9rem;
+        height: 28rem;
+        transform: none;
+        left: -44%;
+        top: 63%;
+
+        background: url(../images/package/package_icon-5_line-mob.svg) no-repeat;
+        background-size: cover;
+      }
     }
 
     .package-item__content {
@@ -183,6 +322,12 @@
       width: 18rem;
 
       text-align: right;
+
+      @include breakpoint($lg-bp) {
+        left: -16rem;
+        top: 28rem;
+        width: 28rem;
+      }
     }
   }
 }
@@ -191,9 +336,17 @@
 
   position: relative;
   z-index: 5;
+
+  @include breakpoint($lg-bp) {
+    width: 18rem;
+  }
 }
 .package-item__line {
   position: absolute;
+
+  @include breakpoint($lg-bp) {
+    display: none;
+  }
 }
 .package-item__content {
   position: absolute;
