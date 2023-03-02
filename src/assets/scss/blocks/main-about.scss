@@ -56,7 +56,7 @@
 }
 .main-about__descr {
   margin-bottom: 2rem;
-  text-align: justify;
+  text-align: left;
 
   @include breakpoint($lg-bp) {
     font-size: 3.2rem;

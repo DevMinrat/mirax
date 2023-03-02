@@ -117,6 +117,12 @@ button {
   }
 }
 
+@for $i from 1 through 20 {
+  .mb#{$i} {
+    margin-bottom: #{$i}rem;
+  }
+}
+
 .hide {
   display: none;
 }
