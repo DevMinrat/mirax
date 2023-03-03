@@ -1211,7 +1211,8 @@ button::placeholder {
   padding: 1.9rem 2.1rem 1.7rem;
   border: none;
   outline: none;
-  background: #ebdbf2;
+  background: transparent;
+  border: 1px solid #7711ab;
   border-radius: 2.4rem;
 }
 @media (max-width: 920px) {
@@ -1860,6 +1861,30 @@ button::placeholder {
   max-width: 60rem;
 }
 
+.oil-recipe {
+  padding-top: 7rem;
+  padding-bottom: 18.5rem;
+  background: url(../images/article/article-3/article-3-bg.png) no-repeat;
+  background-size: 100% 196rem;
+  background-position: top 4rem center;
+}
+
+.oil-recipe__block {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+.oil-recipe__block--reverse {
+  flex-direction: row-reverse;
+}
+.oil-recipe__block .oil-recipe__intro-text {
+  width: 83rem;
+}
+.oil-recipe__block img {
+  width: 45rem;
+}
+
 .about {
   position: relative;
   padding-top: 5.5rem;
@@ -2167,7 +2192,10 @@ button::placeholder {
   margin-right: -8rem;
 }
 .products .products__item-name {
-  text-align: left;
+  text-align: center;
+}
+.products .products__item-descr {
+  display: none;
 }
 @media (max-width: 920px) {
   .products .products__item-descr {
@@ -2175,9 +2203,6 @@ button::placeholder {
     -webkit-line-clamp: 4;
     font-weight: 400;
   }
-}
-.products .products__item-content {
-  align-items: flex-start;
 }
 
 .products__inner {
@@ -3638,10 +3663,10 @@ button::placeholder {
 }
 
 .contacts-form {
-  padding-bottom: 29rem;
+  padding-bottom: 9.7rem;
   background: url(../images/contacts/contacts-bg.png) no-repeat;
-  background-size: 100% 81rem;
-  background-position: bottom center;
+  background-size: 100% 81.4rem;
+  background-position: bottom -6rem center;
 }
 @media (max-width: 920px) {
   .contacts-form {
@@ -3650,6 +3675,9 @@ button::placeholder {
     background-size: 100% 84.1rem;
     background-position: bottom -5rem center;
   }
+}
+.contacts-form .filled-btn {
+  margin-left: auto;
 }
 @media (max-width: 920px) {
   .contacts-form .filled-btn {
@@ -3673,7 +3701,7 @@ button::placeholder {
   align-items: flex-start;
   justify-content: space-between;
   gap: 12rem;
-  margin-bottom: 8rem;
+  margin-bottom: 4rem;
 }
 @media (max-width: 920px) {
   .contacts-form__inner {
@@ -3704,6 +3732,44 @@ button::placeholder {
 .contacts-form__col .custom-input,
 .contacts-form__col .custom-textarea {
   width: 100%;
+}
+
+.contacts-info {
+  padding: 4.5rem 0 6.5rem;
+}
+
+.contacts-info__inner {
+  display: flex;
+  align-items: center;
+  gap: 34rem;
+}
+@media (max-width: 920px) {
+  .contacts-info__inner {
+    flex-direction: column;
+    gap: 4rem;
+    align-items: flex-start;
+  }
+}
+
+.contacts-item {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+.contacts-item:first-child .contacts-item__link {
+  text-decoration: underline;
+}
+
+.contacts-item__img {
+  width: 12rem;
+}
+
+.contacts-item__link {
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
 .footer {

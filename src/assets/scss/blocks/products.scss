@@ -33,9 +33,10 @@
     margin-right: -8rem;
   }
   .products__item-name {
-    text-align: left;
+    text-align: center;
   }
   .products__item-descr {
+    display: none;
     @include breakpoint($lg-bp) {
       max-width: 30rem;
 
@@ -44,9 +45,7 @@
       font-weight: 400;
     }
   }
-  .products__item-content {
-    align-items: flex-start;
-  }
+  
 }
 
 .products__inner {

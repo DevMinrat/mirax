@@ -57,7 +57,8 @@
 
   border: none;
   outline: none;
-  background: #ebdbf2;
+  background: transparent;
+  border: 1px solid $secondary;
   border-radius: 2.4rem;
 
   @include breakpoint($lg-bp) {

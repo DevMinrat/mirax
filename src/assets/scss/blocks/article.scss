@@ -251,3 +251,32 @@
   width: 100%;
   max-width: 60rem;
 }
+
+.oil-recipe {
+  padding-top: 7rem;
+  padding-bottom: 18.5rem;
+
+  background: url(../images/article/article-3/article-3-bg.png) no-repeat;
+  background-size: 100% 196rem;
+  background-position: top 4rem center;
+}
+
+.oil-recipe__block {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+
+  margin-bottom: 3rem;
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+
+  .oil-recipe__intro-text {
+    width: 83rem;
+  }
+
+  img {
+    width: 45rem;
+  }
+}
