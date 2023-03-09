@@ -1376,7 +1376,8 @@ button::placeholder {
     padding: 1.9rem 2.1rem 1.7rem;
     border: none;
     outline: none;
-    background: #ebdbf2;
+    background: transparent;
+    border: 1px solid #7711ab;
     border-radius: 2.4rem;
 }
 
@@ -2195,6 +2196,36 @@ button::placeholder {
 .oil-line__intro-img {
     width: 100%;
     max-width: 60rem;
+}
+
+.oil-recipe {
+    padding-top: 7rem;
+    padding-bottom: 18.5rem;
+    background: url(../images/article/article-3/article-3-bg.png) no-repeat;
+    background-size: 100% 196rem;
+    background-position: top 4rem center;
+}
+
+.oil-recipe__block {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.oil-recipe__block--reverse {
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+}
+
+.oil-recipe__block .oil-recipe__intro-text {
+    width: 83rem;
+}
+
+.oil-recipe__block img {
+    width: 45rem;
 }
 
 .about {
@@ -4288,10 +4319,10 @@ button::placeholder {
 }
 
 .contacts-form {
-    padding-bottom: 29rem;
+    padding-bottom: 9.7rem;
     background: url(../images/contacts/contacts-bg.png) no-repeat;
-    background-size: 100% 81rem;
-    background-position: bottom center;
+    background-size: 100% 81.4rem;
+    background-position: bottom -6rem center;
 }
 
 @media (max-width: 920px) {
@@ -4301,6 +4332,10 @@ button::placeholder {
         background-size: 100% 84.1rem;
         background-position: bottom -5rem center;
     }
+}
+
+.contacts-form .filled-btn {
+    margin-left: auto;
 }
 
 @media (max-width: 920px) {
@@ -4329,7 +4364,7 @@ button::placeholder {
     -ms-flex-pack: justify;
     justify-content: space-between;
     gap: 12rem;
-    margin-bottom: 8rem;
+    margin-bottom: 4rem;
 }
 
 @media (max-width: 920px) {
@@ -4366,6 +4401,52 @@ button::placeholder {
 .contacts-form__col .custom-input,
 .contacts-form__col .custom-textarea {
     width: 100%;
+}
+
+.contacts-info {
+    padding: 4.5rem 0 6.5rem;
+}
+
+.contacts-info__inner {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 34rem;
+}
+
+@media (max-width: 920px) {
+    .contacts-info__inner {
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 4rem;
+        -ms-flex-align: start;
+        align-items: flex-start;
+    }
+}
+
+.contacts-item {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.contacts-item:first-child .contacts-item__link {
+    text-decoration: underline;
+}
+
+.contacts-item__img {
+    width: 12rem;
+}
+
+.contacts-item__link {
+    font-weight: 700;
+    font-size: 2.6rem;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
 }
 
 .footer {

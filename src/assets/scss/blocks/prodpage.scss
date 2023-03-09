@@ -56,10 +56,6 @@
 .prodpage-options_links {
   display: grid;
   gap: 2.4rem;
-
-  @include breakpoint($lg-bp) {
-    margin-bottom: 5rem;
-  }
 }
 .prodpage-option {
   text-decoration: underline;
@@ -76,7 +72,7 @@
 
   @include breakpoint($lg-bp) {
     position: absolute;
-    top: 24rem;
+    top: 39rem;
     left: -13rem;
 
     max-width: 40rem;
@@ -228,6 +224,47 @@
     }
     tr:last-child td:first-child {
       border-bottom-left-radius: 1rem;
+    }
+  }
+}
+
+.prodpage-options__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  height: 55rem;
+
+  @include breakpoint($lg-bp) {
+    width: 100%;
+
+    justify-content: flex-start;
+    gap: 4rem;
+
+    height: unset;
+
+    margin-bottom: 10rem;
+  }
+
+  .filled-btn {
+    max-width: 100%;
+
+    justify-content: center;
+
+    text-decoration: none;
+    color: $primary;
+
+    background: #ebdbf2;
+    border-color: #ebdbf2;
+
+    &:hover {
+      color: white;
+
+      background: $secondary;
+      background-color: $secondary;
     }
   }
 }
