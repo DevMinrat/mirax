@@ -1,9 +1,10 @@
 .useful {
-  padding-top: 6.3rem;
-  padding-bottom: 3.6rem;
+  padding-top: 5.3rem;
+  padding-bottom: 3rem;
 
   background: url(../images/useful/useful-bg.png) no-repeat;
   background-size: cover;
+  background-position: top -3rem center;
 
   @include breakpoint($lg-bp) {
     padding: 8.6rem 0 17rem;
@@ -14,7 +15,7 @@
   }
 
   .breadcrumb-wrapper {
-    margin-bottom: 4rem;
+    margin-bottom: 3.4rem;
 
     @include breakpoint($lg-bp) {
       margin-bottom: 10rem;
@@ -31,8 +32,6 @@
   justify-content: space-between;
   gap: 10rem;
 
-  margin-bottom: 3rem;
-
   @include breakpoint($lg-bp) {
     flex-direction: column;
     gap: 20rem;
@@ -40,14 +39,14 @@
 }
 .useful-item {
   width: 100%;
-  max-width: 59rem;
+  max-width: 60.6rem;
 
   display: flex;
   align-items: flex-start;
   gap: 8.6rem;
 
   @include breakpoint($lg-bp) {
-    gap: 0;
+    gap: 2rem;
   }
 }
 .useful-item__img {
@@ -60,7 +59,7 @@
   max-height: 19.6rem;
   overflow: hidden;
 
-  margin-bottom: 1rem;
+  margin-bottom: 0.4rem;
 
   @include breakpoint($lg-bp) {
     overflow: visible;

@@ -4,6 +4,7 @@
   padding-top: 5.5rem;
 
   text-align: left;
+  line-height: 1.18;
 
   @include breakpoint($lg-bp) {
     padding-top: 6.3rem;
@@ -139,7 +140,7 @@
   .about-benefits__item-header {
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    gap: 3rem;
 
     margin-bottom: 0.5rem;
 

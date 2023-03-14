@@ -12,8 +12,6 @@
   font-weight: 300;
   text-transform: uppercase;
   color: white;
-
-  margin-bottom: 2.4rem;
 }
 .contacts-address {
   font-size: 2.6rem;
@@ -39,7 +37,7 @@
 
   background: url(../images/contacts/contacts-bg.png) no-repeat;
   background-size: 100% 81.4rem;
-  background-position: bottom -6rem center;
+  background-position: bottom -5rem center;
 
   @include breakpoint($lg-bp) {
     padding-bottom: 10rem;
@@ -51,6 +49,7 @@
 
   .filled-btn {
     margin-left: auto;
+    padding: 1.1rem 5.5rem;
 
     @include breakpoint($lg-bp) {
       width: 100%;
@@ -68,7 +67,7 @@
   text-transform: uppercase;
   color: $secondary;
 
-  margin-bottom: 6rem;
+  margin-bottom: 9rem;
 }
 
 .contacts-form__inner {
@@ -117,7 +116,7 @@
 .contacts-info__inner {
   display: flex;
   align-items: center;
-  gap: 34rem;
+  gap: 38rem;
 
   @include breakpoint($lg-bp) {
     flex-direction: column;
@@ -132,6 +131,7 @@
 
   &:first-child .contacts-item__link {
     text-decoration: underline;
+    text-transform: none;
   }
 }
 .contacts-item__img {

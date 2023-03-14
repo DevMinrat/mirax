@@ -1,10 +1,11 @@
 .main-about {
   position: relative;
 
-  padding-bottom: 4rem;
+  padding-bottom: 5rem;
 
   background: url(../images/main-about/main-about-bg.png) no-repeat;
   background-size: cover;
+  background-position: top -5rem center;
 
   @include breakpoint($lg-bp) {
     background: none;
@@ -27,7 +28,7 @@
   }
 
   .container {
-    max-width: 156rem;
+    max-width: 171rem;
   }
 }
 .main-about__inner {
@@ -36,6 +37,12 @@
   justify-content: space-between;
   gap: 5rem;
 
+  margin-left: 15rem;
+
+  @include breakpoint($xl-bp) {
+    margin-left: 0;
+  }
+
   @include breakpoint($lg-bp) {
     flex-direction: column;
   }
@@ -43,7 +50,9 @@
 
 .main-about__content {
   width: 100%;
-  max-width: 51.6rem;
+  max-width: 55rem;
+
+  margin-top: 3rem;
 }
 .main-about__title {
   font-size: 6rem;
@@ -52,7 +61,7 @@
   letter-spacing: 0.01em;
   text-transform: uppercase;
 
-  margin-bottom: 3rem;
+  margin-bottom: 2.7rem;
 }
 .main-about__descr {
   margin-bottom: 2rem;

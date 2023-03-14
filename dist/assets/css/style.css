@@ -4099,12 +4099,6 @@ button::placeholder {
     gap: 2.4rem;
 }
 
-@media (max-width: 920px) {
-    .prodpage-options_links {
-        margin-bottom: 5rem;
-    }
-}
-
 .prodpage-option {
     text-decoration: underline;
 }
@@ -4122,7 +4116,7 @@ button::placeholder {
 @media (max-width: 920px) {
     .prodpage-img {
         position: absolute;
-        top: 24rem;
+        top: 39rem;
         left: -13rem;
         max-width: 40rem;
         margin: 0;
@@ -4283,6 +4277,46 @@ button::placeholder {
 
 .prodpage-table table tr:last-child td:first-child {
     border-bottom-left-radius: 1rem;
+}
+
+.prodpage-options__wrapper {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 5rem;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    height: 55rem;
+}
+
+@media (max-width: 920px) {
+    .prodpage-options__wrapper {
+        width: 100%;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        gap: 4rem;
+        height: unset;
+        margin-bottom: 10rem;
+    }
+}
+
+.prodpage-options__wrapper .filled-btn {
+    max-width: 100%;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #111c4e;
+    background: #ebdbf2;
+    border-color: #ebdbf2;
+}
+
+.prodpage-options__wrapper .filled-btn:hover {
+    color: white;
+    background: #7711ab;
+    background-color: #7711ab;
 }
 
 .intro--contacts {

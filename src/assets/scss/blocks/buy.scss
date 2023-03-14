@@ -3,7 +3,7 @@
 
   background: url(../images/buy/buy-bg.png) no-repeat;
   background-size: 100% 41.1rem;
-  background-position: top 30rem center;
+  background-position: top 23rem center;
 
   @include breakpoint($lg-bp) {
     padding-top: 6rem;
@@ -50,7 +50,7 @@
   align-items: center;
   justify-content: space-between;
 
-  margin-bottom: 12rem;
+  margin-bottom: 10rem;
 
   @include breakpoint($lg-bp) {
     flex-direction: column;
@@ -67,7 +67,7 @@
   flex-wrap: wrap;
   gap: 5rem 6rem;
 
-  margin-bottom: 20rem;
+  margin-bottom: 13rem;
 
   @include breakpoint($lg-bp) {
     gap: 2rem;

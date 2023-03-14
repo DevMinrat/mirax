@@ -30,11 +30,11 @@
 }
 
 .header__logo {
+  margin-right: 6.2rem;
+
   img {
     width: 100%;
     max-width: 26.1rem;
-
-    margin-right: 3.5rem;
   }
 }
 
@@ -48,6 +48,8 @@
 }
 
 .menu {
+  margin-bottom: 2rem;
+  
   transition: all 0.2s linear;
 
   @include breakpoint($lg-bp) {
@@ -81,7 +83,7 @@
   gap: 2.5rem;
 
   @include breakpoint($xl-bp) {
-    gap: 2rem;
+    gap: 1.8rem;
   }
 
   @include breakpoint($lg-bp) {

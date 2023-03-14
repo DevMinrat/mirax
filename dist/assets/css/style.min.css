@@ -792,10 +792,12 @@ button::placeholder {
   background: #111c4e;
 }
 
+.header__logo {
+  margin-right: 6.2rem;
+}
 .header__logo img {
   width: 100%;
   max-width: 26.1rem;
-  margin-right: 3.5rem;
 }
 
 .header__inner {
@@ -809,6 +811,7 @@ button::placeholder {
 }
 
 .menu {
+  margin-bottom: 2rem;
   transition: all 0.2s linear;
 }
 @media (max-width: 920px) {
@@ -838,7 +841,7 @@ button::placeholder {
 }
 @media (max-width: 1024px) {
   .menu__nav-list {
-    gap: 2rem;
+    gap: 1.8rem;
   }
 }
 @media (max-width: 920px) {
@@ -1290,7 +1293,7 @@ button::placeholder {
 .prod-category::after {
   content: "";
   position: absolute;
-  bottom: 9rem;
+  bottom: 6.2rem;
   right: 0;
   width: 28.2rem;
   height: 24.6rem;
@@ -1322,7 +1325,7 @@ button::placeholder {
 .prod-category-slider {
   position: relative;
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .prod-category-slider .swiper-wrapper {
   justify-content: space-between;
@@ -1336,6 +1339,12 @@ button::placeholder {
 .prod-category__item-wrapper {
   width: 100%;
   max-width: 40rem;
+}
+.prod-category__item-wrapper .products__item-category {
+  line-height: 1;
+}
+.prod-category__item-wrapper:nth-child(2) .products__item-category {
+  max-width: 25rem;
 }
 @media (max-width: 920px) {
   .prod-category__item-wrapper {
@@ -1426,7 +1435,7 @@ button::placeholder {
 
 .benefits__inner {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
@@ -1442,6 +1451,9 @@ button::placeholder {
   display: flex;
   align-items: flex-start;
   gap: 3rem;
+}
+.benefits__item:nth-child(2) .benefits__item-title {
+  margin-bottom: 5rem;
 }
 @media (max-width: 920px) {
   .benefits__item {
@@ -1476,7 +1488,7 @@ button::placeholder {
   font-weight: 700;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  margin-bottom: 2.3rem;
+  margin-bottom: 1.8rem;
 }
 @media (max-width: 920px) {
   .benefits__item-title {
@@ -1486,9 +1498,10 @@ button::placeholder {
 
 .main-about {
   position: relative;
-  padding-bottom: 4rem;
+  padding-bottom: 5rem;
   background: url(../images/main-about/main-about-bg.png) no-repeat;
   background-size: cover;
+  background-position: top -5rem center;
 }
 @media (max-width: 920px) {
   .main-about {
@@ -1508,7 +1521,7 @@ button::placeholder {
   }
 }
 .main-about .container {
-  max-width: 156rem;
+  max-width: 171rem;
 }
 
 .main-about__inner {
@@ -1516,6 +1529,12 @@ button::placeholder {
   align-items: center;
   justify-content: space-between;
   gap: 5rem;
+  margin-left: 15rem;
+}
+@media (max-width: 1024px) {
+  .main-about__inner {
+    margin-left: 0;
+  }
 }
 @media (max-width: 920px) {
   .main-about__inner {
@@ -1525,7 +1544,8 @@ button::placeholder {
 
 .main-about__content {
   width: 100%;
-  max-width: 51.6rem;
+  max-width: 55rem;
+  margin-top: 3rem;
 }
 
 .main-about__title {
@@ -1534,7 +1554,7 @@ button::placeholder {
   color: #7711ab;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  margin-bottom: 3rem;
+  margin-bottom: 2.7rem;
 }
 
 .main-about__descr {
@@ -1553,10 +1573,11 @@ button::placeholder {
 }
 
 .useful {
-  padding-top: 6.3rem;
-  padding-bottom: 3.6rem;
+  padding-top: 5.3rem;
+  padding-bottom: 3rem;
   background: url(../images/useful/useful-bg.png) no-repeat;
   background-size: cover;
+  background-position: top -3rem center;
 }
 @media (max-width: 920px) {
   .useful {
@@ -1567,7 +1588,7 @@ button::placeholder {
   }
 }
 .useful .breadcrumb-wrapper {
-  margin-bottom: 4rem;
+  margin-bottom: 3.4rem;
 }
 @media (max-width: 920px) {
   .useful .breadcrumb-wrapper {
@@ -1582,7 +1603,6 @@ button::placeholder {
   display: flex;
   justify-content: space-between;
   gap: 10rem;
-  margin-bottom: 3rem;
 }
 @media (max-width: 920px) {
   .useful__inner {
@@ -1593,14 +1613,14 @@ button::placeholder {
 
 .useful-item {
   width: 100%;
-  max-width: 59rem;
+  max-width: 60.6rem;
   display: flex;
   align-items: flex-start;
   gap: 8.6rem;
 }
 @media (max-width: 920px) {
   .useful-item {
-    gap: 0;
+    gap: 2rem;
   }
 }
 
@@ -1613,7 +1633,7 @@ button::placeholder {
 .useful-item__content {
   max-height: 19.6rem;
   overflow: hidden;
-  margin-bottom: 1rem;
+  margin-bottom: 0.4rem;
 }
 @media (max-width: 920px) {
   .useful-item__content {
@@ -1662,9 +1682,6 @@ button::placeholder {
   }
 }
 
-.article .breadcrumb-wrapper {
-  margin-bottom: 2rem;
-}
 .article .article__inner {
   text-align: left;
 }
@@ -1889,6 +1906,7 @@ button::placeholder {
   position: relative;
   padding-top: 5.5rem;
   text-align: left;
+  line-height: 1.18;
 }
 @media (max-width: 920px) {
   .about {
@@ -2015,7 +2033,7 @@ button::placeholder {
 .about .about-benefits__item-header {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 3rem;
   margin-bottom: 0.5rem;
 }
 @media (max-width: 920px) {
@@ -2124,8 +2142,8 @@ button::placeholder {
 .values__item-header {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
-  margin-bottom: 0.4rem;
+  gap: 3.5rem;
+  margin-bottom: 1.3rem;
 }
 @media (max-width: 920px) {
   .values__item-header {
@@ -2145,8 +2163,10 @@ button::placeholder {
 .values__item-name {
   font-weight: 700;
   font-size: 2.6rem;
+  line-height: 1;
   letter-spacing: 0.01em;
   text-transform: uppercase;
+  margin-top: 2rem;
 }
 @media (max-width: 920px) {
   .values__item-name {
@@ -2160,7 +2180,7 @@ button::placeholder {
 }
 
 .products {
-  padding: 4rem 0;
+  padding: 4rem 0 5rem;
   background: url(../images/products/products-bg.png) no-repeat;
   background-size: 192rem 125.4rem;
   background-position: top 10rem center;
@@ -2173,7 +2193,10 @@ button::placeholder {
   }
 }
 .products .breadcrumb-wrapper {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
+}
+.products .page-title {
+  margin-bottom: 8.5rem;
 }
 @media (max-width: 920px) {
   .products .page-title {
@@ -2188,7 +2211,7 @@ button::placeholder {
 }
 .products .products__item-img {
   margin-top: -3rem;
-  margin-left: -13rem;
+  margin-left: -9rem;
   margin-right: -8rem;
 }
 .products .products__item-name {
@@ -2208,8 +2231,8 @@ button::placeholder {
 .products__inner {
   display: flex;
   flex-wrap: wrap;
-  gap: 7rem 6rem;
-  padding-bottom: 6rem;
+  gap: 21.5rem 6rem;
+  padding-bottom: 15rem;
 }
 @media (max-width: 920px) {
   .products__inner {
@@ -2254,7 +2277,6 @@ button::placeholder {
 .products__item-img {
   width: 100%;
   max-width: 40rem;
-  margin-bottom: -2rem;
 }
 
 .products__item-name {
@@ -3228,6 +3250,14 @@ button::placeholder {
 .selection .breadcrumb-wrapper {
   margin-bottom: 3rem;
 }
+.selection .page-title {
+  margin-bottom: 9rem;
+}
+@media (max-width: 920px) {
+  .selection .page-title {
+    margin-bottom: 4rem;
+  }
+}
 @media (max-width: 920px) {
   .selection {
     padding-top: 8rem;
@@ -3266,9 +3296,17 @@ button::placeholder {
     display: none;
   }
 }
+.selection .prod-category .prod-category__inner {
+  margin-bottom: 10rem;
+}
+@media (max-width: 920px) {
+  .selection .prod-category .prod-category__inner {
+    margin-bottom: 0;
+  }
+}
 
 .selection__filter {
-  margin-bottom: 21rem;
+  margin-bottom: 16rem;
 }
 @media (max-width: 920px) {
   .selection__filter {
@@ -3286,7 +3324,7 @@ button::placeholder {
 }
 .selection__filter .filled-btn {
   height: 5.6rem;
-  padding: 1.1rem 4.6rem;
+  padding: 1.1rem 6rem;
 }
 @media (max-width: 920px) {
   .selection__filter .filled-btn {
@@ -3314,7 +3352,7 @@ button::placeholder {
   padding: 9.6rem 0 5.6rem;
   background: url(../images/buy/buy-bg.png) no-repeat;
   background-size: 100% 41.1rem;
-  background-position: top 30rem center;
+  background-position: top 23rem center;
 }
 @media (max-width: 920px) {
   .buy-online {
@@ -3361,7 +3399,7 @@ button::placeholder {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12rem;
+  margin-bottom: 10rem;
 }
 @media (max-width: 920px) {
   .buy-online__header,
@@ -3378,7 +3416,7 @@ button::placeholder {
   justify-content: center;
   flex-wrap: wrap;
   gap: 5rem 6rem;
-  margin-bottom: 20rem;
+  margin-bottom: 13rem;
 }
 @media (max-width: 920px) {
   .buy-online__content {
@@ -3421,7 +3459,7 @@ button::placeholder {
   padding: 18rem 0 10rem;
   background: url(../images/prodp/prodp-bg.png) no-repeat;
   background-size: 100% 48.7rem;
-  background-position: top 100rem center;
+  background-position: top 102rem center;
 }
 @media (max-width: 920px) {
   .prodpage {
@@ -3458,6 +3496,7 @@ button::placeholder {
   position: relative;
   display: flex;
   align-items: flex-start;
+  margin-bottom: 3rem;
 }
 @media (max-width: 920px) {
   .prodpage__inner {
@@ -3481,7 +3520,7 @@ button::placeholder {
 .prodpage-img {
   width: 100%;
   max-width: 100rem;
-  margin: -11rem 0rem 0rem -8rem;
+  margin: -10rem 0rem 0rem -19rem;
 }
 @media (max-width: 920px) {
   .prodpage-img {
@@ -3554,7 +3593,8 @@ button::placeholder {
 }
 
 .prodpage-descr {
-  margin-bottom: 7rem;
+  max-width: 115rem;
+  margin-bottom: 4.5rem;
 }
 @media (max-width: 920px) {
   .prodpage-descr {
@@ -3631,7 +3671,7 @@ button::placeholder {
   gap: 5rem;
   align-items: flex-start;
   justify-content: space-between;
-  height: 55rem;
+  height: 58rem;
 }
 @media (max-width: 920px) {
   .prodpage-options__wrapper {
@@ -3668,7 +3708,6 @@ button::placeholder {
   font-weight: 300;
   text-transform: uppercase;
   color: white;
-  margin-bottom: 2.4rem;
 }
 
 .contacts-address {
@@ -3692,7 +3731,7 @@ button::placeholder {
   padding-bottom: 9.7rem;
   background: url(../images/contacts/contacts-bg.png) no-repeat;
   background-size: 100% 81.4rem;
-  background-position: bottom -6rem center;
+  background-position: bottom -5rem center;
 }
 @media (max-width: 920px) {
   .contacts-form {
@@ -3704,6 +3743,7 @@ button::placeholder {
 }
 .contacts-form .filled-btn {
   margin-left: auto;
+  padding: 1.1rem 5.5rem;
 }
 @media (max-width: 920px) {
   .contacts-form .filled-btn {
@@ -3719,7 +3759,7 @@ button::placeholder {
   line-height: 1;
   text-transform: uppercase;
   color: #7711ab;
-  margin-bottom: 6rem;
+  margin-bottom: 9rem;
 }
 
 .contacts-form__inner {
@@ -3767,7 +3807,7 @@ button::placeholder {
 .contacts-info__inner {
   display: flex;
   align-items: center;
-  gap: 34rem;
+  gap: 38rem;
 }
 @media (max-width: 920px) {
   .contacts-info__inner {
@@ -3784,6 +3824,7 @@ button::placeholder {
 }
 .contacts-item:first-child .contacts-item__link {
   text-decoration: underline;
+  text-transform: none;
 }
 
 .contacts-item__img {
@@ -3838,83 +3879,83 @@ button::placeholder {
 }
 
 .mb1 {
-  margin-bottom: 1rem;
+  margin-bottom: 1rem !important;
 }
 
 .mb2 {
-  margin-bottom: 2rem;
+  margin-bottom: 2rem !important;
 }
 
 .mb3 {
-  margin-bottom: 3rem;
+  margin-bottom: 3rem !important;
 }
 
 .mb4 {
-  margin-bottom: 4rem;
+  margin-bottom: 4rem !important;
 }
 
 .mb5 {
-  margin-bottom: 5rem;
+  margin-bottom: 5rem !important;
 }
 
 .mb6 {
-  margin-bottom: 6rem;
+  margin-bottom: 6rem !important;
 }
 
 .mb7 {
-  margin-bottom: 7rem;
+  margin-bottom: 7rem !important;
 }
 
 .mb8 {
-  margin-bottom: 8rem;
+  margin-bottom: 8rem !important;
 }
 
 .mb9 {
-  margin-bottom: 9rem;
+  margin-bottom: 9rem !important;
 }
 
 .mb10 {
-  margin-bottom: 10rem;
+  margin-bottom: 10rem !important;
 }
 
 .mb11 {
-  margin-bottom: 11rem;
+  margin-bottom: 11rem !important;
 }
 
 .mb12 {
-  margin-bottom: 12rem;
+  margin-bottom: 12rem !important;
 }
 
 .mb13 {
-  margin-bottom: 13rem;
+  margin-bottom: 13rem !important;
 }
 
 .mb14 {
-  margin-bottom: 14rem;
+  margin-bottom: 14rem !important;
 }
 
 .mb15 {
-  margin-bottom: 15rem;
+  margin-bottom: 15rem !important;
 }
 
 .mb16 {
-  margin-bottom: 16rem;
+  margin-bottom: 16rem !important;
 }
 
 .mb17 {
-  margin-bottom: 17rem;
+  margin-bottom: 17rem !important;
 }
 
 .mb18 {
-  margin-bottom: 18rem;
+  margin-bottom: 18rem !important;
 }
 
 .mb19 {
-  margin-bottom: 19rem;
+  margin-bottom: 19rem !important;
 }
 
 .mb20 {
-  margin-bottom: 20rem;
+  margin-bottom: 20rem !important;
 }
 
 .hide {

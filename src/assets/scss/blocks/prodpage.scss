@@ -3,7 +3,7 @@
 
   background: url(../images/prodp/prodp-bg.png) no-repeat;
   background-size: 100% 48.7rem;
-  background-position: top 100rem center;
+  background-position: top 102rem center;
 
   @include breakpoint($lg-bp) {
     padding-bottom: 6rem;
@@ -47,6 +47,8 @@
   display: flex;
   align-items: flex-start;
 
+  margin-bottom: 3rem;
+
   @include breakpoint($lg-bp) {
     flex-direction: column;
 
@@ -68,7 +70,7 @@
   width: 100%;
   max-width: 100rem;
 
-  margin: -11rem 0rem 0rem -8rem;
+  margin: -10rem 0rem 0rem -19rem;
 
   @include breakpoint($lg-bp) {
     position: absolute;
@@ -150,7 +152,9 @@
 }
 
 .prodpage-descr {
-  margin-bottom: 7rem;
+  max-width: 115rem;
+
+  margin-bottom: 4.5rem;
 
   @include breakpoint($lg-bp) {
     text-align: left;
@@ -236,7 +240,7 @@
   align-items: flex-start;
   justify-content: space-between;
 
-  height: 55rem;
+  height: 58rem;
 
   @include breakpoint($lg-bp) {
     width: 100%;

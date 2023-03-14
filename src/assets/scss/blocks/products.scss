@@ -1,5 +1,5 @@
 .products {
-  padding: 4rem 0;
+  padding: 4rem 0 5rem;
 
   background: url(../images/products/products-bg.png) no-repeat;
   background-size: 192rem 125.4rem;
@@ -12,10 +12,12 @@
   }
 
   .breadcrumb-wrapper {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
 
   .page-title {
+    margin-bottom: 8.5rem;
+
     @include breakpoint($lg-bp) {
       margin-bottom: 7rem;
     }
@@ -29,7 +31,7 @@
   }
   .products__item-img {
     margin-top: -3rem;
-    margin-left: -13rem;
+    margin-left: -9rem;
     margin-right: -8rem;
   }
   .products__item-name {
@@ -45,15 +47,14 @@
       font-weight: 400;
     }
   }
-  
 }
 
 .products__inner {
   display: flex;
   flex-wrap: wrap;
-  gap: 7rem 6rem;
+  gap: 21.5rem 6rem;
 
-  padding-bottom: 6rem;
+  padding-bottom: 15rem;
 
   @include breakpoint($lg-bp) {
     justify-content: center;
@@ -96,8 +97,6 @@
 .products__item-img {
   width: 100%;
   max-width: 40rem;
-
-  margin-bottom: -2rem;
 }
 .products__item-name {
   width: 100%;
