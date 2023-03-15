@@ -31,6 +31,20 @@
             </g>
         </symbol>
     
+        <symbol id="circle-cross" viewBox="0 0 26 26">
+            <g>
+                <line x1="7.29289" y1="18.5927" x2="18.4752" y2="7.41038" stroke="#FF0000" stroke-width="2" />
+                <line x1="18.4753" y1="18.8897" x2="7.29295" y2="7.70741" stroke="#FF0000" stroke-width="2" />
+                <circle cx="13" cy="13" r="12" stroke="#FF0000" stroke-width="2" />
+            </g>
+        </symbol>
+        <symbol id="circle-check" viewBox="0 0 26 26">
+            <g>
+                <path d="M6 11.5L10.5 19L19 7" stroke="#00A907" stroke-width="2" stroke-linejoin="round" />
+                <circle cx="13" cy="13" r="12" stroke="#00A907" stroke-width="2" />
+            </g>
+        </symbol>
+    
     </svg>
     <div class="page">
 
@@ -107,7 +121,7 @@
                     <div class="buy-online__header">
                         <h1 class="page-title">купить онлайн</h1>
                         <form class="selection__filter">
-                            <select class="custom-select">
+                            <select class="nice-select">
                                 <option value="" hidden>Поиск по названию</option>
                                 <option value="1">Поле 1</option>
                                 <option value="2">Поле 2</option>
@@ -142,20 +156,24 @@
                     <div class="buy-offline__header">
                         <h2 class="page-title">купить оффлайн</h2>
                         <form class="selection__filter">
-                            <select class="custom-select">
-                                <option value="" hidden>Регион</option>
-                                <option value="1">Поле 1</option>
-                                <option value="2">Поле 2</option>
-                                <option value="3">Поле 3</option>
-                                <option value="4">Поле 4</option>
-                            </select>
-                            <select class="custom-select">
-                                <option value="" hidden>Город</option>
-                                <option value="1">Поле 1</option>
-                                <option value="2">Поле 2</option>
-                                <option value="3">Поле 3</option>
-                                <option value="4">Поле 4</option>
-                            </select>
+                            <div>
+                                <select class="nice-select">
+                                    <option value="" hidden>Регион</option>
+                                    <option value="1">Поле 1</option>
+                                    <option value="2">Поле 2</option>
+                                    <option value="3">Поле 3</option>
+                                    <option value="4">Поле 4</option>
+                                </select>
+                            </div>
+                            <div>
+                                <select class="nice-select">
+                                    <option value="" hidden>Город</option>
+                                    <option value="1">Поле 1</option>
+                                    <option value="2">Поле 2</option>
+                                    <option value="3">Поле 3</option>
+                                    <option value="4">Поле 4</option>
+                                </select>
+                            </div>
                             <button class="filled-btn">Найти</button>
                         </form>
                     </div>
@@ -180,6 +198,8 @@
     </div>
 
     <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="assets/js/app.js"></script>
 </body>
 

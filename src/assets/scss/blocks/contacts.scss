@@ -33,7 +33,7 @@
 }
 
 .contacts-form {
-  padding-bottom: 9.7rem;
+  padding-bottom: 5.8rem;
 
   background: url(../images/contacts/contacts-bg.png) no-repeat;
   background-size: 100% 81.4rem;
@@ -43,8 +43,8 @@
     padding-bottom: 10rem;
 
     background: url(../images/contacts/contacts-bg-mob.png) no-repeat;
-    background-size: 100% 84.1rem;
-    background-position: bottom -5rem center;
+    background-size: 100% 85.8rem;
+    background-position: top 37rem center;
   }
 
   .filled-btn {
@@ -58,6 +58,10 @@
       justify-content: center;
     }
   }
+
+  .custom-input.error {
+    border-color: #ff0000;
+  }
 }
 
 .contacts-form__title {
@@ -68,6 +72,10 @@
   color: $secondary;
 
   margin-bottom: 9rem;
+
+  @include breakpoint($lg-bp) {
+    margin-bottom: 5rem;
+  }
 }
 
 .contacts-form__inner {
@@ -112,6 +120,10 @@
 
 .contacts-info {
   padding: 4.5rem 0 6.5rem;
+
+  @include breakpoint($lg-bp) {
+    padding-bottom: 11.4rem;
+  }
 }
 .contacts-info__inner {
   display: flex;
@@ -121,13 +133,19 @@
   @include breakpoint($lg-bp) {
     flex-direction: column;
     gap: 4rem;
-    align-items: flex-start;
+    align-items: center;
   }
 }
 .contacts-item {
   display: flex;
   align-items: center;
   gap: 2.5rem;
+
+  @include breakpoint($lg-bp) {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
 
   &:first-child .contacts-item__link {
     text-decoration: underline;
@@ -143,4 +161,43 @@
   line-height: 1;
   letter-spacing: 0.01em;
   text-transform: uppercase;
+}
+
+.form-error,
+.form-success {
+  display: none;
+
+  align-items: center;
+  gap: 1rem;
+
+  font-size: 2.2rem;
+
+  margin-bottom: 1.5rem;
+
+  &.visible {
+    display: flex;
+  }
+
+  svg {
+    width: 2.6rem;
+    height: 2.6rem;
+
+    fill: none;
+  }
+}
+
+.form-error {
+  color: #ff0000;
+}
+
+.form-success {
+  color: #00a907;
+}
+
+.contacts-form__note {
+  letter-spacing: 0.01em;
+  color: #111c4e;
+  opacity: 0.3;
+
+  margin-top: 1.8rem;
 }

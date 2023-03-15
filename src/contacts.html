@@ -34,7 +34,18 @@ title: НАША МИССИЯ
 
     <div class="container">
         <h2 class="contacts-form__title">Обратная связь</h2>
-
+        <p class="form-error">
+            <svg>
+                <use href="#circle-cross"></use>
+            </svg>
+            Ошибка отправки сообщения
+        </p>
+        <p class="form-success">
+            <svg>
+                <use href="#circle-check"></use>
+            </svg>
+            Сообщение отправлено
+        </p>
         <div class="contacts-form__inner">
             <div class="contacts-form__col">
                 <input class="custom-input" type="text" placeholder="Имя">
@@ -47,6 +58,8 @@ title: НАША МИССИЯ
             </div>
         </div>
 
-        <button class="filled-btn">Отправить</button>
+        <button class="contacts-form__submit-btn filled-btn">Отправить</button>
+
+        <p class="contacts-form__note">Sintec Group - эксклюзивный партнер MIRAX по развитию бренда в РФ и СНГ</p>
     </div>
 </form>
