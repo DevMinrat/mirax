@@ -2521,43 +2521,43 @@ button::placeholder {
   }
 }
 
-.engine {
-  padding: 6rem 0 8rem;
-  background: url(../images/engine/engine-bg.png) no-repeat;
-  background-size: 100% 93rem;
+.pao {
+  padding: 23rem 0 19rem;
+  background: url(../images/pao/pao-bg.png) no-repeat;
+  background-size: 100% 53rem;
 }
 @media (max-width: 920px) {
-  .engine {
+  .pao {
     height: 173rem;
-    background: url(../images/engine/engine-bg-mob.png) no-repeat;
+    background: url(../images/pao/pao-bg-mob.png) no-repeat;
     background-size: 100% 180rem;
     background-position: top -3rem center;
   }
-  .engine .container,
-.engine .engine__inner {
+  .pao .container,
+.pao .pao__inner {
     height: 100%;
   }
 }
 
-.engine__inner {
+.pao__inner {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.engine-img {
+.pao-img {
   width: 100%;
-  max-width: 130rem;
+  max-width: 75rem;
 }
 @media (max-width: 920px) {
-  .engine-img {
+  .pao-img {
     width: 150%;
     max-width: unset;
   }
 }
 
-.engine-circle {
+.pao-circle {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -2567,25 +2567,25 @@ button::placeholder {
   pointer-events: none;
 }
 @media (max-width: 920px) {
-  .engine-circle {
+  .pao-circle {
     width: 70rem;
   }
 }
 
-.engine-item {
+.pao-item {
   position: absolute;
   z-index: 2;
 }
-.engine-item:nth-of-type(1) {
-  left: 20rem;
-  top: 10rem;
+.pao-item:nth-of-type(1) {
+  left: 21rem;
+  top: -4rem;
 }
 @media (max-width: 920px) {
-  .engine-item:nth-of-type(1) {
+  .pao-item:nth-of-type(1) {
     left: -3rem;
     top: 40rem;
   }
-  .engine-item:nth-of-type(1)::before {
+  .pao-item:nth-of-type(1)::before {
     content: "";
     position: absolute;
     top: -146%;
@@ -2596,10 +2596,10 @@ button::placeholder {
     background: #7711ab;
   }
 }
-.engine-item:nth-of-type(1)::after {
+.pao-item:nth-of-type(1)::after {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 55%;
   right: 90%;
   z-index: 1;
   transform: translateY(-50%);
@@ -2608,36 +2608,36 @@ button::placeholder {
   background: #7711ab;
 }
 @media (max-width: 920px) {
-  .engine-item:nth-of-type(1)::after {
+  .pao-item:nth-of-type(1)::after {
     height: 33.3rem;
     width: 0.3rem;
     top: -53%;
     left: 20%;
   }
 }
-.engine-item:nth-of-type(1) .engine-item__content {
+.pao-item:nth-of-type(1) .pao-item__content {
   left: -21rem;
-  top: 3.5rem;
+  top: 1.5rem;
   max-width: 20rem;
 }
 @media (max-width: 920px) {
-  .engine-item:nth-of-type(1) .engine-item__content {
+  .pao-item:nth-of-type(1) .pao-item__content {
     left: 5rem;
     top: -34rem;
     width: 25rem;
     max-width: 25rem;
   }
 }
-.engine-item:nth-of-type(2) {
-  right: 22rem;
-  top: 10rem;
+.pao-item:nth-of-type(2) {
+  right: 23rem;
+  top: -3rem;
 }
 @media (max-width: 920px) {
-  .engine-item:nth-of-type(2) {
+  .pao-item:nth-of-type(2) {
     right: 0;
     top: 40rem;
   }
-  .engine-item:nth-of-type(2)::before {
+  .pao-item:nth-of-type(2)::before {
     content: "";
     position: absolute;
     top: -113%;
@@ -2648,7 +2648,7 @@ button::placeholder {
     background: #7711ab;
   }
 }
-.engine-item:nth-of-type(2)::after {
+.pao-item:nth-of-type(2)::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -2660,90 +2660,90 @@ button::placeholder {
   background: #7711ab;
 }
 @media (max-width: 920px) {
-  .engine-item:nth-of-type(2)::after {
+  .pao-item:nth-of-type(2)::after {
     height: 33.3rem;
     width: 0.3rem;
     top: -20%;
     left: 20%;
   }
 }
-.engine-item:nth-of-type(2) .engine-item__content {
-  right: -21rem;
-  top: 3.5rem;
+.pao-item:nth-of-type(2) .pao-item__content {
+  right: -16.6rem;
+  top: -2.5rem;
   max-width: 15rem;
 }
 @media (max-width: 920px) {
-  .engine-item:nth-of-type(2) .engine-item__content {
+  .pao-item:nth-of-type(2) .pao-item__content {
     right: -2rem;
     top: -28rem;
   }
 }
-.engine-item:nth-of-type(3) {
-  right: 17rem;
-  bottom: 21rem;
+.pao-item:nth-of-type(3) {
+  right: 15rem;
+  bottom: 10rem;
 }
 @media (max-width: 920px) {
-  .engine-item:nth-of-type(3) {
+  .pao-item:nth-of-type(3) {
     right: 3rem;
     bottom: 40rem;
   }
 }
-.engine-item:nth-of-type(3)::after {
+.pao-item:nth-of-type(3)::after {
   content: "";
   position: absolute;
   top: 90%;
-  left: 50%;
+  left: 47%;
   z-index: 1;
   transform: translateX(-50%);
   width: 0.3rem;
-  height: 15rem;
+  height: 9rem;
   background: #7711ab;
 }
 @media (max-width: 920px) {
-  .engine-item:nth-of-type(3)::after {
+  .pao-item:nth-of-type(3)::after {
     left: 21%;
     height: 23rem;
   }
 }
-.engine-item:nth-of-type(3)::before {
+.pao-item:nth-of-type(3)::before {
   content: "";
   position: absolute;
-  top: 164%;
-  left: 49.6%;
+  top: 134%;
+  left: 46%;
   z-index: 1;
   width: 27rem;
   height: 0.3rem;
   background: #7711ab;
 }
 @media (max-width: 920px) {
-  .engine-item:nth-of-type(3)::before {
+  .pao-item:nth-of-type(3)::before {
     top: 216%;
     left: 21%;
     width: 12rem;
   }
 }
-.engine-item:nth-of-type(3) .engine-item__content {
-  right: -15rem;
+.pao-item:nth-of-type(3) .pao-item__content {
+  right: -14rem;
   top: 21rem;
   max-width: 20rem;
 }
 @media (max-width: 920px) {
-  .engine-item:nth-of-type(3) .engine-item__content {
+  .pao-item:nth-of-type(3) .pao-item__content {
     right: -7rem;
     top: 22rem;
   }
 }
-.engine-item:nth-of-type(4) {
+.pao-item:nth-of-type(4) {
   left: 15rem;
-  bottom: 21rem;
+  bottom: 10rem;
 }
 @media (max-width: 920px) {
-  .engine-item:nth-of-type(4) {
+  .pao-item:nth-of-type(4) {
     left: -3rem;
     bottom: 40rem;
   }
 }
-.engine-item:nth-of-type(4)::after {
+.pao-item:nth-of-type(4)::after {
   content: "";
   position: absolute;
   top: 90%;
@@ -2755,12 +2755,12 @@ button::placeholder {
   background: #7711ab;
 }
 @media (max-width: 920px) {
-  .engine-item:nth-of-type(4)::after {
+  .pao-item:nth-of-type(4)::after {
     left: 21%;
     height: 10rem;
   }
 }
-.engine-item:nth-of-type(4)::before {
+.pao-item:nth-of-type(4)::before {
   content: "";
   position: absolute;
   top: 129%;
@@ -2771,41 +2771,41 @@ button::placeholder {
   background: #7711ab;
 }
 @media (max-width: 920px) {
-  .engine-item:nth-of-type(4)::before {
+  .pao-item:nth-of-type(4)::before {
     top: 144%;
     right: -66%;
     width: 26rem;
   }
 }
-.engine-item:nth-of-type(4) .engine-item__content {
+.pao-item:nth-of-type(4) .pao-item__content {
   right: 9rem;
   top: 22rem;
   width: 26rem;
 }
 @media (max-width: 920px) {
-  .engine-item:nth-of-type(4) .engine-item__content {
+  .pao-item:nth-of-type(4) .pao-item__content {
     right: -13rem;
     top: 22rem;
   }
 }
 
-.engine-item__icon {
+.pao-item__icon {
   width: 20rem;
   position: relative;
   z-index: 5;
 }
 @media (max-width: 920px) {
-  .engine-item__icon {
+  .pao-item__icon {
     width: 18rem;
   }
 }
 
-.engine-item__content {
+.pao-item__content {
   position: absolute;
   line-height: 1;
 }
 
-.engine-item__title {
+.pao-item__title {
   font-size: 2.6rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -2814,20 +2814,20 @@ button::placeholder {
   margin-bottom: 1rem;
 }
 @media (max-width: 920px) {
-  .engine-item__title {
+  .pao-item__title {
     font-size: 3.2rem;
   }
 }
 
-.engine-item__descr {
+.pao-item__descr {
   letter-spacing: -0.01em;
 }
 
 .antiox {
-  padding: 6rem 0 12rem;
+  padding: 6rem 0 9rem;
   background: url(../images/antiox/antiox-bg.png) no-repeat;
-  background-size: 100% 115rem;
-  background-position: top 6rem center;
+  background-size: 100% 112rem;
+  background-position: top 7rem center;
 }
 @media (max-width: 920px) {
   .antiox {
@@ -2844,7 +2844,6 @@ button::placeholder {
 
 .antiox__inner {
   position: relative;
-  left: 18rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2886,13 +2885,13 @@ button::placeholder {
   z-index: 2;
 }
 .antiox-item:nth-of-type(1) {
-  left: 21rem;
-  top: 9rem;
+  left: 12rem;
+  top: 44rem;
 }
 @media (max-width: 920px) {
   .antiox-item:nth-of-type(1) {
     left: -4rem;
-    top: 31rem;
+    top: 34rem;
   }
   .antiox-item:nth-of-type(1)::before {
     content: "";
@@ -2912,7 +2911,7 @@ button::placeholder {
   right: 90%;
   z-index: 1;
   transform: translateY(-50%);
-  width: 44.1rem;
+  width: 14rem;
   height: 0.3rem;
   background: #7711ab;
 }
@@ -2925,14 +2924,15 @@ button::placeholder {
   }
 }
 .antiox-item:nth-of-type(1) .antiox-item__content {
-  left: -42.2rem;
-  top: 3.6rem;
-  max-width: 25rem;
+  left: -12.5rem;
+  top: -10rem;
+  max-width: 10rem;
 }
 @media (max-width: 920px) {
   .antiox-item:nth-of-type(1) .antiox-item__content {
     left: 5rem;
     top: -27rem;
+    max-width: 25rem;
     width: 25rem;
   }
 }
@@ -2940,13 +2940,13 @@ button::placeholder {
   line-height: 1.23;
 }
 .antiox-item:nth-of-type(2) {
-  left: 11rem;
-  top: 41.6rem;
+  left: 27rem;
+  top: 73rem;
 }
 @media (max-width: 920px) {
   .antiox-item:nth-of-type(2) {
     left: 24rem;
-    top: 31rem;
+    top: 33rem;
   }
   .antiox-item:nth-of-type(2)::before {
     content: "";
@@ -2963,7 +2963,7 @@ button::placeholder {
   content: "";
   position: absolute;
   top: 50%;
-  right: 90%;
+  right: 64%;
   z-index: 1;
   transform: translateY(-50%);
   width: 34.1rem;
@@ -2979,7 +2979,7 @@ button::placeholder {
   }
 }
 .antiox-item:nth-of-type(2) .antiox-item__content {
-  left: -32.2rem;
+  left: -27rem;
   top: 6.3rem;
   max-width: 20rem;
 }
@@ -2991,11 +2991,13 @@ button::placeholder {
   }
 }
 .antiox-item:nth-of-type(3) {
-  left: 21rem;
-  bottom: 8rem;
+  right: 23rem;
+  top: 9rem;
 }
 @media (max-width: 920px) {
   .antiox-item:nth-of-type(3) {
+    right: unset;
+    top: unset;
     left: -3rem;
     bottom: 33rem;
   }
@@ -3014,10 +3016,10 @@ button::placeholder {
   content: "";
   position: absolute;
   top: 50%;
-  right: 90%;
+  left: 40%;
   z-index: 1;
   transform: translateY(-50%);
-  width: 44.1rem;
+  width: 35rem;
   height: 0.3rem;
   background: #7711ab;
 }
@@ -3026,13 +3028,14 @@ button::placeholder {
     height: 13rem;
     width: 0.3rem;
     top: 110%;
-    right: 78%;
+    left: 20%;
   }
 }
 .antiox-item:nth-of-type(3) .antiox-item__content {
-  left: -42.2rem;
-  top: 6.2rem;
-  max-width: 35rem;
+  right: -24.3rem;
+  top: 6rem;
+  max-width: 19rem;
+  line-height: 1.18;
 }
 @media (max-width: 920px) {
   .antiox-item:nth-of-type(3) .antiox-item__content {
@@ -3041,6 +3044,9 @@ button::placeholder {
     width: 55rem;
     max-width: 55rem;
   }
+}
+.antiox-item:nth-of-type(3) .antiox-item__content .antiox-item__title {
+  margin-bottom: 0.5rem;
 }
 
 .antiox-item__icon {

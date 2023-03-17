@@ -203,81 +203,83 @@ document.addEventListener("DOMContentLoaded", () => {
   const formSuccess = document.querySelector(".form-success");
   const formError = document.querySelector(".form-error");
 
-  contactsForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+  if (contactsForm) {
+    contactsForm.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    const formData = new FormData(contactsForm);
+      const formData = new FormData(contactsForm);
 
-    fetch("path/to/server", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
+      fetch("path/to/server", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error("Ошибка отправки формы");
+          }
+        })
+        .then((data) => {
+          showSuccessMessage();
+        })
+        .catch((error) => {
+          showErrorMessage();
+        });
+    });
+
+    function showSuccessMessage() {
+      formSuccess.classList.add("visible");
+      formError.classList.remove("visible");
+
+      contactsForm.reset();
+    }
+
+    function showErrorMessage() {
+      formSuccess.classList.remove("visible");
+      formError.classList.add("visible");
+    }
+
+    const contactInputText = document.querySelectorAll('input[type="text"]');
+    contactInputText.forEach((el) => {
+      el.addEventListener("input", function (e) {
+        const value = e.target.value;
+        if (!value) {
+          el.classList.add("error");
         } else {
-          throw new Error("Ошибка отправки формы");
+          el.classList.remove("error");
         }
-      })
-      .then((data) => {
-        showSuccessMessage();
-      })
-      .catch((error) => {
-        showErrorMessage();
       });
-  });
+    });
 
-  function showSuccessMessage() {
-    formSuccess.classList.add("visible");
-    formError.classList.remove("visible");
+    const submitButton = document.querySelector(".contacts-form__submit-btn");
+    submitButton.addEventListener("click", function (e) {
+      e.preventDefault();
 
-    contactsForm.reset();
-  }
+      const inputs = document.querySelectorAll("input");
+      let hasErrors = false;
 
-  function showErrorMessage() {
-    formSuccess.classList.remove("visible");
-    formError.classList.add("visible");
-  }
+      for (let i = 0; i < inputs.length; i++) {
+        const input = inputs[i];
+        if (input.type === "text" && input.value === "") {
+          input.classList.add("error");
+          hasErrors = true;
+        } else if (input.type === "email" && !isValidEmail(input.value)) {
+          input.classList.add("error");
+          hasErrors = true;
+        } else if (input.type === "tel" && !isValidPhone(input.value)) {
+          input.classList.add("error");
+          hasErrors = true;
+        }
+      }
 
-  const contactInputText = document.querySelectorAll('input[type="text"]');
-  contactInputText.forEach((el) => {
-    el.addEventListener("input", function (e) {
-      const value = e.target.value;
-      if (!value) {
-        el.classList.add("error");
+      if (!hasErrors) {
+        contactsForm.submit();
       } else {
-        el.classList.remove("error");
+        showErrorMessage();
       }
     });
-  });
-
-  const submitButton = document.querySelector(".contacts-form__submit-btn");
-  submitButton.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    const inputs = document.querySelectorAll("input");
-    let hasErrors = false;
-
-    for (let i = 0; i < inputs.length; i++) {
-      const input = inputs[i];
-      if (input.type === "text" && input.value === "") {
-        input.classList.add("error");
-        hasErrors = true;
-      } else if (input.type === "email" && !isValidEmail(input.value)) {
-        input.classList.add("error");
-        hasErrors = true;
-      } else if (input.type === "tel" && !isValidPhone(input.value)) {
-        input.classList.add("error");
-        hasErrors = true;
-      }
-    }
-
-    if (!hasErrors) {
-      contactsForm.submit();
-    } else {
-      showErrorMessage();
-    }
-  });
+  }
 
   function isValidEmail(email) {
     const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -287,4 +289,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const regex = /^\+?[0-9]{10,}$/;
     return regex.test(phone.trim());
   }
+
+  //= components/ymap-buy.js
 });

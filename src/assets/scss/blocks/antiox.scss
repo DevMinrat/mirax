@@ -1,9 +1,9 @@
 .antiox {
-  padding: 6rem 0 12rem;
+  padding: 6rem 0 9rem;
 
   background: url(../images/antiox/antiox-bg.png) no-repeat;
-  background-size: 100% 115rem;
-  background-position: top 6rem center;
+  background-size: 100% 112rem;
+  background-position: top 7rem center;
 
   @include breakpoint($lg-bp) {
     height: 165rem;
@@ -21,7 +21,6 @@
 
 .antiox__inner {
   position: relative;
-  left: 18rem;
 
   display: flex;
   align-items: center;
@@ -63,12 +62,12 @@
   z-index: 2;
 
   &:nth-of-type(1) {
-    left: 21rem;
-    top: 9rem;
+    left: 12rem;
+    top: 44rem;
 
     @include breakpoint($lg-bp) {
       left: -4rem;
-      top: 31rem;
+      top: 34rem;
 
       &::before {
         content: "";
@@ -92,7 +91,7 @@
       z-index: 1;
       transform: translateY(-50%);
 
-      width: 44.1rem;
+      width: 14rem;
       height: 0.3rem;
 
       background: $secondary;
@@ -107,15 +106,16 @@
     }
 
     .antiox-item__content {
-      left: -42.2rem;
-      top: 3.6rem;
+      left: -12.5rem;
+      top: -10rem;
 
-      max-width: 25rem;
+      max-width: 10rem;
 
       @include breakpoint($lg-bp) {
         left: 5rem;
         top: -27rem;
 
+        max-width: 25rem;
         width: 25rem;
       }
     }
@@ -124,12 +124,12 @@
     }
   }
   &:nth-of-type(2) {
-    left: 11rem;
-    top: 41.6rem;
+    left: 27rem;
+    top: 73rem;
 
     @include breakpoint($lg-bp) {
       left: 24rem;
-      top: 31rem;
+      top: 33rem;
 
       &::before {
         content: "";
@@ -149,7 +149,7 @@
       content: "";
       position: absolute;
       top: 50%;
-      right: 90%;
+      right: 64%;
       z-index: 1;
       transform: translateY(-50%);
 
@@ -168,9 +168,8 @@
     }
 
     .antiox-item__content {
-      left: -32.2rem;
+      left: -27rem;
       top: 6.3rem;
-
       max-width: 20rem;
 
       @include breakpoint($lg-bp) {
@@ -182,10 +181,12 @@
     }
   }
   &:nth-of-type(3) {
-    left: 21rem;
-    bottom: 8rem;
+    right: 23rem;
+    top: 9rem;
 
     @include breakpoint($lg-bp) {
+      right: unset;
+      top: unset;
       left: -3rem;
       bottom: 33rem;
 
@@ -207,11 +208,11 @@
       content: "";
       position: absolute;
       top: 50%;
-      right: 90%;
+      left: 40%;
       z-index: 1;
       transform: translateY(-50%);
 
-      width: 44.1rem;
+      width: 35rem;
       height: 0.3rem;
 
       background: $secondary;
@@ -221,21 +222,27 @@
         width: 0.3rem;
 
         top: 110%;
-        right: 78%;
+        left: 20%;
       }
     }
 
     .antiox-item__content {
-      left: -42.2rem;
-      top: 6.2rem;
+      right: -24.3rem;
+      top: 6rem;
 
-      max-width: 35rem;
+      max-width: 19rem;
+
+      line-height: 1.18;
 
       @include breakpoint($lg-bp) {
         left: 5rem;
         top: 22rem;
         width: 55rem;
         max-width: 55rem;
+      }
+
+      .antiox-item__title {
+        margin-bottom: 0.5rem;
       }
     }
   }

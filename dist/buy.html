@@ -157,30 +157,30 @@
                         <h2 class="page-title">купить оффлайн</h2>
                         <form class="selection__filter">
                             <div>
-                                <select class="nice-select">
+                                <select class="nice-select select-region">
                                     <option value="" hidden>Регион</option>
-                                    <option value="1">Поле 1</option>
-                                    <option value="2">Поле 2</option>
-                                    <option value="3">Поле 3</option>
-                                    <option value="4">Поле 4</option>
+                                    <option value="1">Московская область</option>
+                                    <option value="2">Брянская область</option>
+                                    <option value="3">Владимирская область</option>
+                                    <option value="4">Кировская область</option>
                                 </select>
                             </div>
                             <div>
-                                <select class="nice-select">
+                                <select class="nice-select select-city">
                                     <option value="" hidden>Город</option>
-                                    <option value="1">Поле 1</option>
-                                    <option value="2">Поле 2</option>
-                                    <option value="3">Поле 3</option>
-                                    <option value="4">Поле 4</option>
+                                    <option value="1">Реутов</option>
+                                    <option value="2">Брянск</option>
+                                    <option value="3">Владимир</option>
+                                    <option value="4">Киров</option>
                                 </select>
                             </div>
-                            <button class="filled-btn">Найти</button>
+                            <button class="selection__filter-btn filled-btn">Найти</button>
                         </form>
                     </div>
                 </div>
             
                 <div class="buy-offline__map">
-                    <p>карта с определением геолокации</p>
+                    <div id="map"></div>
                 </div>
             </section>
 
@@ -200,6 +200,8 @@
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=e261353f-0353-4122-b505-b081abfbc526&lang=ru_RU"
+        type="text/javascript"></script>
     <script src="assets/js/app.js"></script>
 </body>
 

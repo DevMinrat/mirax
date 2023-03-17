@@ -12149,81 +12149,83 @@ document.addEventListener("DOMContentLoaded", () => {
   const formSuccess = document.querySelector(".form-success");
   const formError = document.querySelector(".form-error");
 
-  contactsForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+  if (contactsForm) {
+    contactsForm.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    const formData = new FormData(contactsForm);
+      const formData = new FormData(contactsForm);
 
-    fetch("path/to/server", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
+      fetch("path/to/server", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error("Ошибка отправки формы");
+          }
+        })
+        .then((data) => {
+          showSuccessMessage();
+        })
+        .catch((error) => {
+          showErrorMessage();
+        });
+    });
+
+    function showSuccessMessage() {
+      formSuccess.classList.add("visible");
+      formError.classList.remove("visible");
+
+      contactsForm.reset();
+    }
+
+    function showErrorMessage() {
+      formSuccess.classList.remove("visible");
+      formError.classList.add("visible");
+    }
+
+    const contactInputText = document.querySelectorAll('input[type="text"]');
+    contactInputText.forEach((el) => {
+      el.addEventListener("input", function (e) {
+        const value = e.target.value;
+        if (!value) {
+          el.classList.add("error");
         } else {
-          throw new Error("Ошибка отправки формы");
+          el.classList.remove("error");
         }
-      })
-      .then((data) => {
-        showSuccessMessage();
-      })
-      .catch((error) => {
-        showErrorMessage();
       });
-  });
+    });
 
-  function showSuccessMessage() {
-    formSuccess.classList.add("visible");
-    formError.classList.remove("visible");
+    const submitButton = document.querySelector(".contacts-form__submit-btn");
+    submitButton.addEventListener("click", function (e) {
+      e.preventDefault();
 
-    contactsForm.reset();
-  }
+      const inputs = document.querySelectorAll("input");
+      let hasErrors = false;
 
-  function showErrorMessage() {
-    formSuccess.classList.remove("visible");
-    formError.classList.add("visible");
-  }
+      for (let i = 0; i < inputs.length; i++) {
+        const input = inputs[i];
+        if (input.type === "text" && input.value === "") {
+          input.classList.add("error");
+          hasErrors = true;
+        } else if (input.type === "email" && !isValidEmail(input.value)) {
+          input.classList.add("error");
+          hasErrors = true;
+        } else if (input.type === "tel" && !isValidPhone(input.value)) {
+          input.classList.add("error");
+          hasErrors = true;
+        }
+      }
 
-  const contactInputText = document.querySelectorAll('input[type="text"]');
-  contactInputText.forEach((el) => {
-    el.addEventListener("input", function (e) {
-      const value = e.target.value;
-      if (!value) {
-        el.classList.add("error");
+      if (!hasErrors) {
+        contactsForm.submit();
       } else {
-        el.classList.remove("error");
+        showErrorMessage();
       }
     });
-  });
-
-  const submitButton = document.querySelector(".contacts-form__submit-btn");
-  submitButton.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    const inputs = document.querySelectorAll("input");
-    let hasErrors = false;
-
-    for (let i = 0; i < inputs.length; i++) {
-      const input = inputs[i];
-      if (input.type === "text" && input.value === "") {
-        input.classList.add("error");
-        hasErrors = true;
-      } else if (input.type === "email" && !isValidEmail(input.value)) {
-        input.classList.add("error");
-        hasErrors = true;
-      } else if (input.type === "tel" && !isValidPhone(input.value)) {
-        input.classList.add("error");
-        hasErrors = true;
-      }
-    }
-
-    if (!hasErrors) {
-      contactsForm.submit();
-    } else {
-      showErrorMessage();
-    }
-  });
+  }
 
   function isValidEmail(email) {
     const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -12233,4 +12235,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const regex = /^\+?[0-9]{10,}$/;
     return regex.test(phone.trim());
   }
+
+  function initMap() {
+    var myMap = new ymaps.Map("map", {
+      center: [55.76, 37.64],
+      zoom: 7,
+      type: "yandex#map",
+      controls: [],
+    });
+  
+    var placemarks = [];
+  
+    document
+      .querySelector(".selection__filter-btn")
+      .addEventListener("click", function () {
+        e.preventDefault();
+  
+        var region = document.querySelector(
+          "div.select-region .current"
+        ).textContent;
+        var city = document.querySelector(
+          ".div.select-city .current"
+        ).textContent;
+  
+        ymaps.geocode(city).then(function (res) {
+          var firstGeoObject = res.geoObjects.get(0);
+          var cityCoords = firstGeoObject.geometry.getCoordinates();
+          ymaps.geocode(region + " " + city).then(function (res) {
+            var geoObjects = res.geoObjects.toArray();
+            for (var i = 0; i < geoObjects.length; i++) {
+              var coords = geoObjects[i].geometry.getCoordinates();
+              var name = geoObjects[i].properties.get("name");
+              var placemark = new ymaps.Placemark(coords, {
+                balloonContent: name,
+              });
+              placemarks.push(placemark);
+            }
+            myMap.geoObjects.add(placemarks);
+            myMap.setCenter(cityCoords, 12);
+          });
+        });
+      });
+  }
+  ymaps.ready(initMap);
 });
