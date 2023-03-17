@@ -12239,43 +12239,79 @@ document.addEventListener("DOMContentLoaded", () => {
   function initMap() {
     var myMap = new ymaps.Map("map", {
       center: [55.76, 37.64],
-      zoom: 7,
+      zoom: 4,
       type: "yandex#map",
       controls: [],
     });
   
-    var placemarks = [];
+    var pointsData = [
+      {
+        coordinates: [55.76, 37.64],
+        name: "Точка 1",
+        region: "Московская область",
+        city: "Москва",
+      },
+      {
+        coordinates: [56.01, 92.87],
+        name: "Точка 2",
+        region: "Красноярский край",
+        city: "Красноярск",
+      },
+      {
+        coordinates: [60.61, 56.84],
+        name: "Точка 3",
+        region: "Республика Коми",
+        city: "Сыктывкар",
+      },
+      {
+        coordinates: [43.11, 131.91],
+        name: "Точка 4",
+        region: "Приморский край",
+        city: "Владивосток",
+      },
+      {
+        coordinates: [51.54, 46.02],
+        name: "Точка 5",
+        region: "Волгоградская область",
+        city: "Волгоград",
+      },
+    ];
+  
+    // Отрисовываем точки на карте
+    for (var i = 0; i < pointsData.length; i++) {
+      var coords = pointsData[i].coordinates;
+      var name = pointsData[i].name;
+      var placemark = new ymaps.Placemark(coords, { balloonContent: name });
+      myMap.geoObjects.add(placemark);
+    }
   
     document
       .querySelector(".selection__filter-btn")
-      .addEventListener("click", function () {
+      .addEventListener("click", function (e) {
         e.preventDefault();
   
         var region = document.querySelector(
-          "div.select-region .current"
+          ".select-region option:checked"
         ).textContent;
-        var city = document.querySelector(
-          ".div.select-city .current"
-        ).textContent;
+        var city = document.querySelector(".select-city option:checked").value;
+        console.log(city);
+        var searchQuery = region;
+        if (city) {
+          searchQuery += " " + city;
+        }
   
-        ymaps.geocode(city).then(function (res) {
+        // Получаем результаты геокодирования выбранного пользователем населенного пункта
+        ymaps.geocode(searchQuery).then(function (res) {
+          // Поиск первого найденного объекта и его координат
           var firstGeoObject = res.geoObjects.get(0);
           var cityCoords = firstGeoObject.geometry.getCoordinates();
-          ymaps.geocode(region + " " + city).then(function (res) {
-            var geoObjects = res.geoObjects.toArray();
-            for (var i = 0; i < geoObjects.length; i++) {
-              var coords = geoObjects[i].geometry.getCoordinates();
-              var name = geoObjects[i].properties.get("name");
-              var placemark = new ymaps.Placemark(coords, {
-                balloonContent: name,
-              });
-              placemarks.push(placemark);
-            }
-            myMap.geoObjects.add(placemarks);
-            myMap.setCenter(cityCoords, 12);
-          });
+  
+          // Устанавливаем границы карты для отображения всей области/объекта
+          var objectBounds = firstGeoObject.properties.get("boundedBy");
+          myMap.setBounds(objectBounds);
         });
       });
   }
+  
   ymaps.ready(initMap);
 });
