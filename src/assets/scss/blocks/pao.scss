@@ -31,7 +31,7 @@
   max-width: 75rem;
 
   @include breakpoint($lg-bp) {
-    width: 150%;
+    width: 100%;
     max-width: unset;
   }
 }

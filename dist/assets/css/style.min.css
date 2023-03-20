@@ -1941,7 +1941,7 @@ button::placeholder {
     padding-bottom: 0;
     background: url(../images/article/article-1/article-1-bg-mob.png) no-repeat;
     background-size: 100% 796rem;
-    background-position: top -8rem center;
+    background-position: top 10rem center;
   }
 }
 
@@ -2001,14 +2001,23 @@ button::placeholder {
   .oil-line {
     padding-top: 8.7rem;
     padding-bottom: 0;
-    background: url(../images/article/article-1/article-1-bg-mob.png) no-repeat;
-    background-size: 100% 796rem;
-    background-position: top -8rem center;
+    background: url(../images/article/article-2/article-2-bg-mob.png) no-repeat;
+    background-size: 100% 952rem;
+    background-position: top 8rem center;
+    padding-bottom: 6rem;
+  }
+  .oil-line .breadcrumb-wrapper {
+    margin-bottom: 3rem;
   }
 }
 .oil-line h2 {
   font-size: 2.4rem;
   margin-bottom: 2rem;
+}
+@media (max-width: 920px) {
+  .oil-line h2 {
+    font-size: 3.2rem;
+  }
 }
 .oil-line .products-row__wrapper {
   display: flex;
@@ -2017,11 +2026,37 @@ button::placeholder {
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
+@media (max-width: 920px) {
+  .oil-line .products-row__wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 7rem;
+  }
+}
 .oil-line .products-row__wrapper--gap {
   margin-bottom: 16rem;
 }
+@media (max-width: 920px) {
+  .oil-line .products-row__wrapper--gap {
+    margin-bottom: 0;
+  }
+  .oil-line .products-row__wrapper--gap .products-row__descr {
+    order: 3;
+    margin-bottom: 15rem;
+  }
+}
 .oil-line .products-row__wrapper .products-row__descr {
   width: 40rem;
+}
+@media (max-width: 920px) {
+  .oil-line .products-row__wrapper .products-row__descr {
+    width: 100%;
+  }
+}
+@media (max-width: 920px) {
+  .oil-line .products-row__wrapper .products-row__descr--mobnone {
+    display: none;
+  }
 }
 .oil-line .products-row__wrapper .products-row {
   display: flex;
@@ -2029,12 +2064,28 @@ button::placeholder {
   gap: 5rem;
   width: 85rem;
 }
+@media (max-width: 920px) {
+  .oil-line .products-row__wrapper .products-row {
+    width: auto;
+    gap: 7rem;
+  }
+}
 .oil-line .products-row__wrapper .products-row__item {
   width: 100%;
   max-width: 24.5rem;
 }
+@media (max-width: 920px) {
+  .oil-line .products-row__wrapper .products-row__item {
+    max-width: 100%;
+  }
+}
 .oil-line .products-row__wrapper .products-row__item-img {
   width: 18rem;
+}
+@media (max-width: 920px) {
+  .oil-line .products-row__wrapper .products-row__item-img {
+    width: 35rem;
+  }
 }
 .oil-line .products-row__wrapper--one {
   align-items: center;
@@ -2043,8 +2094,19 @@ button::placeholder {
 .oil-line .products-row__wrapper--one .products-row__descr {
   width: 83rem;
 }
+@media (max-width: 920px) {
+  .oil-line .products-row__wrapper--one .products-row__descr {
+    width: 100%;
+  }
+}
 .oil-line .products-row__wrapper--one .products-row {
   width: 30rem;
+}
+@media (max-width: 920px) {
+  .oil-line .products-row__wrapper--one .products-row {
+    width: 100%;
+    margin-bottom: 6rem;
+  }
 }
 
 .oil-line__intro {
@@ -2052,6 +2114,11 @@ button::placeholder {
   align-items: flex-start;
   gap: 5rem;
   margin-bottom: 7rem;
+}
+@media (max-width: 920px) {
+  .oil-line__intro {
+    flex-direction: column;
+  }
 }
 
 .oil-line__title {
@@ -2062,6 +2129,11 @@ button::placeholder {
 .oil-line__intro-text {
   width: 100%;
   max-width: 41rem;
+}
+@media (max-width: 920px) {
+  .oil-line__intro-text {
+    max-width: 100%;
+  }
 }
 
 .oil-line__intro-img {
@@ -2076,6 +2148,16 @@ button::placeholder {
   background-size: 100% 196rem;
   background-position: top 4rem center;
 }
+@media (max-width: 920px) {
+  .oil-recipe {
+    background: url(../images/article/article-3/article-3-bg-mob.png) no-repeat;
+    background-size: 100% 546rem;
+    background-position: top 120rem center;
+  }
+  .oil-recipe .breadcrumb-wrapper {
+    margin-bottom: 2.5rem;
+  }
+}
 
 .oil-recipe__block {
   display: flex;
@@ -2083,11 +2165,26 @@ button::placeholder {
   gap: 4rem;
   margin-bottom: 3rem;
 }
+@media (max-width: 920px) {
+  .oil-recipe__block {
+    flex-direction: column;
+  }
+}
 .oil-recipe__block--reverse {
   flex-direction: row-reverse;
 }
+@media (max-width: 920px) {
+  .oil-recipe__block--reverse {
+    flex-direction: column-reverse;
+  }
+}
 .oil-recipe__block .oil-recipe__intro-text {
   width: 83rem;
+}
+@media (max-width: 920px) {
+  .oil-recipe__block .oil-recipe__intro-text {
+    width: auto;
+  }
 }
 .oil-recipe__block img {
   width: 45rem;
@@ -2552,7 +2649,7 @@ button::placeholder {
 }
 @media (max-width: 920px) {
   .pao-img {
-    width: 150%;
+    width: 100%;
     max-width: unset;
   }
 }

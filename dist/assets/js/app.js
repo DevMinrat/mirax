@@ -12145,34 +12145,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $(".nice-select").niceSelect();
 
-  const contactsForm = document.querySelector(".contacts-form");
+  const contactsForm = document.querySelector("#contacts-form");
   const formSuccess = document.querySelector(".form-success");
   const formError = document.querySelector(".form-error");
 
   if (contactsForm) {
-    contactsForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+    // contactsForm.addEventListener("submit", function (e) {
+    //   e.preventDefault();
 
-      const formData = new FormData(contactsForm);
+    //   const formData = new FormData(contactsForm);
 
-      fetch("path/to/server", {
-        method: "POST",
-        body: formData,
-      })
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            throw new Error("Ошибка отправки формы");
-          }
-        })
-        .then((data) => {
-          showSuccessMessage();
-        })
-        .catch((error) => {
-          showErrorMessage();
-        });
-    });
+    //   fetch("path/to/server", {
+    //     method: "POST",
+    //     body: formData,
+    //   })
+    //     .then((response) => {
+    //       if (response.ok) {
+    //         return response.json();
+    //       } else {
+    //         throw new Error("Ошибка отправки формы");
+    //       }
+    //     })
+    //     .then((data) => {
+    //       showSuccessMessage();
+    //     })
+    //     .catch((error) => {
+    //       showErrorMessage();
+    //     });
+    // });
 
     function showSuccessMessage() {
       formSuccess.classList.add("visible");
