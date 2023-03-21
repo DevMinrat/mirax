@@ -240,11 +240,14 @@ document.addEventListener("DOMContentLoaded", () => {
       formError.classList.add("visible");
     }
 
-    const contactInputText = document.querySelectorAll('input[type="text"]');
+    const contactInputText = document.querySelectorAll(".contacts-form input");
     contactInputText.forEach((el) => {
       el.addEventListener("input", function (e) {
-        const value = e.target.value;
-        if (!value) {
+        if (el.type === "text" && el.value === "") {
+          el.classList.add("error");
+        } else if (el.type === "email" && !isValidEmail(el.value)) {
+          el.classList.add("error");
+        } else if (el.type === "tel" && !isValidPhone(el.value)) {
           el.classList.add("error");
         } else {
           el.classList.remove("error");
@@ -290,5 +293,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return regex.test(phone.trim());
   }
 
+  //= components/buy-online.js
   //= components/ymap-buy.js
 });

@@ -12186,11 +12186,14 @@ document.addEventListener("DOMContentLoaded", () => {
       formError.classList.add("visible");
     }
 
-    const contactInputText = document.querySelectorAll('input[type="text"]');
+    const contactInputText = document.querySelectorAll(".contacts-form input");
     contactInputText.forEach((el) => {
       el.addEventListener("input", function (e) {
-        const value = e.target.value;
-        if (!value) {
+        if (el.type === "text" && el.value === "") {
+          el.classList.add("error");
+        } else if (el.type === "email" && !isValidEmail(el.value)) {
+          el.classList.add("error");
+        } else if (el.type === "tel" && !isValidPhone(el.value)) {
           el.classList.add("error");
         } else {
           el.classList.remove("error");
@@ -12236,52 +12239,198 @@ document.addEventListener("DOMContentLoaded", () => {
     return regex.test(phone.trim());
   }
 
+  const byOnlineSites = [
+    {
+      siteName: "Ozon",
+      siteUrl: "https://ozon.ru/",
+      imageUrl: "assets/images/buy/buy-online-1.png",
+    },
+    {
+      siteName: "Ozonator",
+      siteUrl: "https://ozonator.ru/",
+      imageUrl: "assets/images/buy/buy-online-1.png",
+    },
+    {
+      siteName: "Wildberries",
+      siteUrl: "https://www.wildberries.ru/",
+      imageUrl: "assets/images/buy/buy-online-2.png",
+    },
+    {
+      siteName: "Yandex.Market",
+      siteUrl: "https://market.yandex.ru/",
+      imageUrl: "assets/images/buy/buy-online-4.png",
+    },
+  ];
+  
+  const buyOnlineBtn = document.querySelector(".buy-online__filter-btn");
+  const buyOnlineInput = document.querySelector("#buy-online__input");
+  
+  if (buyOnlineBtn) {
+    buyOnlineBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+  
+      if (buyOnlineInput.value.length < 2) return;
+  
+      renderResults(byOnlineSites);
+    });
+  }
+  
+  function renderResults(results) {
+    let resultSection = document.querySelector(".buy-online__content");
+  
+    resultSection.innerHTML = "";
+  
+    // получаем значение поля фильтра
+    const filterValue = buyOnlineInput.value.toLowerCase();
+  
+    for (let site of results) {
+      const siteName = site.siteName.toLowerCase();
+  
+      // проверяем, подходит ли результат под фильтр
+      if (siteName.includes(filterValue) && filterValue.length >= 2) {
+        let link = document.createElement("a");
+        link.classList.add("buy-online__link");
+        link.href = site.siteUrl;
+  
+        let image = document.createElement("img");
+        image.src = site.imageUrl;
+        image.alt = site.siteName;
+  
+        link.appendChild(image);
+        resultSection.appendChild(link);
+      }
+    }
+  }
+  function getCoordinates(successCallback, errorCallback) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        successCallback([latitude, longitude]);
+      },
+      () => {
+        errorCallback();
+      }
+    );
+  }
+  
   function initMap() {
-    var myMap = new ymaps.Map("map", {
-      center: [55.76, 37.64],
-      zoom: 4,
-      type: "yandex#map",
+    const presetCoords = [55.76, 37.64];
+  
+    const mapCenter = sessionStorage.getItem("myMapCenter");
+    let centerCoords;
+  
+    if (mapCenter) {
+      centerCoords = JSON.parse(mapCenter);
+    } else {
+      centerCoords = presetCoords;
+    }
+  
+    const myMap = new ymaps.Map("map", {
+      center: centerCoords,
+      zoom: 10,
       controls: [],
     });
   
+    sessionStorage.setItem("myMapCenter", JSON.stringify(myMap.getCenter()));
+  
+    getCoordinates(
+      (coordinates) => {
+        myMap.setCenter(coordinates, 10);
+      },
+      () => {
+        console.log("User location is not available.");
+      }
+    );
+  
     var pointsData = [
       {
-        coordinates: [55.76, 37.64],
-        name: "Точка 1",
-        region: "Московская область",
-        city: "Москва",
+        city: "1",
+        region: "22",
+        name: "1 STH Earth Co., LTD",
+        center: [55.76, 37.64],
+        content: "",
+        email: "moscow@test.by",
+        address: "Москва, улица Уборевича, 176",
+        phone: "+375-17-111-11-11",
+        web: null,
       },
       {
-        coordinates: [56.01, 92.87],
-        name: "Точка 2",
-        region: "Красноярский край",
-        city: "Красноярск",
+        city: "2",
+        region: "22",
+        name: "2 STH Earth Co., LTD",
+        center: [56.01, 92.87],
+        content: "",
+        email: null,
+        address: "Красноярск, улица Красноярск, 126",
+        phone: "+375-17-222-22-22",
+        web: null,
       },
       {
-        coordinates: [60.61, 56.84],
-        name: "Точка 3",
-        region: "Республика Коми",
-        city: "Сыктывкар",
+        city: "3",
+        region: "22",
+        name: "3 STH Earth Co., LTD",
+        center: [60.61, 56.84],
+        content: "",
+        email: "sict@test.by",
+        address: "Сыктывкар, улица Сыктывкар, 176",
+        phone: "+375-17-333-33-33",
+        web: "sict.ru",
       },
       {
-        coordinates: [43.11, 131.91],
-        name: "Точка 4",
-        region: "Приморский край",
-        city: "Владивосток",
+        city: "4",
+        region: "22",
+        name: "4 STH Earth Co., LTD",
+        center: [43.11, 131.91],
+        content: "",
+        email: "vladik@test.by",
+        address: "Владивосток, улица Владивосток, 176",
+        phone: "+375-17-444-34-34",
+        web: "vladik.ru",
       },
       {
-        coordinates: [51.54, 46.02],
-        name: "Точка 5",
-        region: "Волгоградская область",
-        city: "Волгоград",
+        city: "5",
+        region: "22",
+        name: "5 STH Earth Co., LTD",
+        center: [51.54, 46.02],
+        content: "",
+        email: null,
+        address: "Владивосток, улица Владивосток, 176",
+        phone: null,
+        web: null,
       },
     ];
   
     // Отрисовываем точки на карте
     for (var i = 0; i < pointsData.length; i++) {
-      var coords = pointsData[i].coordinates;
+      var coords = pointsData[i].center;
       var name = pointsData[i].name;
-      var placemark = new ymaps.Placemark(coords, { balloonContent: name });
+      var content = pointsData[i].content;
+      var email = pointsData[i].email;
+      var address = pointsData[i].address;
+      var phone = pointsData[i].phone;
+      var web = pointsData[i].web;
+  
+      var balloonContent = `<b>${name}</b><br>`;
+      if (content !== "") {
+        balloonContent += `${content}<br>`;
+      }
+      if (address !== null) {
+        balloonContent += `Адрес: ${address}<br>`;
+      }
+      if (email !== null) {
+        balloonContent += `Email: <a href="mailto:${email}">${email}</a><br>`;
+      }
+  
+      if (phone !== null) {
+        balloonContent += `Телефон: <a href="tel:${phone}">${phone}</a><br>`;
+      }
+      if (web !== null) {
+        balloonContent += `Сайт: <a href="${web}" target="_blank">${web}</a>`;
+      }
+  
+      var placemark = new ymaps.Placemark(coords, {
+        balloonContent: balloonContent,
+      });
       myMap.geoObjects.add(placemark);
     }
   
@@ -12294,7 +12443,6 @@ document.addEventListener("DOMContentLoaded", () => {
           ".select-region option:checked"
         ).textContent;
         var city = document.querySelector(".select-city option:checked").value;
-        console.log(city);
         var searchQuery = region;
         if (city) {
           searchQuery += " " + city;
@@ -12313,5 +12461,75 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
   
-  ymaps.ready(initMap);
+  if (document.querySelector(".buy-offline__map")) {
+    const regionOptions = document.querySelectorAll("div.select-region .option");
+    const citySelect = document.querySelector(".select-city");
+  
+    const citiesByRegions = {
+      "Московская область": [
+        "Москва",
+        "Клин",
+        "Дмитров",
+        "Сергиев Посад",
+        "Люберцы",
+      ],
+      "Брянская область": ["Брянск", "Клинцы", "Злынка", "Стародуб", "Унеча"],
+      "Владимирская область": [
+        "Владимир",
+        "Гусь-Хрустальный",
+        "Ковров",
+        "Кольчугино",
+        "Петушки",
+      ],
+      "Кировская область": [
+        "Киров",
+        "Слободской",
+        "Омутнинск",
+        "Котельнич",
+        "Яранск",
+      ],
+      "Санкт-Петербург": [
+        "Санкт-Петербург",
+        "Кронштадт",
+        "Колпино",
+        "Сестрорецк",
+        "Павловск",
+      ],
+    };
+  
+    regionOptions.forEach((region) => {
+      region.addEventListener("click", function () {
+        const selectedRegion = region.dataset.value;
+  
+        citySelect.innerHTML = "";
+  
+        if (!selectedRegion) {
+          const placeholderOption = document.createElement("option");
+          placeholderOption.value = "";
+          placeholderOption.text = "Город";
+          citySelect.appendChild(placeholderOption);
+  
+          $(citySelect).niceSelect("update");
+          return;
+        }
+  
+        const cities = citiesByRegions[selectedRegion];
+  
+        const placeholderOption = document.createElement("option");
+        placeholderOption.value = "";
+        placeholderOption.text = "Город";
+        citySelect.appendChild(placeholderOption);
+  
+        for (let i = 0; i < cities.length; i++) {
+          const option = document.createElement("option");
+          option.value = cities[i];
+          option.text = cities[i];
+          citySelect.appendChild(option);
+        }
+        $(citySelect).niceSelect("update");
+      });
+    });
+  
+    ymaps.ready(initMap);
+  }
 });

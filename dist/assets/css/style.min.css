@@ -874,9 +874,6 @@ button::placeholder {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
-.nice-select .option:first-child {
-  display: none;
-}
 
 .nice-select .option:hover,
 .nice-select .option.focus,
@@ -3709,7 +3706,7 @@ button::placeholder {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 5rem 6rem;
+  gap: 5rem 4rem;
   margin-bottom: 13rem;
 }
 @media (max-width: 920px) {
@@ -3743,10 +3740,17 @@ button::placeholder {
   height: 66rem;
   background: #ebdbf2;
 }
+.buy-offline__map a {
+  color: #7711ab;
+}
 @media (max-width: 920px) {
   .buy-offline__map {
     height: 75rem;
   }
+}
+.buy-offline__map #map {
+  width: 100%;
+  height: 100%;
 }
 
 .prodpage {

@@ -120,16 +120,10 @@
             
                     <div class="buy-online__header">
                         <h1 class="page-title">купить онлайн</h1>
-                        <form class="selection__filter">
-                            <select class="nice-select">
-                                <option value="" hidden>Поиск по названию</option>
-                                <option value="1">Поле 1</option>
-                                <option value="2">Поле 2</option>
-                                <option value="3">Поле 3</option>
-                                <option value="4">Поле 4</option>
-                            </select>
-                            <button class="filled-btn">Найти</button>
-                        </form>
+                        <div class="selection__filter">
+                            <input class="custom-input" type="text" placeholder="Поиск по названию" id="buy-online__input">
+                            <button class="buy-online__filter-btn filled-btn">Найти</button>
+                        </div>
                     </div>
                     <div class="buy-online__content">
                         <a class="buy-online__link" href="#">
@@ -163,15 +157,12 @@
                                     <option value="Брянская область">Брянская область</option>
                                     <option value="Владимирская область">Владимирская область</option>
                                     <option value="Кировская область">Кировская область</option>
+                                    <option value="Санкт-Петербург">Санкт-Петербург</option>
                                 </select>
                             </div>
                             <div>
                                 <select class="nice-select select-city">
                                     <option value="" hidden>Город</option>
-                                    <option value="Реутов">Реутов</option>
-                                    <option value="Брянск">Брянск</option>
-                                    <option value="Владимир">Владимир</option>
-                                    <option value="Киров">Киров</option>
                                 </select>
                             </div>
                             <button class="selection__filter-btn filled-btn">Найти</button>

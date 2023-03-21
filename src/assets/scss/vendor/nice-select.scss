@@ -145,10 +145,6 @@
   text-align: left;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-
-  &:first-child {
-    display: none;
-  }
 }
 .nice-select .option:hover,
 .nice-select .option.focus,
