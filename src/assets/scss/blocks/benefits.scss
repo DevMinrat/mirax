@@ -50,12 +50,6 @@
   align-items: flex-start;
   gap: 3rem;
 
-  &:nth-child(2) {
-    .benefits__item-title {
-      margin-bottom: 5rem;
-    }
-  }
-
   @include breakpoint($lg-bp) {
     width: 100%;
 

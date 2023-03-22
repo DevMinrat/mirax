@@ -1640,9 +1640,6 @@ button::placeholder {
   align-items: flex-start;
   gap: 3rem;
 }
-.benefits__item:nth-child(2) .benefits__item-title {
-  margin-bottom: 5rem;
-}
 @media (max-width: 920px) {
   .benefits__item {
     width: 100%;
@@ -2562,6 +2559,7 @@ button::placeholder {
 .products__item-img {
   width: 100%;
   max-width: 40rem;
+  margin-bottom: -5rem;
 }
 
 .products__item-name {
