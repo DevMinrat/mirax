@@ -51,7 +51,56 @@
     width: 70rem;
   }
 }
+.swiper-slide.swiper-slide-active {
+  .pao-img {
+    opacity: 1;
 
+    transition: all 0.2s linear;
+  }
+  .pao-item {
+    opacity: 1;
+
+    transition: all 0.3s linear;
+
+    &:nth-of-type(1) {
+      left: 21rem;
+      top: -4rem;
+
+      transition-delay: 0.1s;
+    }
+    &:nth-of-type(2) {
+      left: 89rem;
+      top: -3rem;
+
+      transition-delay: 0.4s;
+    }
+    &:nth-of-type(3) {
+      left: 97rem;
+      top: 45rem;
+
+      transition-delay: 0.7s;
+    }
+    &:nth-of-type(4) {
+      left: 15rem;
+      top: 45rem;
+
+      transition-delay: 1s;
+    }
+
+    &::before,
+    &::after {
+      opacity: 1;
+
+      transition: all 0.3s linear 1.7s;
+    }
+  }
+
+  .pao-item__content {
+    opacity: 1;
+
+    transition: all 0.3s linear 1.7s;
+  }
+}
 .pao-item {
   position: absolute;
   z-index: 2;
@@ -61,20 +110,22 @@
     top: -4rem;
 
     @include breakpoint($lg-bp) {
-      left: -3rem;
-      top: 40rem;
+      left: -1.5rem;
+      top: 25rem;
 
       &::before {
         content: "";
         position: absolute;
-        top: -146%;
-        left: 20%;
+        top: -70%;
+        left: 16.3%;
         z-index: 1;
 
         width: 22rem;
         height: 0.3rem;
 
         background: $secondary;
+
+        opacity: 1;
       }
     }
 
@@ -91,12 +142,14 @@
 
       background: $secondary;
 
+      opacity: 1;
+
       @include breakpoint($lg-bp) {
-        height: 33.3rem;
+        height: 20.3rem;
         width: 0.3rem;
 
-        top: -53%;
-        left: 20%;
+        top: -13%;
+        left: 16%;
       }
     }
 
@@ -107,8 +160,8 @@
       max-width: 20rem;
 
       @include breakpoint($lg-bp) {
-        left: 5rem;
-        top: -34rem;
+        left: 4rem;
+        top: -19rem;
 
         width: 25rem;
         max-width: 25rem;
@@ -116,24 +169,26 @@
     }
   }
   &:nth-of-type(2) {
-    right: 23rem;
+    left: 89rem;
     top: -3rem;
 
     @include breakpoint($lg-bp) {
-      right: 0;
-      top: 40rem;
+      right: 4.5rem;
+      top: 25rem;
 
       &::before {
         content: "";
         position: absolute;
-        top: -113%;
-        left: 20%;
+        top: -46%;
+        left: 27%;
         z-index: 1;
 
         width: 22rem;
         height: 0.3rem;
 
         background: $secondary;
+
+        opacity: 1;
       }
     }
 
@@ -150,12 +205,14 @@
 
       background: $secondary;
 
+      opacity: 1;
+
       @include breakpoint($lg-bp) {
-        height: 33.3rem;
+        height: 9.3rem;
         width: 0.3rem;
 
         top: -20%;
-        left: 20%;
+        left: 27%;
       }
     }
 
@@ -166,18 +223,18 @@
       max-width: 15rem;
 
       @include breakpoint($lg-bp) {
-        right: -2rem;
-        top: -28rem;
+        right: -3rem;
+        top: -17.5rem;
       }
     }
   }
   &:nth-of-type(3) {
-    right: 15rem;
-    bottom: 10rem;
+    left: 97rem;
+    top: 45rem;
 
     @include breakpoint($lg-bp) {
-      right: 3rem;
-      bottom: 40rem;
+      right: 4rem;
+      bottom: 24rem;
     }
 
     &::after {
@@ -192,6 +249,8 @@
       height: 9rem;
 
       background: $secondary;
+
+      opacity: 1;
 
       @include breakpoint($lg-bp) {
         left: 21%;
@@ -211,6 +270,8 @@
 
       background: $secondary;
 
+      opacity: 1;
+
       @include breakpoint($lg-bp) {
         top: 216%;
         left: 21%;
@@ -226,18 +287,24 @@
       max-width: 20rem;
 
       @include breakpoint($lg-bp) {
-        right: -7rem;
-        top: 22rem;
+        right: -11rem;
+        top: 28rem;
+
+        max-width: 23rem;
+
+        .pao-item__title {
+          word-wrap: break-word;
+        }
       }
     }
   }
   &:nth-of-type(4) {
     left: 15rem;
-    bottom: 10rem;
+    top: 45rem;
 
     @include breakpoint($lg-bp) {
-      left: -3rem;
-      bottom: 40rem;
+      left: -2rem;
+      bottom: 24rem;
     }
 
     &::after {
@@ -252,6 +319,8 @@
       height: 8rem;
 
       background: $secondary;
+
+      opacity: 1;
 
       @include breakpoint($lg-bp) {
         left: 21%;
@@ -270,6 +339,8 @@
       height: 0.3rem;
 
       background: $secondary;
+
+      opacity: 1;
 
       @include breakpoint($lg-bp) {
         top: 144%;
@@ -292,6 +363,12 @@
     }
   }
 }
+
+.pao-item__content {
+  position: absolute;
+
+  line-height: 1;
+}
 .pao-item__icon {
   width: 20rem;
 
@@ -302,11 +379,7 @@
     width: 18rem;
   }
 }
-.pao-item__content {
-  position: absolute;
 
-  line-height: 1;
-}
 .pao-item__title {
   font-size: 2.6rem;
   font-weight: 700;

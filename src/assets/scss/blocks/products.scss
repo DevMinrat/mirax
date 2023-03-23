@@ -36,6 +36,10 @@
   }
   .products__item-name {
     text-align: center;
+
+    @include breakpoint($lg-bp) {
+      text-align: left;
+    }
   }
   .products__item-descr {
     display: none;

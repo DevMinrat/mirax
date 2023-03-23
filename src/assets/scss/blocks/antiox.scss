@@ -32,6 +32,9 @@
 }
 
 .antiox-img {
+  position: relative;
+  z-index: 2;
+
   width: 100%;
   max-width: 130rem;
 
@@ -57,9 +60,53 @@
   }
 }
 
+.swiper-slide.swiper-slide-active {
+  .antiox-img {
+    opacity: 1;
+
+    transition: all 0.2s linear;
+  }
+  .antiox-item {
+    opacity: 1;
+
+    transition: all 0.3s linear;
+
+    &:nth-of-type(1) {
+      left: 12rem;
+      top: 44rem;
+      transition-delay: 0.1s;
+    }
+    &:nth-of-type(2) {
+      left: 27rem;
+      top: 73rem;
+      transition-delay: 0.4s;
+    }
+    &:nth-of-type(3) {
+      left: 89rem;
+      top: 9rem;
+      transition-delay: 0.7s;
+    }
+
+    &::before,
+    &::after {
+      opacity: 1;
+
+      transition: all 0.3s linear 1.4s;
+    }
+  }
+
+  .antiox-item__content {
+    opacity: 1;
+
+    transition: all 0.3s linear 1.4s;
+  }
+}
+
 .antiox-item {
   position: absolute;
   z-index: 2;
+
+  opacity: 1;
 
   &:nth-of-type(1) {
     left: 12rem;
@@ -80,6 +127,8 @@
         height: 0.3rem;
 
         background: $secondary;
+
+        opacity: 1;
       }
     }
 
@@ -95,6 +144,8 @@
       height: 0.3rem;
 
       background: $secondary;
+
+      opacity: 1;
 
       @include breakpoint($lg-bp) {
         height: 33.3rem;
@@ -142,6 +193,8 @@
         height: 0.3rem;
 
         background: $secondary;
+
+        opacity: 1;
       }
     }
 
@@ -157,6 +210,8 @@
       height: 0.3rem;
 
       background: $secondary;
+
+      opacity: 1;
 
       @include breakpoint($lg-bp) {
         height: 33.3rem;
@@ -181,7 +236,7 @@
     }
   }
   &:nth-of-type(3) {
-    right: 23rem;
+    left: 89rem;
     top: 9rem;
 
     @include breakpoint($lg-bp) {
@@ -201,6 +256,8 @@
         height: 0.3rem;
 
         background: $secondary;
+
+        opacity: 1;
       }
     }
 
@@ -216,6 +273,8 @@
       height: 0.3rem;
 
       background: $secondary;
+
+      opacity: 1;
 
       @include breakpoint($lg-bp) {
         height: 13rem;
@@ -247,6 +306,13 @@
     }
   }
 }
+
+.antiox-item__content {
+  position: absolute;
+
+  line-height: 1;
+}
+
 .antiox-item__icon {
   width: 20rem;
 
@@ -257,11 +323,7 @@
     width: 18rem;
   }
 }
-.antiox-item__content {
-  position: absolute;
 
-  line-height: 1;
-}
 .antiox-item__title {
   font-size: 2.6rem;
   font-weight: 700;

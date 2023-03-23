@@ -50,3 +50,28 @@ const prodCategorySlider = new Swiper(".prod-category-slider", {
     1350: {},
   },
 });
+
+const benefitsSlider = new Swiper(".benefits-slider__inner", {
+  slidesPerView: "auto",
+  spaceBetween: 0,
+  effect: "fade",
+  fadeEffect: {
+    crossFade: true,
+  },
+
+  navigation: {
+    nextEl: ".button-next",
+    prevEl: ".button-prev",
+  },
+
+  // Добавление точек
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+
+  breakpoints: {
+    750: {},
+    1350: {},
+  },
+});

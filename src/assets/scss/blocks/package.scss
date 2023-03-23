@@ -25,8 +25,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  margin-top: 6rem;
 }
 
 .package-img {
@@ -54,7 +52,62 @@
     width: 70rem;
   }
 }
+.swiper-slide.swiper-slide-active {
+  .package-img {
+    opacity: 1;
 
+    transition: all 0.2s linear;
+  }
+  .package-item {
+    opacity: 1;
+
+    transition: all 0.3s linear;
+
+    &:nth-of-type(1) {
+      left: 21rem;
+      top: 9rem;
+
+      transition-delay: 0.1s;
+    }
+    &:nth-of-type(2) {
+      left: 11rem;
+      top: 41.6rem;
+
+      transition-delay: 0.4s;
+    }
+    &:nth-of-type(3) {
+      left: 21rem;
+      top: 73rem;
+
+      transition-delay: 0.7s;
+    }
+    &:nth-of-type(4) {
+      left: 91rem;
+      top: 9rem;
+
+      transition-delay: 1s;
+    }
+    &:nth-of-type(5) {
+      left: 96rem;
+      top: 59rem;
+
+      transition-delay: 1.3s;
+    }
+
+    &::before,
+    &::after {
+      opacity: 1;
+
+      transition: all 0.3s linear 2s;
+    }
+  }
+
+  .package-item__content {
+    opacity: 1;
+
+    transition: all 0.3s linear 2s;
+  }
+}
 .package-item {
   position: absolute;
   z-index: 2;
@@ -80,6 +133,8 @@
       height: 0.3rem;
 
       background: $secondary;
+
+      opacity: 1;
 
       @include breakpoint($lg-bp) {
         width: 20.1rem;
@@ -108,13 +163,7 @@
     }
 
     .package-item__line {
-      top: 50%;
-      right: -15rem;
-
-      width: 15.6rem;
-
-      @include breakpoint($lg-bp) {
-      }
+      display: none;
     }
   }
   &:nth-of-type(2) {
@@ -138,6 +187,8 @@
       height: 0.3rem;
 
       background: $secondary;
+
+      opacity: 1;
 
       @include breakpoint($lg-bp) {
         width: 21.8rem;
@@ -331,6 +382,13 @@
     }
   }
 }
+
+.package-item__content {
+  position: absolute;
+
+  line-height: 1;
+}
+
 .package-item__icon {
   width: 20rem;
 
@@ -342,17 +400,14 @@
   }
 }
 .package-item__line {
+  display: none;
   position: absolute;
 
   @include breakpoint($lg-bp) {
     display: none;
   }
 }
-.package-item__content {
-  position: absolute;
 
-  line-height: 1;
-}
 .package-item__title {
   font-size: 12rem;
   font-weight: 250;
