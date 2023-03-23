@@ -4476,10 +4476,8 @@ button::placeholder {
 
 @media (max-width: 920px) {
     .prodpage-img {
-        position: absolute;
-        top: 39rem;
-        left: -13rem;
-        max-width: 40rem;
+        -ms-flex-order: -2;
+        order: -2;
         margin: 0;
     }
 }
@@ -4489,8 +4487,11 @@ button::placeholder {
     right: 1rem;
     top: 0.5rem;
     display: grid;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     gap: 2.3rem;
     width: 36rem;
+    height: 82%;
 }
 
 @media (max-width: 920px) {
@@ -4525,9 +4526,13 @@ button::placeholder {
 }
 
 .prodpage__buy-links {
-    display: grid;
-    gap: 2.4rem;
-    margin-top: 7.3rem;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    gap: 1.4rem;
 }
 
 @media (max-width: 920px) {
@@ -4537,20 +4542,9 @@ button::placeholder {
     }
 }
 
-.prodpage__buy-links .filled-btn {
-    max-width: 100%;
-    -ms-flex-pack: center;
-    justify-content: center;
-    text-decoration: none;
+.prodpage__buy-links .prodpage__buy-link--where {
     color: #111c4e;
-    background: #ebdbf2;
-    border-color: #ebdbf2;
-}
-
-.prodpage__buy-links .filled-btn:hover {
-    color: white;
-    background: #7711ab;
-    background-color: #7711ab;
+    margin-bottom: 1.5rem;
 }
 
 .prodpage-descr {
@@ -4646,11 +4640,11 @@ button::placeholder {
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
-    gap: 5rem;
+    gap: 3rem;
     -ms-flex-align: start;
     align-items: flex-start;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
     height: 58rem;
 }
 
@@ -4665,7 +4659,7 @@ button::placeholder {
     }
 }
 
-.prodpage-options__wrapper .filled-btn {
+.prodpage-options__wrapper .prodpage-instruction {
     max-width: 100%;
     -ms-flex-pack: center;
     justify-content: center;
@@ -4675,7 +4669,7 @@ button::placeholder {
     border-color: #ebdbf2;
 }
 
-.prodpage-options__wrapper .filled-btn:hover {
+.prodpage-options__wrapper .prodpage-instruction:hover {
     color: white;
     background: #7711ab;
     background-color: #7711ab;

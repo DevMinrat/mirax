@@ -3762,7 +3762,7 @@ button::placeholder {
     padding-bottom: 6rem;
     background: url(../images/prodp/prodp-bg-mob.png) no-repeat;
     background-size: 100% 29.4rem;
-    background-position: top 136rem center;
+    background-position: top 120rem center;
   }
 }
 .prodpage .breadcrumb-wrapper {
@@ -3820,11 +3820,9 @@ button::placeholder {
 }
 @media (max-width: 920px) {
   .prodpage-img {
-    position: absolute;
-    top: 39rem;
-    left: -13rem;
-    max-width: 40rem;
-    margin: 0;
+    order: -2;
+    width: 75rem;
+    margin: -7rem 0rem 0rem -11.5rem;
   }
 }
 
@@ -3833,8 +3831,10 @@ button::placeholder {
   right: 1rem;
   top: 0.5rem;
   display: grid;
+  justify-content: space-between;
   gap: 2.3rem;
   width: 36rem;
+  height: 82%;
 }
 @media (max-width: 920px) {
   .prodpage-data {
@@ -3852,7 +3852,8 @@ button::placeholder {
 }
 @media (max-width: 920px) {
   .prodpage-volumes__wrapper {
-    justify-content: flex-end;
+    width: 114%;
+    justify-content: center;
   }
 }
 
@@ -3864,28 +3865,25 @@ button::placeholder {
 }
 
 .prodpage__buy-links {
-  display: grid;
-  gap: 2.4rem;
-  margin-top: 7.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1.4rem;
 }
 @media (max-width: 920px) {
   .prodpage__buy-links {
-    margin-top: 18rem;
-    width: 100%;
+    margin-top: 28rem;
+    width: 114%;
   }
 }
-.prodpage__buy-links .filled-btn {
-  max-width: 100%;
-  justify-content: center;
-  text-decoration: none;
+.prodpage__buy-links .prodpage__buy-link--where {
   color: #111c4e;
-  background: #ebdbf2;
-  border-color: #ebdbf2;
+  margin-bottom: 1.5rem;
 }
-.prodpage__buy-links .filled-btn:hover {
-  color: white;
-  background: #7711ab;
-  background-color: #7711ab;
+@media (max-width: 920px) {
+  .prodpage__buy-links .prodpage__buy-link--where {
+    text-align: center;
+  }
 }
 
 .prodpage-descr {
@@ -3964,21 +3962,28 @@ button::placeholder {
 .prodpage-options__wrapper {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 3rem;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-end;
   height: 58rem;
 }
 @media (max-width: 920px) {
   .prodpage-options__wrapper {
+    position: absolute;
+    top: 63rem;
     width: 100%;
     justify-content: flex-start;
-    gap: 4rem;
+    gap: 2rem;
     height: unset;
     margin-bottom: 10rem;
   }
+  .prodpage-options__wrapper .filled-btn {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+  }
 }
-.prodpage-options__wrapper .filled-btn {
+.prodpage-options__wrapper .prodpage-instruction {
   max-width: 100%;
   justify-content: center;
   text-decoration: none;
@@ -3986,7 +3991,7 @@ button::placeholder {
   background: #ebdbf2;
   border-color: #ebdbf2;
 }
-.prodpage-options__wrapper .filled-btn:hover {
+.prodpage-options__wrapper .prodpage-instruction:hover {
   color: white;
   background: #7711ab;
   background-color: #7711ab;

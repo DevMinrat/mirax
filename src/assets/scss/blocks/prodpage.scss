@@ -10,7 +10,7 @@
 
     background: url(../images/prodp/prodp-bg-mob.png) no-repeat;
     background-size: 100% 29.4rem;
-    background-position: top 136rem center;
+    background-position: top 120rem center;
   }
 
   .breadcrumb-wrapper {
@@ -73,13 +73,11 @@
   margin: -10rem 0rem 0rem -19rem;
 
   @include breakpoint($lg-bp) {
-    position: absolute;
-    top: 39rem;
-    left: -13rem;
+    order: -2;
 
-    max-width: 40rem;
+    width: 75rem;
 
-    margin: 0;
+    margin: -7rem 0rem 0rem -11.5rem;
   }
 }
 
@@ -89,9 +87,11 @@
   top: 0.5rem;
 
   display: grid;
+  justify-content: space-between;
   gap: 2.3rem;
 
   width: 36rem;
+  height: 82%;
 
   @include breakpoint($lg-bp) {
     position: static;
@@ -108,7 +108,8 @@
   gap: 2rem;
 
   @include breakpoint($lg-bp) {
-    justify-content: flex-end;
+    width: 114%;
+    justify-content: center;
   }
 }
 .prodpage-volumes {
@@ -120,33 +121,24 @@
   }
 }
 .prodpage__buy-links {
-  display: grid;
-  gap: 2.4rem;
-
-  margin-top: 7.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1.4rem;
 
   @include breakpoint($lg-bp) {
-    margin-top: 18rem;
+    margin-top: 28rem;
 
-    width: 100%;
+    width: 114%;
   }
 
-  .filled-btn {
-    max-width: 100%;
-
-    justify-content: center;
-
-    text-decoration: none;
+  .prodpage__buy-link--where {
     color: $primary;
 
-    background: #ebdbf2;
-    border-color: #ebdbf2;
+    margin-bottom: 1.5rem;
 
-    &:hover {
-      color: white;
-
-      background: $secondary;
-      background-color: $secondary;
+    @include breakpoint($lg-bp) {
+      text-align: center;
     }
   }
 }
@@ -235,25 +227,35 @@
 .prodpage-options__wrapper {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 3rem;
 
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-end;
 
   height: 58rem;
 
   @include breakpoint($lg-bp) {
+    position: absolute;
+    top: 63rem;
+
     width: 100%;
 
     justify-content: flex-start;
-    gap: 4rem;
+    gap: 2rem;
 
     height: unset;
 
     margin-bottom: 10rem;
+
+    .filled-btn {
+      width: 100%;
+      max-width: 100%;
+
+      justify-content: center;
+    }
   }
 
-  .filled-btn {
+  .prodpage-instruction {
     max-width: 100%;
 
     justify-content: center;
