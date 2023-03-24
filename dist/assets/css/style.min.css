@@ -4245,6 +4245,17 @@ button.swiper-pagination-bullet {
     justify-content: center;
   }
 }
+.prodpage-volumes__wrapper .product-item-scu-item-text-container {
+  position: relative;
+  min-width: 7rem;
+  padding: 0 0.6rem;
+  text-align: center;
+}
+.prodpage-volumes__wrapper .product-item-scu-item-text-container:not(:nth-last-child(2))::before {
+  content: "/";
+  position: absolute;
+  right: -1rem;
+}
 
 .prodpage-volumes a {
   text-decoration: underline;
@@ -4349,6 +4360,8 @@ button.swiper-pagination-bullet {
 }
 
 .prodpage-options__wrapper {
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   gap: 3rem;

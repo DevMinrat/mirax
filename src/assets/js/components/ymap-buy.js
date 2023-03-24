@@ -22,114 +22,114 @@ function initMap() {
     centerCoords = presetCoords;
   }
 
-  const myMap = new ymaps.Map("map", {
-    center: centerCoords,
-    zoom: 10,
-    controls: [],
-  });
+  fetch("сities.json")
+    .then((response) => response.json())
+    .then((responseData) => {
+      const myMap = new ymaps.Map("map", {
+          center: centerCoords,
+          zoom: 10,
+          controls: [],
+        }),
+        objectManager = new ymaps.ObjectManager({
+          clusterize: true,
+        });
 
-  sessionStorage.setItem("myMapCenter", JSON.stringify(myMap.getCenter()));
+      myMap.geoObjects.add(objectManager);
 
-  getCoordinates(
-    (coordinates) => {
-      myMap.setCenter(coordinates, 10);
-    },
-    () => {
-      console.log("User location is not available.");
-    }
-  );
+      sessionStorage.setItem("myMapCenter", JSON.stringify(myMap.getCenter()));
 
-  var pointsData = [
-    {
-      city: "1",
-      region: "22",
-      name: "1 STH Earth Co., LTD",
-      center: [55.76, 37.64],
-      content: "",
-      email: "moscow@test.by",
-      address: "Москва, улица Уборевича, 176",
-      phone: "+375-17-111-11-11",
-      web: null,
-    },
-    {
-      city: "2",
-      region: "22",
-      name: "2 STH Earth Co., LTD",
-      center: [56.01, 92.87],
-      content: "",
-      email: null,
-      address: "Красноярск, улица Красноярск, 126",
-      phone: "+375-17-222-22-22",
-      web: null,
-    },
-    {
-      city: "3",
-      region: "22",
-      name: "3 STH Earth Co., LTD",
-      center: [60.61, 56.84],
-      content: "",
-      email: "sict@test.by",
-      address: "Сыктывкар, улица Сыктывкар, 176",
-      phone: "+375-17-333-33-33",
-      web: "sict.ru",
-    },
-    {
-      city: "4",
-      region: "22",
-      name: "4 STH Earth Co., LTD",
-      center: [43.11, 131.91],
-      content: "",
-      email: "vladik@test.by",
-      address: "Владивосток, улица Владивосток, 176",
-      phone: "+375-17-444-34-34",
-      web: "vladik.ru",
-    },
-    {
-      city: "5",
-      region: "22",
-      name: "5 STH Earth Co., LTD",
-      center: [51.54, 46.02],
-      content: "",
-      email: null,
-      address: "Владивосток, улица Владивосток, 176",
-      phone: null,
-      web: null,
-    },
-  ];
+      getCoordinates(
+        (coordinates) => {
+          myMap.setCenter(coordinates, 10);
+        },
+        () => {
+          console.log("User location is not available.");
+        }
+      );
 
-  // Отрисовываем точки на карте
-  for (var i = 0; i < pointsData.length; i++) {
-    var coords = pointsData[i].center;
-    var name = pointsData[i].name;
-    var content = pointsData[i].content;
-    var email = pointsData[i].email;
-    var address = pointsData[i].address;
-    var phone = pointsData[i].phone;
-    var web = pointsData[i].web;
+      const pointsFeatures = responseData.map(function (point, index) {
+        var coords = point.center;
+        var name = point.name;
+        var content = point.content;
+        var email = point.email;
+        var address = point.address;
+        var phone = point.phone;
+        var web = point.web;
 
-    var balloonContent = `<b>${name}</b><br>`;
-    if (content !== "") {
-      balloonContent += `${content}<br>`;
-    }
-    if (address !== null) {
-      balloonContent += `Адрес: ${address}<br>`;
-    }
-    if (email !== null) {
-      balloonContent += `Email: <a href="mailto:${email}">${email}</a><br>`;
-    }
+        var balloonContent = `<b>${name}</b><br>`;
+        if (content !== "") {
+          balloonContent += `${content}<br>`;
+        }
+        if (address !== null) {
+          balloonContent += `Адрес: ${address}<br>`;
+        }
+        if (email !== null) {
+          balloonContent += `Email: <a href="mailto:${email}">${email}</a><br>`;
+        }
+        if (phone !== null) {
+          balloonContent += `Телефон: <a href="tel:${phone}">${phone}</a><br>`;
+        }
+        if (web !== null) {
+          balloonContent += `Сайт: <a href="${web}" target="_blank">${web}</a>`;
+        }
 
-    if (phone !== null) {
-      balloonContent += `Телефон: <a href="tel:${phone}">${phone}</a><br>`;
-    }
-    if (web !== null) {
-      balloonContent += `Сайт: <a href="${web}" target="_blank">${web}</a>`;
-    }
+        return {
+          type: "Feature",
+          id: index,
+          geometry: { type: "Point", coordinates: coords },
+          properties: {
+            balloonContent: balloonContent,
+            clusterCaption: "Еще одна метка",
+          },
+        };
+      });
 
-    var placemark = new ymaps.Placemark(coords, {
-      balloonContent: balloonContent,
+      const objectsData = {
+        type: "FeatureCollection",
+        features: pointsFeatures,
+      };
+
+      objectManager.add(objectsData);
+
+      function onObjectEvent(e) {
+        var objectId = e.get("objectId");
+        if (e.get("type") == "mouseenter") {
+          // Метод setObjectOptions позволяет задавать опции объекта "на лету".
+          objectManager.objects.setObjectOptions(objectId, {
+            preset: "islands#yellowIcon",
+          });
+        } else {
+          objectManager.objects.setObjectOptions(objectId, {
+            preset: "islands#blueIcon",
+          });
+        }
+      }
+
+      function onClusterEvent(e) {
+        var objectId = e.get("objectId");
+        if (e.get("type") == "mouseenter") {
+          objectManager.clusters.setClusterOptions(objectId, {
+            preset: "islands#yellowClusterIcons",
+          });
+        } else {
+          objectManager.clusters.setClusterOptions(objectId, {
+            preset: "islands#blueClusterIcons",
+          });
+        }
+      }
+
+      objectManager.objects.events.add(
+        ["mouseenter", "mouseleave"],
+        onObjectEvent
+      );
+      objectManager.clusters.events.add(
+        ["mouseenter", "mouseleave"],
+        onClusterEvent
+      );
+    })
+    .catch((error) => {
+      console.error("Ошибка:", error);
     });
-    myMap.geoObjects.add(placemark);
-  }
 
   document
     .querySelector(".selection__filter-btn")
