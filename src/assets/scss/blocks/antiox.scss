@@ -27,7 +27,8 @@
   justify-content: center;
 
   @include breakpoint($lg-bp) {
-    left: 0;
+    margin-top: 25rem;
+    margin-bottom: 55rem;
   }
 }
 
@@ -59,46 +60,50 @@
     width: 70rem;
   }
 }
+@media (min-width: 920px) {
+  .swiper-slide.swiper-slide-active {
+    .antiox-img {
+      opacity: 1;
 
-.swiper-slide.swiper-slide-active {
-  .antiox-img {
-    opacity: 1;
-
-    transition: all 0.2s linear;
-  }
-  .antiox-item {
-    opacity: 1;
-
-    transition: all 0.3s linear;
-
-    &:nth-of-type(1) {
-      left: 12rem;
-      top: 44rem;
-      transition-delay: 0.1s;
+      transition: all 0.2s linear;
     }
-    &:nth-of-type(2) {
-      left: 27rem;
-      top: 73rem;
-      transition-delay: 0.4s;
-    }
-    &:nth-of-type(3) {
-      left: 89rem;
-      top: 9rem;
-      transition-delay: 0.7s;
+    .antiox-item {
+      opacity: 1;
+
+      transition: all 0.3s linear;
+
+      &:nth-of-type(1) {
+        left: 12rem;
+        top: 44rem;
+
+        transition-delay: 0.1s;
+      }
+      &:nth-of-type(2) {
+        left: 27rem;
+        top: 73rem;
+
+        transition-delay: 0.4s;
+      }
+      &:nth-of-type(3) {
+        left: 89rem;
+        top: 9rem;
+
+        transition-delay: 0.7s;
+      }
+
+      &::before,
+      &::after {
+        opacity: 1;
+
+        transition: all 0.3s linear 1.4s;
+      }
     }
 
-    &::before,
-    &::after {
+    .antiox-item__content {
       opacity: 1;
 
       transition: all 0.3s linear 1.4s;
     }
-  }
-
-  .antiox-item__content {
-    opacity: 1;
-
-    transition: all 0.3s linear 1.4s;
   }
 }
 
@@ -114,7 +119,7 @@
 
     @include breakpoint($lg-bp) {
       left: -4rem;
-      top: 34rem;
+      top: 2rem;
 
       &::before {
         content: "";
@@ -180,7 +185,7 @@
 
     @include breakpoint($lg-bp) {
       left: 24rem;
-      top: 33rem;
+      top: -1rem;
 
       &::before {
         content: "";
@@ -243,7 +248,7 @@
       right: unset;
       top: unset;
       left: -3rem;
-      bottom: 33rem;
+      bottom: -1rem;
 
       &::after {
         content: "";

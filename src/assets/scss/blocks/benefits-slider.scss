@@ -3,8 +3,18 @@
 
   padding: 5.6rem 0 0;
 
+  @include breakpoint($lg-bp) {
+    height: 197rem;
+
+    background: url(../images//package/package-bg-mob.png) no-repeat;
+    background-size: 100% 205rem;
+    background-position: top -7rem center;
+  }
+
   .container {
-    overflow: hidden;
+    @media (min-width: 920px) {
+      overflow: hidden;
+    }
   }
 
   .swiper-wrapper {
@@ -22,6 +32,10 @@
     height: 7.4rem;
 
     cursor: pointer;
+
+    @include breakpoint($lg-bp) {
+      display: none;
+    }
 
     svg {
       display: block;
@@ -68,31 +82,33 @@
   }
 }
 
-.swiper-slide {
-  .antiox-item,
-  .pao-item,
-  .package-item {
-    left: 43%;
-    top: 43%;
+@media (min-width: 920px) {
+  .swiper-slide {
+    .antiox-item,
+    .pao-item,
+    .package-item {
+      left: 43%;
+      top: 43%;
 
-    z-index: 1;
+      z-index: 1;
 
-    opacity: 0;
+      opacity: 0;
 
-    &::before,
-    &::after {
+      &::before,
+      &::after {
+        opacity: 0;
+      }
+    }
+    .antiox-img,
+    .pao-img,
+    .package-img {
       opacity: 0;
     }
-  }
-  .antiox-img,
-  .pao-img,
-  .package-img {
-    opacity: 0;
-  }
 
-  .antiox-item__content,
-  .pao-item__content,
-  .package-item__content {
-    opacity: 0;
+    .antiox-item__content,
+    .pao-item__content,
+    .package-item__content {
+      opacity: 0;
+    }
   }
 }
