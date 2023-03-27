@@ -1,21 +1,25 @@
 const byOnlineSites = [
   {
     siteName: "Ozon",
+    synonyms: "ozon, azon, озон, азон",
     siteUrl: "https://ozon.ru/",
     imageUrl: "assets/images/buy/buy-online-1.png",
   },
   {
     siteName: "Ozonator",
+    synonyms: "Ozonator ozonat azon озон азон",
     siteUrl: "https://ozonator.ru/",
     imageUrl: "assets/images/buy/buy-online-1.png",
   },
   {
     siteName: "Wildberries",
+    synonyms: "Wildberriesвилдберизвайлдбериез",
     siteUrl: "https://www.wildberries.ru/",
     imageUrl: "assets/images/buy/buy-online-2.png",
   },
   {
     siteName: "Yandex.Market",
+    synonyms: "Yandex.Market яндекс маркет",
     siteUrl: "https://market.yandex.ru/",
     imageUrl: "assets/images/buy/buy-online-4.png",
   },
@@ -39,13 +43,11 @@ function renderResults(results) {
 
   resultSection.innerHTML = "";
 
-  // получаем значение поля фильтра
   const filterValue = buyOnlineInput.value.toLowerCase();
 
   for (let site of results) {
-    const siteName = site.siteName.toLowerCase();
+    const siteName = site.synonyms.toLowerCase();
 
-    // проверяем, подходит ли результат под фильтр
     if (siteName.includes(filterValue) && filterValue.length >= 2) {
       let link = document.createElement("a");
       link.classList.add("buy-online__link");

@@ -2012,6 +2012,7 @@ button.swiper-pagination-bullet {
 
 .useful__inner {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 10rem;
 }
@@ -4255,6 +4256,9 @@ button.swiper-pagination-bullet {
   content: "/";
   position: absolute;
   right: -1rem;
+}
+.prodpage-volumes__wrapper .product-item-scu-item-text-container:not(.selected) {
+  cursor: pointer;
 }
 
 .prodpage-volumes a {

@@ -1,27 +1,3 @@
-// const introSlider = new Swiper(".intro-silder", {
-// slidesPerView: "auto",
-// spaceBetween: 37,
-
-// pagination: {
-//   el: ".swiper-pagination",
-//   type: "progressbar",
-// },
-
-// navigation: {
-//   nextEl: ".intro-slider__btn-next",
-//   prevEl: ".intro-slider__btn-prev",
-// },
-
-// breakpoints: {
-//   900: {
-//     spaceBetween: 50,
-//   },
-//   1350: {
-//     slidesPerView: "auto",
-//     spaceBetween: 80,
-//   },
-// },
-//   });
 
 const introSlider = new Swiper(".intro-slider", {
   slidesPerView: "auto",
@@ -64,7 +40,6 @@ const benefitsSlider = new Swiper(".benefits-slider__inner", {
     prevEl: ".button-prev",
   },
 
-  // Добавление точек
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
@@ -75,3 +50,13 @@ const benefitsSlider = new Swiper(".benefits-slider__inner", {
     1350: {},
   },
 });
+
+const currentUrl = window.location.href;
+
+if (currentUrl.indexOf("#") != -1) {
+  let urlAndAnchor = currentUrl.split("#");
+  let anchor = urlAndAnchor[1];
+  let slide = document.getElementById(anchor).getAttribute("aria-label");
+  let slideIndex = parseInt(slide) - 1;
+  benefitsSlider.slideTo(slideIndex);
+}

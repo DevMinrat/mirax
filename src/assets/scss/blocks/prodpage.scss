@@ -117,14 +117,17 @@
     min-width: 7rem;
     padding: 0 0.6rem;
     text-align: center;
-  
+
     &:not(:nth-last-child(2))::before {
       content: "/";
       position: absolute;
       right: -1rem;
     }
+
+    &:not(.selected) {
+      cursor: pointer;
+    }
   }
-  
 }
 .prodpage-volumes {
   a {
@@ -291,4 +294,3 @@
     }
   }
 }
-

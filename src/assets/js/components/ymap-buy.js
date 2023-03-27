@@ -10,6 +10,8 @@ function getCoordinates(successCallback, errorCallback) {
   );
 }
 
+let myMap;
+
 function initMap() {
   const presetCoords = [55.76, 37.64];
 
@@ -22,17 +24,17 @@ function initMap() {
     centerCoords = presetCoords;
   }
 
-  fetch("сities.json")
+  fetch("/cities.json")
     .then((response) => response.json())
     .then((responseData) => {
-      const myMap = new ymaps.Map("map", {
-          center: centerCoords,
-          zoom: 10,
-          controls: [],
-        }),
-        objectManager = new ymaps.ObjectManager({
+      (myMap = new ymaps.Map("map", {
+        center: centerCoords,
+        zoom: 10,
+        controls: [],
+      })),
+        (objectManager = new ymaps.ObjectManager({
           clusterize: true,
-        });
+        }));
 
       myMap.geoObjects.add(objectManager);
 

@@ -11898,30 +11898,6 @@
     !function(e){e.fn.niceSelect=function(t){function s(t){t.after(e("<div></div>").addClass("nice-select").addClass(t.attr("class")||"").addClass(t.attr("disabled")?"disabled":"").attr("tabindex",t.attr("disabled")?null:"0").html('<span class="current"></span><ul class="list"></ul>'));var s=t.next(),n=t.find("option"),i=t.find("option:selected");s.find(".current").html(i.data("display")||i.text()),n.each(function(t){var n=e(this),i=n.data("display");s.find("ul").append(e("<li></li>").attr("data-value",n.val()).attr("data-display",i||null).addClass("option"+(n.is(":selected")?" selected":"")+(n.is(":disabled")?" disabled":"")).html(n.text()))})}if("string"==typeof t)return"update"==t?this.each(function(){var t=e(this),n=e(this).next(".nice-select"),i=n.hasClass("open");n.length&&(n.remove(),s(t),i&&t.next().trigger("click"))}):"destroy"==t?(this.each(function(){var t=e(this),s=e(this).next(".nice-select");s.length&&(s.remove(),t.css("display",""))}),0==e(".nice-select").length&&e(document).off(".nice_select")):console.log('Method "'+t+'" does not exist.'),this;this.hide(),this.each(function(){var t=e(this);t.next().hasClass("nice-select")||s(t)}),e(document).off(".nice_select"),e(document).on("click.nice_select",".nice-select",function(t){var s=e(this);e(".nice-select").not(s).removeClass("open"),s.toggleClass("open"),s.hasClass("open")?(s.find(".option"),s.find(".focus").removeClass("focus"),s.find(".selected").addClass("focus")):s.focus()}),e(document).on("click.nice_select",function(t){0===e(t.target).closest(".nice-select").length&&e(".nice-select").removeClass("open").find(".option")}),e(document).on("click.nice_select",".nice-select .option:not(.disabled)",function(t){var s=e(this),n=s.closest(".nice-select");n.find(".selected").removeClass("selected"),s.addClass("selected");var i=s.data("display")||s.text();n.find(".current").text(i),n.prev("select").val(s.data("value")).trigger("change")}),e(document).on("keydown.nice_select",".nice-select",function(t){var s=e(this),n=e(s.find(".focus")||s.find(".list .option.selected"));if(32==t.keyCode||13==t.keyCode)return s.hasClass("open")?n.trigger("click"):s.trigger("click"),!1;if(40==t.keyCode){if(s.hasClass("open")){var i=n.nextAll(".option:not(.disabled)").first();i.length>0&&(s.find(".focus").removeClass("focus"),i.addClass("focus"))}else s.trigger("click");return!1}if(38==t.keyCode){if(s.hasClass("open")){var l=n.prevAll(".option:not(.disabled)").first();l.length>0&&(s.find(".focus").removeClass("focus"),l.addClass("focus"))}else s.trigger("click");return!1}if(27==t.keyCode)s.hasClass("open")&&s.trigger("click");else if(9==t.keyCode&&s.hasClass("open"))return!1});var n=document.createElement("a").style;return n.cssText="pointer-events:auto","auto"!==n.pointerEvents&&e("html").addClass("no-csspointerevents"),this}}(jQuery);
 
 document.addEventListener("DOMContentLoaded", () => {
-  // const introSlider = new Swiper(".intro-silder", {
-  // slidesPerView: "auto",
-  // spaceBetween: 37,
-  
-  // pagination: {
-  //   el: ".swiper-pagination",
-  //   type: "progressbar",
-  // },
-  
-  // navigation: {
-  //   nextEl: ".intro-slider__btn-next",
-  //   prevEl: ".intro-slider__btn-prev",
-  // },
-  
-  // breakpoints: {
-  //   900: {
-  //     spaceBetween: 50,
-  //   },
-  //   1350: {
-  //     slidesPerView: "auto",
-  //     spaceBetween: 80,
-  //   },
-  // },
-  //   });
   
   const introSlider = new Swiper(".intro-slider", {
     slidesPerView: "auto",
@@ -11964,7 +11940,6 @@ document.addEventListener("DOMContentLoaded", () => {
       prevEl: ".button-prev",
     },
   
-    // Добавление точек
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -11975,6 +11950,16 @@ document.addEventListener("DOMContentLoaded", () => {
       1350: {},
     },
   });
+  
+  const currentUrl = window.location.href;
+  
+  if (currentUrl.indexOf("#") != -1) {
+    let urlAndAnchor = currentUrl.split("#");
+    let anchor = urlAndAnchor[1];
+    let slide = document.getElementById(anchor).getAttribute("aria-label");
+    let slideIndex = parseInt(slide) - 1;
+    benefitsSlider.slideTo(slideIndex);
+  }
 
   // header functional
 
@@ -12267,21 +12252,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const byOnlineSites = [
     {
       siteName: "Ozon",
+      synonyms: "ozon, azon, озон, азон",
       siteUrl: "https://ozon.ru/",
       imageUrl: "assets/images/buy/buy-online-1.png",
     },
     {
       siteName: "Ozonator",
+      synonyms: "Ozonator ozonat azon озон азон",
       siteUrl: "https://ozonator.ru/",
       imageUrl: "assets/images/buy/buy-online-1.png",
     },
     {
       siteName: "Wildberries",
+      synonyms: "Wildberriesвилдберизвайлдбериез",
       siteUrl: "https://www.wildberries.ru/",
       imageUrl: "assets/images/buy/buy-online-2.png",
     },
     {
       siteName: "Yandex.Market",
+      synonyms: "Yandex.Market яндекс маркет",
       siteUrl: "https://market.yandex.ru/",
       imageUrl: "assets/images/buy/buy-online-4.png",
     },
@@ -12305,13 +12294,11 @@ document.addEventListener("DOMContentLoaded", () => {
   
     resultSection.innerHTML = "";
   
-    // получаем значение поля фильтра
     const filterValue = buyOnlineInput.value.toLowerCase();
   
     for (let site of results) {
-      const siteName = site.siteName.toLowerCase();
+      const siteName = site.synonyms.toLowerCase();
   
-      // проверяем, подходит ли результат под фильтр
       if (siteName.includes(filterValue) && filterValue.length >= 2) {
         let link = document.createElement("a");
         link.classList.add("buy-online__link");
@@ -12338,6 +12325,8 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
   
+  let myMap;
+  
   function initMap() {
     const presetCoords = [55.76, 37.64];
   
@@ -12350,17 +12339,17 @@ document.addEventListener("DOMContentLoaded", () => {
       centerCoords = presetCoords;
     }
   
-    fetch("сities.json")
+    fetch("/cities.json")
       .then((response) => response.json())
       .then((responseData) => {
-        const myMap = new ymaps.Map("map", {
-            center: centerCoords,
-            zoom: 10,
-            controls: [],
-          }),
-          objectManager = new ymaps.ObjectManager({
+        (myMap = new ymaps.Map("map", {
+          center: centerCoords,
+          zoom: 10,
+          controls: [],
+        })),
+          (objectManager = new ymaps.ObjectManager({
             clusterize: true,
-          });
+          }));
   
         myMap.geoObjects.add(objectManager);
   
