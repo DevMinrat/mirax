@@ -1,4 +1,3 @@
-
 const introSlider = new Swiper(".intro-slider", {
   slidesPerView: "auto",
   spaceBetween: 0,
@@ -55,7 +54,7 @@ const currentUrl = window.location.href;
 
 if (currentUrl.indexOf("#") != -1) {
   let urlAndAnchor = currentUrl.split("#");
-  let anchor = urlAndAnchor[1];
+  let anchor = urlAndAnchor[1].slice(0, -1);
   let slide = document.getElementById(anchor).getAttribute("aria-label");
   let slideIndex = parseInt(slide) - 1;
   benefitsSlider.slideTo(slideIndex);

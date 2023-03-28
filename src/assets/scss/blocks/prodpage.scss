@@ -183,60 +183,60 @@
 
       margin-left: -6rem;
     }
-  }
-  table {
-    width: 100%;
-
-    @include breakpoint($lg-bp) {
-      font-size: 2.2rem;
-    }
-
-    thead {
-      color: #fff;
-
-      th {
-        background: $secondary;
-        font-weight: 500;
-      }
-    }
-
-    tr th,
-    tr td {
-      text-align: center;
-      text-transform: uppercase;
-
-      padding: 0 2rem;
+    table {
+      width: 100%;
 
       @include breakpoint($lg-bp) {
-        padding: 1.2rem 0.4rem;
+        font-size: 2.2rem;
       }
 
-      &:first-child {
-        text-align: left;
+      thead {
+        color: #fff;
+
+        th {
+          background: $secondary;
+          font-weight: 500;
+        }
       }
-    }
 
-    tr {
-      height: 5.1rem;
+      tr th,
+      tr td {
+        text-align: center;
+        text-transform: uppercase;
 
-      background: #fff;
+        padding: 0 2rem;
 
-      &:nth-child(even) {
-        background: rgba(119, 17, 171, 0.2);
+        @include breakpoint($lg-bp) {
+          padding: 1.2rem 0.4rem;
+        }
+
+        &:first-child {
+          text-align: left;
+        }
       }
-    }
 
-    tr:first-child th:first-child {
-      border-top-left-radius: 1rem;
-    }
-    tr:first-child th:last-child {
-      border-top-right-radius: 1rem;
-    }
-    tr:last-child td:last-child {
-      border-bottom-right-radius: 1rem;
-    }
-    tr:last-child td:first-child {
-      border-bottom-left-radius: 1rem;
+      tr {
+        height: 5.1rem;
+
+        background: #fff;
+
+        &:nth-child(even) {
+          background: rgba(119, 17, 171, 0.2);
+        }
+      }
+
+      tr:first-child th:first-child {
+        border-top-left-radius: 1rem;
+      }
+      tr:first-child th:last-child {
+        border-top-right-radius: 1rem;
+      }
+      tr:last-child td:last-child {
+        border-bottom-right-radius: 1rem;
+      }
+      tr:last-child td:first-child {
+        border-bottom-left-radius: 1rem;
+      }
     }
   }
 }
@@ -291,6 +291,61 @@
 
       background: $secondary;
       background-color: $secondary;
+    }
+  }
+}
+
+.table-gray {
+  width: 100%;
+  overflow: auto;
+
+  @include breakpoint($lg-bp) {
+    width: 65rem;
+
+    margin-left: -6rem;
+  }
+
+  table {
+    width: 100%;
+
+    @include breakpoint($lg-bp) {
+      width: 100rem;
+    }
+
+    thead {
+      color: white;
+      font-size: 3rem;
+      text-transform: uppercase;
+
+      background: $secondary;
+
+      th {
+        padding: 0.4rem;
+      }
+    }
+
+    tbody {
+      display: table-cell;
+
+      padding-top: 2rem;
+
+      tr {
+        background: #fff;
+
+        &:nth-child(odd) {
+          background: rgb(235, 235, 235);
+        }
+
+        td {
+          padding: 1rem;
+          vertical-align: top;
+
+          &:first-child {
+            text-transform: uppercase;
+            font-weight: 700;
+          }
+        }
+      }
     }
   }
 }

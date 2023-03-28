@@ -251,11 +251,22 @@ document.addEventListener("DOMContentLoaded", () => {
           el.classList.add("error");
         } else {
           el.classList.remove("error");
+          checkErrors();
         }
       });
     });
 
+    function checkErrors() {
+      const errorInput = document.querySelectorAll(
+        ".contacts-form input.error"
+      );
+      if (!errorInput.length) {
+        submitButton.disabled = false;
+      }
+    }
+
     const submitButton = document.querySelector(".contacts-form__submit-btn");
+
     submitButton.addEventListener("click", function (e) {
       e.preventDefault();
 
@@ -280,6 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
         contactsForm.submit();
       } else {
         showErrorMessage();
+        submitButton.setAttribute("disabled", true);
       }
     });
   }
@@ -292,7 +304,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const regex = /^\+?[0-9]{10,}$/;
     return regex.test(phone.trim());
   }
-
+  
+  //= components/lubribase.js
   //= components/buy-online.js
   //= components/ymap-buy.js
 });

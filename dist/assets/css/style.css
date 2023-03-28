@@ -1968,6 +1968,7 @@ button.swiper-pagination-bullet {
     -ms-flex-pack: justify;
     justify-content: space-between;
     gap: 2rem;
+    margin-bottom: 1.8rem;
 }
 
 .prod-category-slider {
@@ -2298,6 +2299,8 @@ button.swiper-pagination-bullet {
 .useful__inner {
     display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
     -ms-flex-pack: justify;
     justify-content: space-between;
     gap: 10rem;
@@ -3169,12 +3172,6 @@ button.swiper-pagination-bullet {
     }
 }
 
-.products .products__item-img {
-    margin-top: -3rem;
-    margin-left: -9rem;
-    margin-right: -8rem;
-}
-
 .products .products__item-name {
     text-align: center;
 }
@@ -3195,6 +3192,12 @@ button.swiper-pagination-bullet {
         -webkit-line-clamp: 4;
         font-weight: 400;
     }
+}
+
+.products__item-img {
+    margin-top: -3rem;
+    margin-left: -9rem;
+    margin-right: -8rem;
 }
 
 .products__inner {
@@ -4968,6 +4971,10 @@ button.swiper-pagination-bullet {
     right: -1rem;
 }
 
+.prodpage-volumes__wrapper .product-item-scu-item-text-container:not(.selected) {
+    cursor: pointer;
+}
+
 .prodpage-volumes a {
     text-decoration: underline;
 }
@@ -5029,66 +5036,66 @@ button.swiper-pagination-bullet {
     }
 }
 
-.prodpage-table table {
+.prodpage-table .table-wrapper table {
     width: 100%;
 }
 
 @media (max-width: 920px) {
-    .prodpage-table table {
+    .prodpage-table .table-wrapper table {
         font-size: 2.2rem;
     }
 }
 
-.prodpage-table table thead {
+.prodpage-table .table-wrapper table thead {
     color: #fff;
 }
 
-.prodpage-table table thead th {
+.prodpage-table .table-wrapper table thead th {
     background: #7711ab;
     font-weight: 500;
 }
 
-.prodpage-table table tr th,
-.prodpage-table table tr td {
+.prodpage-table .table-wrapper table tr th,
+.prodpage-table .table-wrapper table tr td {
     text-align: center;
     text-transform: uppercase;
     padding: 0 2rem;
 }
 
 @media (max-width: 920px) {
-    .prodpage-table table tr th,
-.prodpage-table table tr td {
+    .prodpage-table .table-wrapper table tr th,
+.prodpage-table .table-wrapper table tr td {
         padding: 1.2rem 0.4rem;
     }
 }
 
-.prodpage-table table tr th:first-child,
-.prodpage-table table tr td:first-child {
+.prodpage-table .table-wrapper table tr th:first-child,
+.prodpage-table .table-wrapper table tr td:first-child {
     text-align: left;
 }
 
-.prodpage-table table tr {
+.prodpage-table .table-wrapper table tr {
     height: 5.1rem;
     background: #fff;
 }
 
-.prodpage-table table tr:nth-child(even) {
+.prodpage-table .table-wrapper table tr:nth-child(even) {
     background: rgba(119, 17, 171, 0.2);
 }
 
-.prodpage-table table tr:first-child th:first-child {
+.prodpage-table .table-wrapper table tr:first-child th:first-child {
     border-top-left-radius: 1rem;
 }
 
-.prodpage-table table tr:first-child th:last-child {
+.prodpage-table .table-wrapper table tr:first-child th:last-child {
     border-top-right-radius: 1rem;
 }
 
-.prodpage-table table tr:last-child td:last-child {
+.prodpage-table .table-wrapper table tr:last-child td:last-child {
     border-bottom-right-radius: 1rem;
 }
 
-.prodpage-table table tr:last-child td:first-child {
+.prodpage-table .table-wrapper table tr:last-child td:first-child {
     border-bottom-left-radius: 1rem;
 }
 
@@ -5143,6 +5150,62 @@ button.swiper-pagination-bullet {
     background-color: #7711ab;
 }
 
+.table-gray {
+    width: 100%;
+    overflow: auto;
+}
+
+@media (max-width: 920px) {
+    .table-gray {
+        width: 65rem;
+        margin-left: -6rem;
+    }
+}
+
+.table-gray table {
+    width: 100%;
+}
+
+@media (max-width: 920px) {
+    .table-gray table {
+        width: 100rem;
+    }
+}
+
+.table-gray table thead {
+    color: white;
+    font-size: 3rem;
+    text-transform: uppercase;
+    background: #7711ab;
+}
+
+.table-gray table thead th {
+    padding: 0.4rem;
+}
+
+.table-gray table tbody {
+    display: table-cell;
+    padding-top: 2rem;
+}
+
+.table-gray table tbody tr {
+    background: #fff;
+}
+
+.table-gray table tbody tr:nth-child(odd) {
+    background: rgb(235, 235, 235);
+}
+
+.table-gray table tbody tr td {
+    padding: 1rem;
+    vertical-align: top;
+}
+
+.table-gray table tbody tr td:first-child {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
 .intro--contacts {
     height: 52.6rem;
     padding-top: 23rem;
@@ -5194,6 +5257,12 @@ button.swiper-pagination-bullet {
 .contacts-form .filled-btn {
     margin-left: auto;
     padding: 1.1rem 5.5rem;
+}
+
+.contacts-form .filled-btn:disabled {
+    color: #fff;
+    background: #EBEBEB;
+    border-color: #EBEBEB;
 }
 
 @media (max-width: 920px) {

@@ -11898,7 +11898,6 @@
     !function(e){e.fn.niceSelect=function(t){function s(t){t.after(e("<div></div>").addClass("nice-select").addClass(t.attr("class")||"").addClass(t.attr("disabled")?"disabled":"").attr("tabindex",t.attr("disabled")?null:"0").html('<span class="current"></span><ul class="list"></ul>'));var s=t.next(),n=t.find("option"),i=t.find("option:selected");s.find(".current").html(i.data("display")||i.text()),n.each(function(t){var n=e(this),i=n.data("display");s.find("ul").append(e("<li></li>").attr("data-value",n.val()).attr("data-display",i||null).addClass("option"+(n.is(":selected")?" selected":"")+(n.is(":disabled")?" disabled":"")).html(n.text()))})}if("string"==typeof t)return"update"==t?this.each(function(){var t=e(this),n=e(this).next(".nice-select"),i=n.hasClass("open");n.length&&(n.remove(),s(t),i&&t.next().trigger("click"))}):"destroy"==t?(this.each(function(){var t=e(this),s=e(this).next(".nice-select");s.length&&(s.remove(),t.css("display",""))}),0==e(".nice-select").length&&e(document).off(".nice_select")):console.log('Method "'+t+'" does not exist.'),this;this.hide(),this.each(function(){var t=e(this);t.next().hasClass("nice-select")||s(t)}),e(document).off(".nice_select"),e(document).on("click.nice_select",".nice-select",function(t){var s=e(this);e(".nice-select").not(s).removeClass("open"),s.toggleClass("open"),s.hasClass("open")?(s.find(".option"),s.find(".focus").removeClass("focus"),s.find(".selected").addClass("focus")):s.focus()}),e(document).on("click.nice_select",function(t){0===e(t.target).closest(".nice-select").length&&e(".nice-select").removeClass("open").find(".option")}),e(document).on("click.nice_select",".nice-select .option:not(.disabled)",function(t){var s=e(this),n=s.closest(".nice-select");n.find(".selected").removeClass("selected"),s.addClass("selected");var i=s.data("display")||s.text();n.find(".current").text(i),n.prev("select").val(s.data("value")).trigger("change")}),e(document).on("keydown.nice_select",".nice-select",function(t){var s=e(this),n=e(s.find(".focus")||s.find(".list .option.selected"));if(32==t.keyCode||13==t.keyCode)return s.hasClass("open")?n.trigger("click"):s.trigger("click"),!1;if(40==t.keyCode){if(s.hasClass("open")){var i=n.nextAll(".option:not(.disabled)").first();i.length>0&&(s.find(".focus").removeClass("focus"),i.addClass("focus"))}else s.trigger("click");return!1}if(38==t.keyCode){if(s.hasClass("open")){var l=n.prevAll(".option:not(.disabled)").first();l.length>0&&(s.find(".focus").removeClass("focus"),l.addClass("focus"))}else s.trigger("click");return!1}if(27==t.keyCode)s.hasClass("open")&&s.trigger("click");else if(9==t.keyCode&&s.hasClass("open"))return!1});var n=document.createElement("a").style;return n.cssText="pointer-events:auto","auto"!==n.pointerEvents&&e("html").addClass("no-csspointerevents"),this}}(jQuery);
 
 document.addEventListener("DOMContentLoaded", () => {
-  
   const introSlider = new Swiper(".intro-slider", {
     slidesPerView: "auto",
     spaceBetween: 0,
@@ -11955,7 +11954,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   if (currentUrl.indexOf("#") != -1) {
     let urlAndAnchor = currentUrl.split("#");
-    let anchor = urlAndAnchor[1];
+    let anchor = urlAndAnchor[1].slice(0, -1);
     let slide = document.getElementById(anchor).getAttribute("aria-label");
     let slideIndex = parseInt(slide) - 1;
     benefitsSlider.slideTo(slideIndex);
@@ -12207,11 +12206,22 @@ document.addEventListener("DOMContentLoaded", () => {
           el.classList.add("error");
         } else {
           el.classList.remove("error");
+          checkErrors();
         }
       });
     });
 
+    function checkErrors() {
+      const errorInput = document.querySelectorAll(
+        ".contacts-form input.error"
+      );
+      if (!errorInput.length) {
+        submitButton.disabled = false;
+      }
+    }
+
     const submitButton = document.querySelector(".contacts-form__submit-btn");
+
     submitButton.addEventListener("click", function (e) {
       e.preventDefault();
 
@@ -12236,6 +12246,7 @@ document.addEventListener("DOMContentLoaded", () => {
         contactsForm.submit();
       } else {
         showErrorMessage();
+        submitButton.setAttribute("disabled", true);
       }
     });
   }
@@ -12248,7 +12259,314 @@ document.addEventListener("DOMContentLoaded", () => {
     const regex = /^\+?[0-9]{10,}$/;
     return regex.test(phone.trim());
   }
-
+  
+  const selectionBtn = document.querySelector(".selection__filter-btn");
+  
+  function makeApiCall(action, method, data, success, error) {
+    $.ajax({
+      url: "/lubribase_api.php",
+      method: method,
+      data: { action: action, ...data },
+      success: success,
+      error: error,
+  
+      statusCode: {
+        404: function () {
+          alert("page not found");
+        },
+      },
+    });
+  }
+  
+  makeApiCall(
+    "getCategories",
+    "GET",
+    {},
+    function (success) {
+      console.log(success);
+    },
+    function (error) {
+      console.log(error);
+    }
+  );
+  
+  function getModelText(data) {
+    let driveType = "";
+    if (data.drive_types && data.drive_types.length == 1) {
+      if (data.model.indexOf(data.drive_types[0]) == -1) {
+        driveType = " " + data.drive_types[0];
+      }
+    }
+    return data.mid
+      ? data.model +
+          driveType +
+          " (" +
+          (data.engine_output_hp ? data.engine_output_hp + " л.с., " : "") +
+          data.year_from +
+          "-" +
+          (data.year_to ? data.year_to : "н.в.") +
+          ")"
+      : data.name;
+  }
+  // Create the function to populate the select input
+  function populateSelect(selectId, data, value, modelName) {
+    selectId = "#" + selectId;
+    // Clear the select input
+  
+    $(selectId).empty();
+    if (selectId.indexOf("categories") == -1) {
+      $(selectId).append(
+        $('<option value="0" selected disabled>Выберите из списка</option>')
+      );
+    }
+    $(selectId).parent().addClass("with-value");
+    for (var i = 0; i < data.length; i++) {
+      let selected = value == (data[i].mid ? data[i].mid : data[i].id);
+      if (modelName && modelName == getModelText(data[i])) {
+        selected = true;
+      }
+      $(selectId).append(
+        $("<option>", {
+          "data-model": data[i].model ? getModelText(data[i]) : "",
+          value: data[i].mid ? data[i].mid : data[i].id,
+          text: getModelText(data[i]),
+          selected: selected,
+        })
+      );
+    }
+    if (!value && selectId.indexOf("categories") > -1) {
+      $(selectId).change();
+    }
+  }
+  
+  var initialLoading = false;
+  
+  $("#categories, #categories_left").change(function () {
+    if (initialLoading) return false;
+    $(
+      "#recomendation,#manufacturers,#manufacturers_left, #model_series,#model_series_left, #models,#models_left"
+    ).empty();
+    $(
+      "#manufacturers,#manufacturers_left,#model_series,#model_series_left, #models,#models_left"
+    ).append(
+      $('<option value="0" selected disabled>Выберите из списка</option>')
+    );
+    $("#go-to-selection").attr("disabled", true);
+    // Get the selected category id
+    var categoryId = $(this).val();
+    if (!categoryId) return;
+  
+    makeApiCall(
+      "getManufacturers",
+      "GET",
+      { categoryId: categoryId },
+      function (response) {
+        console.log(response);
+        populateSelect(
+          $("#manufacturers").is(":visible")
+            ? "manufacturers"
+            : "manufacturers_left",
+          response.results
+        );
+      },
+      function (error) {
+        console.log(error);
+      }
+    );
+  });
+  
+  // When the "Manufacturers" select input changes
+  $("#manufacturers,#manufacturers_left").change(function () {
+    if (initialLoading) return false;
+    $(
+      "#recomendation,#model_series,#model_series_left, #models,#models_left"
+    ).empty();
+    $("#model_series,#model_series_left, #models,#models_left").append(
+      $('<option value="0" selected disabled>Выберите из списка</option>')
+    );
+    $("#go-to-selection").attr("disabled", true);
+    var categoryId =
+      $("#categories:visible").val() || $("#categories_left:visible").val();
+    var manufacturerId = $(this).val();
+  
+    // Make an API call to get the model series for the selected manufacturer
+    makeApiCall(
+      "getModelSeries",
+      "GET",
+      { categoryId: categoryId, manufacturerId: manufacturerId },
+      function (response) {
+        // Populate the select input with the data
+        populateSelect(
+          $("#model_series").is(":visible")
+            ? "model_series"
+            : "model_series_left",
+          response.results
+        );
+      },
+      function (error) {
+        console.log(error);
+      }
+    );
+  });
+  
+  $("#model_series,#model_series_left").change(function () {
+    if (initialLoading) return false;
+    //	$('#recomendation,#models,#models_left').empty();
+    $("#models,#models_left").append(
+      $('<option value="0" selected disabled>Выберите из списка</option>')
+    );
+    $("#go-to-selection").attr("disabled", true);
+    var categoryId =
+      $("#categories:visible").val() || $("#categories_left:visible").val();
+    var manufacturerId =
+      $("#manufacturers:visible").val() || $("#manufacturers_left:visible").val();
+    var modelSeriesId = $(this).val();
+  
+    // Make an API call to get the models for the selected category, manufacturer, and model series
+    makeApiCall(
+      "getModels",
+      "GET",
+      {
+        categoryId: categoryId,
+        manufacturerId: manufacturerId,
+        modelSeriesId: modelSeriesId,
+      },
+      function (response) {
+        populateSelect(
+          $("#models").is(":visible") ? "models" : "models_left",
+          response.results
+        );
+      },
+      function (error) {
+        console.log(error);
+      }
+    );
+  });
+  $("#models").change(function () {
+    var modelId = $(this).val();
+    if (modelId) {
+      var categoryId =
+        $("#categories:visible").val() || $("#categories_left:visible").val();
+      var manufacturerId =
+        $("#manufacturers:visible").val() ||
+        $("#manufacturers_left:visible").val();
+      var modelSeriesId =
+        $("#model_series:visible").val() || $("#model_series_left:visible").val();
+      $("#go-to-selection").attr("disabled", false);
+  
+      $("#category-id").val(categoryId);
+      $("#manufacturer-id").val(manufacturerId);
+      $("#model-series-id").val(modelSeriesId);
+      $("#model-id").val(modelId);
+      $("#model-name").val($("#models option:selected").attr("data-model"));
+    } else {
+      $("#go-to-selection").attr("disabled", true);
+    }
+  });
+  
+  $("#models_left").change(function () {
+    var modelId = $(this).val();
+    if (modelId) {
+      makeApiCall(
+        "getEquipment",
+        "GET",
+        {
+          modelId: modelId,
+        },
+        function (response) {
+          $("#recomendation").html(response);
+        },
+        function (error) {
+          console.log(error);
+        }
+      );
+    }
+  });
+  
+  var loadValues = function (
+    categoryId,
+    manufacturerId,
+    modelSeriesId,
+    modelId,
+    modelName
+  ) {
+    var initialLoading = true;
+    makeApiCall(
+      "getCategories",
+      "GET",
+      {},
+      function (response) {
+        populateSelect("categories_left", response.results, categoryId);
+  
+        makeApiCall(
+          "getManufacturers",
+          "GET",
+          { categoryId: categoryId },
+          function (response) {
+            populateSelect(
+              "manufacturers_left",
+              response.results,
+              manufacturerId
+            );
+  
+            makeApiCall(
+              "getModelSeries",
+              "GET",
+              { categoryId: categoryId, manufacturerId: manufacturerId },
+              function (response) {
+                populateSelect(
+                  "model_series_left",
+                  response.results,
+                  modelSeriesId
+                );
+                makeApiCall(
+                  "getModels",
+                  "GET",
+                  {
+                    categoryId: categoryId,
+                    manufacturerId: manufacturerId,
+                    modelSeriesId: modelSeriesId,
+                  },
+                  function (response) {
+                    populateSelect(
+                      "models_left",
+                      response.results,
+                      modelId,
+                      modelName
+                    );
+                    setTimeout(() => {
+                      initialLoading = false;
+  
+                      /*$('#models_left option').each((i, el)=>{
+  													if ($(el).attr('data-model') == modelName){
+  														$('#models_left').val(el.value);
+  													}
+  												});*/
+                      setTimeout(() => {
+                        $("#models_left").change();
+                      }, 0);
+                    }, 500);
+                  },
+                  function (error) {
+                    console.log(error);
+                  }
+                );
+              },
+              function (error) {
+                console.log(error);
+              }
+            );
+          },
+          function (error) {
+            console.log(error);
+          }
+        );
+      },
+      function (error) {
+        console.log(error);
+      }
+    );
+  };
   const byOnlineSites = [
     {
       siteName: "Ozon",
@@ -12279,17 +12597,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const buyOnlineBtn = document.querySelector(".buy-online__filter-btn");
   const buyOnlineInput = document.querySelector("#buy-online__input");
   
+  window.sit =
+    '[{"ID":"26","~ID":"26","NAME":"ozon","~NAME":"ozon","PREVIEW_TEXT":"https://ozon.ru/","~PREVIEW_TEXT":"https://ozon.ru/","PREVIEW_PICTURE":"52","~PREVIEW_PICTURE":"52","PREVIEW_TEXT_TYPE":"html","~PREVIEW_TEXT_TYPE":"html","PREVIEW":"/upload/iblock/90b/hzwtozcokqbujf2jjezqo7d68k62qied/buy-online-1.png"},{"ID":"27","~ID":"27","NAME":"Wildberries","~NAME":"Wildberries","PREVIEW_TEXT":"https://www.wildberries.ru/","~PREVIEW_TEXT":"https://www.wildberries.ru/","PREVIEW_PICTURE":"53","~PREVIEW_PICTURE":"53","PREVIEW_TEXT_TYPE":"html","~PREVIEW_TEXT_TYPE":"html","PREVIEW":"/upload/iblock/8e9/qt2hl9rkbws8mkyc4ury99g1mrehaooz/buy-online-2.png"},{"ID":"28","~ID":"28","NAME":"\u0421\u0431\u0435\u0440 \u043c\u0430\u0440\u043a\u0435\u0442","~NAME":"\u0421\u0431\u0435\u0440 \u043c\u0430\u0440\u043a\u0435\u0442","PREVIEW_TEXT":"https://sbermarket.ru/","~PREVIEW_TEXT":"https://sbermarket.ru/","PREVIEW_PICTURE":"54","~PREVIEW_PICTURE":"54","PREVIEW_TEXT_TYPE":"html","~PREVIEW_TEXT_TYPE":"html","PREVIEW":"/upload/iblock/30a/60lx8307tg1m8hwqgiwxgrlqjlq74cg6/buy-online-3.png"},{"ID":"29","~ID":"29","NAME":"Yandex.Market","~NAME":"Yandex.Market","PREVIEW_TEXT":"https://market.yandex.ru/","~PREVIEW_TEXT":"https://market.yandex.ru/","PREVIEW_PICTURE":"55","~PREVIEW_PICTURE":"55","PREVIEW_TEXT_TYPE":"html","~PREVIEW_TEXT_TYPE":"html","PREVIEW":"/upload/iblock/1e0/q087fb49v2uqlpyqdnk8wf20njkb0pvt/buy-online-4.png"},{"ID":"30","~ID":"30","NAME":"autodoc","~NAME":"autodoc","PREVIEW_TEXT":"https://www.autodoc.ru/","~PREVIEW_TEXT":"https://www.autodoc.ru/","PREVIEW_PICTURE":"56","~PREVIEW_PICTURE":"56","PREVIEW_TEXT_TYPE":"html","~PREVIEW_TEXT_TYPE":"html","PREVIEW":"/upload/iblock/ccb/qf9yyqq87igo534hna40k5k6gtt7y14c/buy-online-5.png"}]';
+  
+  // console.log(JSON.parse(window.sit));
+  
   if (buyOnlineBtn) {
     buyOnlineBtn.addEventListener("click", (e) => {
       e.preventDefault();
   
       if (buyOnlineInput.value.length < 2) return;
   
-      renderResults(byOnlineSites);
+      renderResults(JSON.parse(window.sit));
     });
   }
   
   function renderResults(results) {
+    console.log(results);
+  
     let resultSection = document.querySelector(".buy-online__content");
   
     resultSection.innerHTML = "";
@@ -12297,16 +12622,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const filterValue = buyOnlineInput.value.toLowerCase();
   
     for (let site of results) {
-      const siteName = site.synonyms.toLowerCase();
+      const siteName = site.NAME.toLowerCase();
+  
+      console.log(siteName);
   
       if (siteName.includes(filterValue) && filterValue.length >= 2) {
         let link = document.createElement("a");
         link.classList.add("buy-online__link");
-        link.href = site.siteUrl;
+        link.href = site.PREVIEW_TEXT;
   
         let image = document.createElement("img");
-        image.src = site.imageUrl;
-        image.alt = site.siteName;
+        image.src = site.PREVIEW;
+        image.alt = siteName;
   
         link.appendChild(image);
         resultSection.appendChild(link);

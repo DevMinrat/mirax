@@ -29,11 +29,11 @@
       align-items: flex-start;
     }
   }
-  .products__item-img {
-    margin-top: -3rem;
-    margin-left: -9rem;
-    margin-right: -8rem;
-  }
+  // .products__item-img {
+  //   margin-top: -3rem;
+  //   margin-left: -9rem;
+  //   margin-right: -8rem;
+  // }
   .products__item-name {
     text-align: center;
 
@@ -88,6 +88,13 @@
   @include breakpoint($lg-bp) {
     max-width: 100%;
   }
+
+  picture {
+    width: 40rem;
+    height: 37rem;
+
+    margin-bottom: -5rem;
+  }
 }
 .products__item-category {
   width: 100%;
@@ -100,9 +107,8 @@
 }
 .products__item-img {
   width: 100%;
-  max-width: 40rem;
-
-  margin-bottom: -5rem;
+  height: 100%;
+  object-fit: cover;
 }
 .products__item-name {
   width: 100%;
