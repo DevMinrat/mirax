@@ -103,6 +103,12 @@
       justify-content: center;
     }
   }
+
+  .nice-select.open .list {
+    width: unset;
+    max-height: 50rem;
+    overflow: auto;
+  }
 }
 
 .selection__filter-group {

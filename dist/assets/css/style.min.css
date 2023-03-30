@@ -3097,7 +3097,7 @@ button.swiper-pagination-bullet {
   }
 }
 .pao-item:nth-of-type(3) .pao-item__content {
-  right: -14rem;
+  right: -12rem;
   top: 21rem;
   max-width: 20rem;
 }
@@ -4012,6 +4012,11 @@ button.swiper-pagination-bullet {
     height: 6rem;
     justify-content: center;
   }
+}
+.selection__filter .nice-select.open .list {
+  width: unset;
+  max-height: 50rem;
+  overflow: auto;
 }
 
 .selection__filter-group {

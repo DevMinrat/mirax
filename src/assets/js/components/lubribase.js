@@ -16,18 +16,6 @@ function makeApiCall(action, method, data, success, error) {
   });
 }
 
-makeApiCall(
-  "getCategories",
-  "GET",
-  {},
-  function (success) {
-    console.log(success);
-  },
-  function (error) {
-    console.log(error);
-  }
-);
-
 function getModelText(data) {
   let driveType = "";
   if (data.drive_types && data.drive_types.length == 1) {
@@ -79,14 +67,10 @@ function populateSelect(selectId, data, value, modelName) {
 
 var initialLoading = false;
 
-$("#categories, #categories_left").change(function () {
+$("#categories").change(function () {
   if (initialLoading) return false;
-  $(
-    "#recomendation,#manufacturers,#manufacturers_left, #model_series,#model_series_left, #models,#models_left"
-  ).empty();
-  $(
-    "#manufacturers,#manufacturers_left,#model_series,#model_series_left, #models,#models_left"
-  ).append(
+  $("#recomendation,#manufacturers, #model_series, #models").empty();
+  $("#manufacturers,#model_series, #models").append(
     $('<option value="0" selected disabled>Выберите из списка</option>')
   );
   $("#go-to-selection").attr("disabled", true);
@@ -99,13 +83,10 @@ $("#categories, #categories_left").change(function () {
     "GET",
     { categoryId: categoryId },
     function (response) {
-      console.log(response);
-      populateSelect(
-        $("#manufacturers").is(":visible")
-          ? "manufacturers"
-          : "manufacturers_left",
-        response.results
-      );
+      console.log(1);
+
+      populateSelect("manufacturers", response.results);
+      $(".nice-select").niceSelect("update");
     },
     function (error) {
       console.log(error);
@@ -114,32 +95,29 @@ $("#categories, #categories_left").change(function () {
 });
 
 // When the "Manufacturers" select input changes
-$("#manufacturers,#manufacturers_left").change(function () {
+$("#manufacturers").change(function () {
   if (initialLoading) return false;
-  $(
-    "#recomendation,#model_series,#model_series_left, #models,#models_left"
-  ).empty();
-  $("#model_series,#model_series_left, #models,#models_left").append(
+  $("#recomendation,#model_series, #models").empty();
+  $("#model_series, #models").append(
     $('<option value="0" selected disabled>Выберите из списка</option>')
   );
   $("#go-to-selection").attr("disabled", true);
-  var categoryId =
-    $("#categories:visible").val() || $("#categories_left:visible").val();
+  var categoryId = $("#categories").val();
   var manufacturerId = $(this).val();
 
   // Make an API call to get the model series for the selected manufacturer
+
+  console.log(categoryId, manufacturerId);
   makeApiCall(
     "getModelSeries",
     "GET",
     { categoryId: categoryId, manufacturerId: manufacturerId },
     function (response) {
+      console.log(response);
       // Populate the select input with the data
-      populateSelect(
-        $("#model_series").is(":visible")
-          ? "model_series"
-          : "model_series_left",
-        response.results
-      );
+      populateSelect("model_series", response.results);
+      console.log(2);
+      $(".nice-select").niceSelect("update");
     },
     function (error) {
       console.log(error);
@@ -147,17 +125,15 @@ $("#manufacturers,#manufacturers_left").change(function () {
   );
 });
 
-$("#model_series,#model_series_left").change(function () {
+$("#model_series").change(function () {
   if (initialLoading) return false;
-  //	$('#recomendation,#models,#models_left').empty();
-  $("#models,#models_left").append(
+  //	$('#recomendation,#models').empty();
+  $("#models").append(
     $('<option value="0" selected disabled>Выберите из списка</option>')
   );
   $("#go-to-selection").attr("disabled", true);
-  var categoryId =
-    $("#categories:visible").val() || $("#categories_left:visible").val();
-  var manufacturerId =
-    $("#manufacturers:visible").val() || $("#manufacturers_left:visible").val();
+  var categoryId = $("#categories").val();
+  var manufacturerId = $("#manufacturers").val();
   var modelSeriesId = $(this).val();
 
   // Make an API call to get the models for the selected category, manufacturer, and model series
@@ -170,10 +146,9 @@ $("#model_series,#model_series_left").change(function () {
       modelSeriesId: modelSeriesId,
     },
     function (response) {
-      populateSelect(
-        $("#models").is(":visible") ? "models" : "models_left",
-        response.results
-      );
+      populateSelect("models", response.results);
+      console.log(3);
+      $(".nice-select").niceSelect("update");
     },
     function (error) {
       console.log(error);
@@ -183,13 +158,9 @@ $("#model_series,#model_series_left").change(function () {
 $("#models").change(function () {
   var modelId = $(this).val();
   if (modelId) {
-    var categoryId =
-      $("#categories:visible").val() || $("#categories_left:visible").val();
-    var manufacturerId =
-      $("#manufacturers:visible").val() ||
-      $("#manufacturers_left:visible").val();
-    var modelSeriesId =
-      $("#model_series:visible").val() || $("#model_series_left:visible").val();
+    var categoryId = $("#categories").val();
+    var manufacturerId = $("#manufacturers").val();
+    var modelSeriesId = $("#model_series").val();
     $("#go-to-selection").attr("disabled", false);
 
     $("#category-id").val(categoryId);
@@ -202,106 +173,42 @@ $("#models").change(function () {
   }
 });
 
-$("#models_left").change(function () {
-  var modelId = $(this).val();
-  if (modelId) {
-    makeApiCall(
-      "getEquipment",
-      "GET",
-      {
-        modelId: modelId,
-      },
-      function (response) {
-        $("#recomendation").html(response);
-      },
-      function (error) {
-        console.log(error);
-      }
-    );
-  }
-});
+if (selectionBtn) {
+  selectionBtn.addEventListener("click", (e) => {
+    e.preventDefault();
 
-var loadValues = function (
-  categoryId,
-  manufacturerId,
-  modelSeriesId,
-  modelId,
-  modelName
-) {
-  var initialLoading = true;
-  makeApiCall(
-    "getCategories",
-    "GET",
-    {},
-    function (response) {
-      populateSelect("categories_left", response.results, categoryId);
-
+    var modelId = $("#models").val();
+    if (modelId) {
       makeApiCall(
-        "getManufacturers",
+        "getEquipment",
         "GET",
-        { categoryId: categoryId },
+        {
+          modelId: modelId,
+        },
         function (response) {
-          populateSelect(
-            "manufacturers_left",
-            response.results,
-            manufacturerId
-          );
-
-          makeApiCall(
-            "getModelSeries",
-            "GET",
-            { categoryId: categoryId, manufacturerId: manufacturerId },
-            function (response) {
-              populateSelect(
-                "model_series_left",
-                response.results,
-                modelSeriesId
-              );
-              makeApiCall(
-                "getModels",
-                "GET",
-                {
-                  categoryId: categoryId,
-                  manufacturerId: manufacturerId,
-                  modelSeriesId: modelSeriesId,
-                },
-                function (response) {
-                  populateSelect(
-                    "models_left",
-                    response.results,
-                    modelId,
-                    modelName
-                  );
-                  setTimeout(() => {
-                    initialLoading = false;
-
-                    /*$('#models_left option').each((i, el)=>{
-													if ($(el).attr('data-model') == modelName){
-														$('#models_left').val(el.value);
-													}
-												});*/
-                    setTimeout(() => {
-                      $("#models_left").change();
-                    }, 0);
-                  }, 500);
-                },
-                function (error) {
-                  console.log(error);
-                }
-              );
-            },
-            function (error) {
-              console.log(error);
-            }
-          );
+          console.log(modelId);
+          console.log(response);
+          $("#recomendation").html(response);
         },
         function (error) {
           console.log(error);
         }
       );
+    }
+  });
+
+  makeApiCall(
+    "getCategories",
+    "GET",
+    {},
+    function (response) {
+      populateSelect("categories", response.results, 2);
+      $("#categories").change();
+      console.log(0);
+      $(".nice-select").niceSelect("update");
     },
     function (error) {
       console.log(error);
     }
   );
-};
+}
