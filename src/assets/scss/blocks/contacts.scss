@@ -14,6 +14,8 @@
   color: white;
 }
 .contacts-address {
+  max-width: 60rem;
+
   font-size: 2.6rem;
   color: white;
 }
@@ -53,8 +55,8 @@
 
     &:disabled {
       color: #fff;
-      background: #EBEBEB;
-      border-color: #EBEBEB;
+      background: #ebebeb;
+      border-color: #ebebeb;
     }
 
     @include breakpoint($lg-bp) {
@@ -206,4 +208,10 @@
   opacity: 0.3;
 
   margin-top: 1.8rem;
+}
+
+.contacts-form__submit-btn {
+  @include breakpoint($sm-bp) {
+    margin-top: 3rem;
+  }
 }

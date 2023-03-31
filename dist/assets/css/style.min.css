@@ -4295,6 +4295,14 @@ button.swiper-pagination-bullet {
     text-align: center;
   }
 }
+.prodpage__buy-links img {
+  width: 100%;
+}
+@media (max-width: 920px) {
+  .prodpage__buy-links img {
+    max-width: 50rem;
+  }
+}
 
 .prodpage-descr {
   max-width: 115rem;
@@ -4470,6 +4478,7 @@ button.swiper-pagination-bullet {
 }
 
 .contacts-address {
+  max-width: 60rem;
   font-size: 2.6rem;
   color: white;
 }
@@ -4506,8 +4515,8 @@ button.swiper-pagination-bullet {
 }
 .contacts-form .filled-btn:disabled {
   color: #fff;
-  background: #EBEBEB;
-  border-color: #EBEBEB;
+  background: #ebebeb;
+  border-color: #ebebeb;
 }
 @media (max-width: 920px) {
   .contacts-form .filled-btn {
@@ -4655,6 +4664,12 @@ button.swiper-pagination-bullet {
   color: #111c4e;
   opacity: 0.3;
   margin-top: 1.8rem;
+}
+
+@media (max-width: 500px) {
+  .contacts-form__submit-btn {
+    margin-top: 3rem;
+  }
 }
 
 .benefits-slider {

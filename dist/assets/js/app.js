@@ -12259,7 +12259,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const regex = /^\+?[0-9]{10,}$/;
     return regex.test(phone.trim());
   }
-  
+
   const selectionBtn = document.querySelector(".selection__filter-btn");
   
   function makeApiCall(action, method, data, success, error) {
@@ -12436,6 +12436,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   if (selectionBtn) {
+    console.log(selectionBtn);
     selectionBtn.addEventListener("click", (e) => {
       e.preventDefault();
   
@@ -12573,7 +12574,7 @@ document.addEventListener("DOMContentLoaded", () => {
       centerCoords = presetCoords;
     }
   
-    fetch("/cities.json")
+    fetch("/ajax/map_points.php")
       .then((response) => response.json())
       .then((responseData) => {
         (myMap = new ymaps.Map("map", {
@@ -12683,7 +12684,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   
     document
-      .querySelector(".selection__filter-btn")
+      .querySelector(".map__filter-btn")
       .addEventListener("click", function (e) {
         e.preventDefault();
   
@@ -12696,13 +12697,10 @@ document.addEventListener("DOMContentLoaded", () => {
           searchQuery += " " + city;
         }
   
-        // Получаем результаты геокодирования выбранного пользователем населенного пункта
         ymaps.geocode(searchQuery).then(function (res) {
-          // Поиск первого найденного объекта и его координат
           var firstGeoObject = res.geoObjects.get(0);
           var cityCoords = firstGeoObject.geometry.getCoordinates();
   
-          // Устанавливаем границы карты для отображения всей области/объекта
           var objectBounds = firstGeoObject.properties.get("boundedBy");
           myMap.setBounds(objectBounds);
         });
@@ -12710,73 +12708,58 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   if (document.querySelector(".buy-offline__map")) {
-    const regionOptions = document.querySelectorAll("div.select-region .option");
+    const regionSelect = document.querySelector(".select-region");
     const citySelect = document.querySelector(".select-city");
   
-    const citiesByRegions = {
-      "Московская область": [
-        "Москва",
-        "Клин",
-        "Дмитров",
-        "Сергиев Посад",
-        "Люберцы",
-      ],
-      "Брянская область": ["Брянск", "Клинцы", "Злынка", "Стародуб", "Унеча"],
-      "Владимирская область": [
-        "Владимир",
-        "Гусь-Хрустальный",
-        "Ковров",
-        "Кольчугино",
-        "Петушки",
-      ],
-      "Кировская область": [
-        "Киров",
-        "Слободской",
-        "Омутнинск",
-        "Котельнич",
-        "Яранск",
-      ],
-      "Санкт-Петербург": [
-        "Санкт-Петербург",
-        "Кронштадт",
-        "Колпино",
-        "Сестрорецк",
-        "Павловск",
-      ],
-    };
+    fetch("/ajax/map_points.php")
+      .then((response) => response.json())
+      .then((responseData) => {
+        let filteredData = {};
   
-    regionOptions.forEach((region) => {
-      region.addEventListener("click", function () {
-        const selectedRegion = region.dataset.value;
+        responseData.forEach((item) => {
+          if (item.city && item.region) {
+            if (!Object.keys(filteredData).includes(item.region)) {
+              filteredData[item.region] = [item.city];
+            } else if (!filteredData[item.region].includes(item.city)) {
+              filteredData[item.region].push(item.city);
+            }
+          }
+        });
   
-        citySelect.innerHTML = "";
+        const regions = [];
   
-        if (!selectedRegion) {
-          const placeholderOption = document.createElement("option");
-          placeholderOption.value = "";
-          placeholderOption.text = "Город";
-          citySelect.appendChild(placeholderOption);
+        for (let key in filteredData) {
+          regions.push(key);
+        }
+  
+        regions.forEach((el) => {
+          const option = document.createElement("option");
+          option.value = el;
+          option.text = el;
+          regionSelect.appendChild(option);
+        });
+  
+        $(regionSelect).niceSelect("update");
+  
+        $(".select-region").change(function () {
+          const selectedRegion = $(this).val();
+  
+          $(citySelect).empty();
+          $(citySelect).append($('<option value="" selected>Город</option>'));
+          $(citySelect).niceSelect("update");
+  
+          const cities = filteredData[selectedRegion];
+  
+          for (let i = 0; i < cities.length; i++) {
+            const option = document.createElement("option");
+            option.value = cities[i];
+            option.text = cities[i];
+            citySelect.appendChild(option);
+          }
   
           $(citySelect).niceSelect("update");
-          return;
-        }
-  
-        const cities = citiesByRegions[selectedRegion];
-  
-        const placeholderOption = document.createElement("option");
-        placeholderOption.value = "";
-        placeholderOption.text = "Город";
-        citySelect.appendChild(placeholderOption);
-  
-        for (let i = 0; i < cities.length; i++) {
-          const option = document.createElement("option");
-          option.value = cities[i];
-          option.text = cities[i];
-          citySelect.appendChild(option);
-        }
-        $(citySelect).niceSelect("update");
+        });
       });
-    });
   
     ymaps.ready(initMap);
   }

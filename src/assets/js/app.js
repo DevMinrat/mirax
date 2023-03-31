@@ -304,7 +304,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const regex = /^\+?[0-9]{10,}$/;
     return regex.test(phone.trim());
   }
-  
+
   //= components/lubribase.js
   //= components/buy-online.js
   //= components/ymap-buy.js

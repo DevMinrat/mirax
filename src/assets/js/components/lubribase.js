@@ -174,6 +174,7 @@ $("#models").change(function () {
 });
 
 if (selectionBtn) {
+  console.log(selectionBtn);
   selectionBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
