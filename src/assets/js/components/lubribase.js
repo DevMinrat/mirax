@@ -2,7 +2,7 @@ const selectionBtn = document.querySelector(".selection__filter-btn");
 
 function makeApiCall(action, method, data, success, error) {
   $.ajax({
-    url: "/lubribase_api.php",
+    url: "/ajax/lubribase_api.php",
     method: method,
     data: { action: action, ...data },
     success: success,

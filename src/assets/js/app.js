@@ -270,29 +270,39 @@ document.addEventListener("DOMContentLoaded", () => {
     submitButton.addEventListener("click", function (e) {
       e.preventDefault();
 
-      const inputs = document.querySelectorAll("input");
-      let hasErrors = false;
+      grecaptcha.ready(function () {
+        grecaptcha
+          .execute("6LdQ_yolAAAAAPweDTjWh9aN7NLaFOVaCMxTl3Ms", {
+            action: "submit",
+          })
+          .then(function (token) {
+            document.getElementById("recaptchaResponse").value = token;
 
-      for (let i = 0; i < inputs.length; i++) {
-        const input = inputs[i];
-        if (input.type === "text" && input.value === "") {
-          input.classList.add("error");
-          hasErrors = true;
-        } else if (input.type === "email" && !isValidEmail(input.value)) {
-          input.classList.add("error");
-          hasErrors = true;
-        } else if (input.type === "tel" && !isValidPhone(input.value)) {
-          input.classList.add("error");
-          hasErrors = true;
-        }
-      }
+            const inputs = document.querySelectorAll("input");
+            let hasErrors = false;
 
-      if (!hasErrors) {
-        contactsForm.submit();
-      } else {
-        showErrorMessage();
-        submitButton.setAttribute("disabled", true);
-      }
+            for (let i = 0; i < inputs.length; i++) {
+              const input = inputs[i];
+              if (input.type === "text" && input.value === "") {
+                input.classList.add("error");
+                hasErrors = true;
+              } else if (input.type === "email" && !isValidEmail(input.value)) {
+                input.classList.add("error");
+                hasErrors = true;
+              } else if (input.type === "tel" && !isValidPhone(input.value)) {
+                input.classList.add("error");
+                hasErrors = true;
+              }
+            }
+
+            if (!hasErrors) {
+              contactsForm.submit();
+            } else {
+              showErrorMessage();
+              submitButton.setAttribute("disabled", true);
+            }
+          });
+      });
     });
   }
 
