@@ -20,7 +20,4 @@
     font-size: 3rem;
   }
 
-  @include breakpoint($sm-bp) {
-    padding-left: 0;
-  }
 }

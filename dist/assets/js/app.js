@@ -12195,70 +12195,62 @@ document.addEventListener("DOMContentLoaded", () => {
       formError.classList.add("visible");
     }
 
-    const contactInputText = document.querySelectorAll(".contacts-form input");
-    contactInputText.forEach((el) => {
-      el.addEventListener("input", function (e) {
-        if (el.type === "text" && el.value === "") {
-          el.classList.add("error");
-        } else if (el.type === "email" && !isValidEmail(el.value)) {
-          el.classList.add("error");
-        } else if (el.type === "tel" && !isValidPhone(el.value)) {
-          el.classList.add("error");
-        } else {
-          el.classList.remove("error");
-          checkErrors();
-        }
-      });
-    });
-
-    function checkErrors() {
-      const errorInput = document.querySelectorAll(
-        ".contacts-form input.error"
-      );
-      if (!errorInput.length) {
-        submitButton.disabled = false;
-      }
-    }
-
     const submitButton = document.querySelector(".contacts-form__submit-btn");
 
-    submitButton.addEventListener("click", function (e) {
-      e.preventDefault();
+    submitButton.disabled = true;
 
-      grecaptcha.ready(function () {
-        grecaptcha
-          .execute("6LdQ_yolAAAAAPweDTjWh9aN7NLaFOVaCMxTl3Ms", {
-            action: "submit",
-          })
-          .then(function (token) {
-            document.getElementById("recaptchaResponse").value = token;
+    const contactInputText = document.querySelectorAll(".contacts-form input");
 
-            const inputs = document.querySelectorAll("input");
-            let hasErrors = false;
+    contactInputText.forEach((el) => {
+      el.addEventListener("input", function (e) {
+        let allInputsFilledCorrectly = true;
 
-            for (let i = 0; i < inputs.length; i++) {
-              const input = inputs[i];
-              if (input.type === "text" && input.value === "") {
-                input.classList.add("error");
-                hasErrors = true;
-              } else if (input.type === "email" && !isValidEmail(input.value)) {
-                input.classList.add("error");
-                hasErrors = true;
-              } else if (input.type === "tel" && !isValidPhone(input.value)) {
-                input.classList.add("error");
-                hasErrors = true;
-              }
-            }
+        contactInputText.forEach((input) => {
+          if (input.type === "text" && input.value === "") {
+            input.classList.add("error");
+            allInputsFilledCorrectly = false;
+          } else if (input.type === "email" && !isValidEmail(input.value)) {
+            input.classList.add("error");
+            allInputsFilledCorrectly = false;
+          } else if (input.type === "tel" && !isValidPhone(input.value)) {
+            input.classList.add("error");
+            allInputsFilledCorrectly = false;
+          } else {
+            input.classList.remove("error");
+          }
+        });
 
-            if (!hasErrors) {
-              contactsForm.submit();
-            } else {
-              showErrorMessage();
-              submitButton.setAttribute("disabled", true);
-            }
-          });
+        submitButton.disabled = !allInputsFilledCorrectly;
       });
     });
+
+    // submitButton.addEventListener("click", function (e) {
+    //   e.preventDefault();
+
+    //   const inputs = document.querySelectorAll("input");
+    //   let hasErrors = false;
+
+    //   for (let i = 0; i < inputs.length; i++) {
+    //     const input = inputs[i];
+    //     if (input.type === "text" && input.value === "") {
+    //       input.classList.add("error");
+    //       hasErrors = true;
+    //     } else if (input.type === "email" && !isValidEmail(input.value)) {
+    //       input.classList.add("error");
+    //       hasErrors = true;
+    //     } else if (input.type === "tel" && !isValidPhone(input.value)) {
+    //       input.classList.add("error");
+    //       hasErrors = true;
+    //     }
+    //   }
+
+    //   if (!hasErrors) {
+    //     contactsForm.submit();
+    //   } else {
+    //     showErrorMessage();
+    //     submitButton.setAttribute("disabled", true);
+    //   }
+    // });
   }
 
   function isValidEmail(email) {

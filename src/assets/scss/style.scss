@@ -82,7 +82,7 @@ button {
 @import "blocks/header";
 @import "blocks/hollow-btn";
 @import "blocks/filled-btn";
-@import "blocks/modal.scss";
+// @import "blocks/modal.scss";
 @import "blocks/section.scss";
 @import "blocks/breadcrumbs.scss";
 @import "blocks/custom-select.scss";
@@ -121,7 +121,7 @@ button {
 
 @for $i from 1 through 20 {
   .mb#{$i} {
-    margin-bottom: #{$i}rem !important
+    margin-bottom: #{$i}rem !important;
   }
 }
 
@@ -131,4 +131,26 @@ button {
 
 .show {
   display: block;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+.form-success1 svg {
+  width: 2.6rem;
+  height: 2.6rem;
+  fill: none;
+}
+.form-success1 {
+  color: #00a907;
+}
+.form-success1.visible {
+  display: flex;
+}
+.form-success1 {
+  align-items: center;
+  gap: 1rem;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
 }

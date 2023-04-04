@@ -28,6 +28,10 @@
   //   background-size: cover;
   // }
 
+  p {
+    padding: 1rem 0;
+  }
+
   .breadcrumb-wrapper {
   }
 
@@ -182,6 +186,10 @@
     .breadcrumb-wrapper {
       margin-bottom: 3rem;
     }
+  }
+
+  .breadcrumb-wrapper {
+    margin-bottom: 2rem;
   }
 
   h2 {

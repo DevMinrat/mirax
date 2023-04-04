@@ -7,7 +7,7 @@
 
   @include breakpoint($lg-bp) {
     background: url(../images/selection/selection-bg-mob.png) no-repeat;
-    background-size: 100% 100%;
+    background-size: 75rem 307rem;
   }
 
   .breadcrumb-wrapper {
@@ -123,5 +123,13 @@
     gap: 2rem;
 
     margin-bottom: 2rem;
+  }
+}
+
+#recomendation {
+  .products__item picture {
+    width: 35rem;
+    height: 35rem;
+    margin-bottom: 0;
   }
 }

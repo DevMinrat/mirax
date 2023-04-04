@@ -26,7 +26,7 @@
   .products__item {
     @include breakpoint($lg-bp) {
       flex-direction: row;
-      align-items: flex-start;
+      align-items: center;
     }
   }
   // .products__item-img {

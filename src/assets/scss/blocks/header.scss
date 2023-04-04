@@ -80,7 +80,7 @@
   display: flex;
   align-items: center;
 
-  gap: 2.5rem;
+  gap: 2.1rem;
 
   @include breakpoint($xl-bp) {
     gap: 1.8rem;
