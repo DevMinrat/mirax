@@ -1993,6 +1993,9 @@ button.swiper-pagination-bullet {
   }
 }
 
+.article {
+  padding-top: 3rem;
+}
 .article p {
   padding: 1rem 0;
 }
