@@ -434,13 +434,3 @@
 .package-item__descr {
   letter-spacing: -0.01em;
 }
-
-.prodpage-img__wrapper {
-  width: 100%;
-  max-width: 100rem;
-
-  @include breakpoint($lg-bp) {
-    width: 100%;
-    max-width: 40rem;
-  }
-}

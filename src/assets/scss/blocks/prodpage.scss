@@ -360,3 +360,16 @@
     }
   }
 }
+
+.prodpage-img__wrapper {
+  width: 100%;
+  max-width: 100rem;
+  height: 71rem;
+
+  @include breakpoint($lg-bp) {
+    width: 100%;
+    max-width: 40rem;
+    order: -2;
+    height: 53rem;
+  }
+}

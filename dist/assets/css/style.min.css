@@ -1453,6 +1453,7 @@ button.swiper-pagination-bullet {
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
+  background: transparent;
 }
 
 .breadcrumb a::after {
@@ -3814,17 +3815,6 @@ button.swiper-pagination-bullet {
   letter-spacing: -0.01em;
 }
 
-.prodpage-img__wrapper {
-  width: 100%;
-  max-width: 100rem;
-}
-@media (max-width: 920px) {
-  .prodpage-img__wrapper {
-    width: 100%;
-    max-width: 40rem;
-  }
-}
-
 .selection {
   padding: 4rem 0 8rem;
   background: url(../images/selection/selection-bg.png) no-repeat;
@@ -4381,6 +4371,20 @@ button.swiper-pagination-bullet {
 .table-gray table tbody tr td:first-child {
   text-transform: uppercase;
   font-weight: 700;
+}
+
+.prodpage-img__wrapper {
+  width: 100%;
+  max-width: 100rem;
+  height: 71rem;
+}
+@media (max-width: 920px) {
+  .prodpage-img__wrapper {
+    width: 100%;
+    max-width: 40rem;
+    order: -2;
+    height: 53rem;
+  }
 }
 
 .intro--contacts {

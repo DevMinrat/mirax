@@ -16,6 +16,7 @@
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
+  background: transparent;
 }
 
 .breadcrumb a::after {
