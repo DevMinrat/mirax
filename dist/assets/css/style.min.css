@@ -1454,6 +1454,8 @@ button.swiper-pagination-bullet {
   display: flex;
   flex-wrap: wrap;
   background: transparent;
+  padding: 0;
+  margin-bottom: 0;
 }
 
 .breadcrumb a::after {
