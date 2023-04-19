@@ -157,6 +157,10 @@
 
     margin-bottom: 1.5rem;
 
+    &:hover {
+      color: $primary;
+    }
+
     @include breakpoint($lg-bp) {
       text-align: center;
     }
@@ -265,6 +269,8 @@
 
   height: 58rem;
 
+  margin-right: -3rem;
+
   @include breakpoint($lg-bp) {
     position: relative;
     top: 8rem;
@@ -277,6 +283,7 @@
     height: unset;
 
     margin-bottom: 10rem;
+    margin-right: 0;
 
     .filled-btn {
       width: 100%;
