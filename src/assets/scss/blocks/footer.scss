@@ -21,6 +21,23 @@
   margin-bottom: 0.7rem;
 }
 .footer__address-descr {
+  display: flex;
+  gap: 10rem;
+
   font-size: 1.8rem;
   letter-spacing: 0.01em;
+
+  & p:first-child {
+    text-align: left;
+  }
+
+  @include breakpoint($lg-bp) {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+
+    & p:first-child {
+      text-align: center;
+    }
+  }
 }

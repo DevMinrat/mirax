@@ -101,8 +101,4 @@
   width: max-content;
 
   margin-left: auto;
-
-  @include breakpoint($lg-bp) {
-    display: none;
-  }
 }

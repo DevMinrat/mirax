@@ -154,6 +154,8 @@
 
   .prodpage__buy-link--where {
     color: $primary;
+    text-decoration: none;
+    cursor: default;
 
     margin-bottom: 1.5rem;
 
@@ -303,6 +305,8 @@
 
     background: #ebdbf2;
     border-color: #ebdbf2;
+
+    font-size: 2.1rem;
 
     &:hover {
       color: white;

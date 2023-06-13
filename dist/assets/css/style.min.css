@@ -1100,6 +1100,12 @@ button.swiper-pagination-bullet {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
+@media (max-width: 920px) {
+  .nice-select .option {
+    line-height: 5.5rem;
+    min-height: 5.5rem;
+  }
+}
 
 .nice-select .option:hover,
 .nice-select .option.focus,
@@ -1990,11 +1996,6 @@ button.swiper-pagination-bullet {
   justify-content: flex-end;
   width: max-content;
   margin-left: auto;
-}
-@media (max-width: 920px) {
-  .useful__link_all {
-    display: none;
-  }
 }
 
 .article {
@@ -3921,6 +3922,14 @@ button.swiper-pagination-bullet {
   max-height: 50rem;
   overflow: auto;
 }
+@media (max-width: 920px) {
+  .selection__filter .nice-select {
+    width: 100%;
+  }
+  .selection__filter > div {
+    width: 100%;
+  }
+}
 
 .selection__filter-group {
   display: flex;
@@ -3933,6 +3942,9 @@ button.swiper-pagination-bullet {
   .selection__filter-group {
     gap: 2rem;
     margin-bottom: 2rem;
+  }
+  .selection__filter-group > div {
+    width: 100%;
   }
 }
 
@@ -4201,6 +4213,8 @@ button.swiper-pagination-bullet {
 }
 .prodpage__buy-links .prodpage__buy-link--where {
   color: #111c4e;
+  text-decoration: none;
+  cursor: default;
   margin-bottom: 1.5rem;
 }
 .prodpage__buy-links .prodpage__buy-link--where:hover {
@@ -4328,6 +4342,7 @@ button.swiper-pagination-bullet {
   color: #111c4e;
   background: #ebdbf2;
   border-color: #ebdbf2;
+  font-size: 2.1rem;
 }
 .prodpage-options__wrapper .prodpage-instruction:hover {
   color: white;
@@ -4718,8 +4733,23 @@ button.swiper-pagination-bullet {
 }
 
 .footer__address-descr {
+  display: flex;
+  gap: 10rem;
   font-size: 1.8rem;
   letter-spacing: 0.01em;
+}
+.footer__address-descr p:first-child {
+  text-align: left;
+}
+@media (max-width: 920px) {
+  .footer__address-descr {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  .footer__address-descr p:first-child {
+    text-align: center;
+  }
 }
 
 .simple-link {

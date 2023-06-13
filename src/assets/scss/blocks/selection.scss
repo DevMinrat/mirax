@@ -109,6 +109,15 @@
     max-height: 50rem;
     overflow: auto;
   }
+
+  @include breakpoint($lg-bp) {
+    .nice-select {
+      width: 100%;
+    }
+    & > div {
+      width: 100%;
+    }
+  }
 }
 
 .selection__filter-group {
@@ -123,6 +132,10 @@
     gap: 2rem;
 
     margin-bottom: 2rem;
+
+    & > div {
+      width: 100%;
+    }
   }
 }
 

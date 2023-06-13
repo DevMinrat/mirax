@@ -2000,7 +2000,6 @@ button.swiper-pagination-bullet {
     justify-content: space-between;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    gap: 1rem;
 }
 
 @media (max-width: 920px) {
@@ -2017,11 +2016,15 @@ button.swiper-pagination-bullet {
     -ms-flex-align: start;
     align-items: flex-start;
     gap: 3rem;
+    -ms-flex-preferred-size: 33.3333%;
+    flex-basis: 33.3333%;
 }
 
 @media (max-width: 920px) {
     .benefits__item {
         width: 100%;
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
         -ms-flex-direction: column;
         flex-direction: column;
         -ms-flex-align: center;
@@ -4914,6 +4917,10 @@ button.swiper-pagination-bullet {
     margin-bottom: 1.5rem;
 }
 
+.prodpage__buy-links .prodpage__buy-link--where:hover {
+    color: #111c4e;
+}
+
 @media (max-width: 920px) {
     .prodpage__buy-links .prodpage__buy-link--where {
         text-align: center;
@@ -5031,6 +5038,7 @@ button.swiper-pagination-bullet {
     -ms-flex-pack: end;
     justify-content: flex-end;
     height: 58rem;
+    margin-right: -3rem;
 }
 
 @media (max-width: 920px) {
@@ -5043,6 +5051,7 @@ button.swiper-pagination-bullet {
         gap: 2rem;
         height: unset;
         margin-bottom: 10rem;
+        margin-right: 0;
     }
 
     .prodpage-options__wrapper .filled-btn {

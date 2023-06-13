@@ -145,6 +145,11 @@
   text-align: left;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+
+  @include breakpoint($lg-bp) {
+    line-height: 5.5rem;
+    min-height: 5.5rem;
+  }
 }
 .nice-select .option:hover,
 .nice-select .option.focus,
